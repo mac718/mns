@@ -2,8 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: Copperplate;
+  list-style: none;
 }
 
 a {
@@ -13,4 +13,14 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+.main-image {
+  display: block;
+  margin: auto;
+  box-shadow: 10px 10px 10px 5px #aaa;
+  opacity: 0.9;
+  margin-top: 1em;
+  margin-bottom: 10px;
+  border-radius: 5px;
 }

@@ -1,0 +1,10 @@
+.main-image {
+  width: fit-content;
+  height: fit-content;
+  display: block;
+  margin: auto;
+  opacity: 0.9;
+  margin-top: 1em;
+  margin-bottom: 10px;
+  border-radius: 5px;
+}

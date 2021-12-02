@@ -1,5 +1,24 @@
-.hello {
-  background: black;
-  height: 100px;
-  width: 100px;
+.list {
+  list-style-type: none;
+  text-align: center;
+  border-bottom: solid;
+  border-width: thin;
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+}
+.list-item {
+  display: inline;
+  margin: 15px;
+  line-height: 200%;
+  font-weight: bold;
+  color: #999999;
+}
+.link {
+  text-decoration: none;
+  color: #999999;
+}
+.link:hover {
+  font-weight: bold;
+  color: #000000;
 }
