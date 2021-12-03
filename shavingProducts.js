@@ -1,3 +1,6 @@
+import smallJar from "./public/shaving_jar_small.jpeg";
+import smallPuck from "./public/shaving_puck_small.jpeg";
+
 export const jars = [
   {
     scent: "Barber Shop",
@@ -394,4 +397,11 @@ export const pucks = [
     inStock: false,
     button: "",
   },
+];
+
+export const shavingSoapFormats = [
+  { type: "Jars", image: smallJar, url: "/shaving_jars" },
+  { type: "Pucks", image: smallPuck, url: "/shaving_pucks" },
+  { type: "Sticks", image: smallJar, url: "/shaving_jars" },
+  { type: "Sample Pucks", image: smallJar, url: "/shaving_jars" },
 ];

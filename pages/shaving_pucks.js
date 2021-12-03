@@ -5,6 +5,7 @@ import puck from "../public/shaving_puck.jpeg";
 import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
+import Footer from "../components/Footer";
 import { pucks } from "../shavingProducts";
 import styles from "./shaving_products.module.css";
 
@@ -54,11 +55,7 @@ export default function ShavingPucks() {
           })}
         </ShavingProductsList>
       </main>
-      <footer className={styles.footer}>
-        <a href="mailto:mike@mikesnaturalsoaps.com">
-          mike@mikesnaturalsoaps.com
-        </a>
-      </footer>
+      <Footer />
     </>
   );
 }

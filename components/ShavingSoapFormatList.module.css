@@ -1,0 +1,17 @@
+.formats {
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.formats img {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 830px) {
+  .formats {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

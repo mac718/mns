@@ -5,6 +5,7 @@ import jar from "../public/shaving_jar.jpeg";
 import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
+import Footer from "../components/Footer";
 import { jars } from "../shavingProducts";
 import styles from "./shaving_products.module.css";
 
@@ -56,11 +57,7 @@ export default function ShavingJars() {
           })}
         </ShavingProductsList>
       </main>
-      <footer className={styles.footer}>
-        <a href="mailto:mike@mikesnaturalsoaps.com">
-          mike@mikesnaturalsoaps.com
-        </a>
-      </footer>
+      <Footer />
     </>
   );
 }
