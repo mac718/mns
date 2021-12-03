@@ -1,5 +1,7 @@
 import smallJar from "./public/shaving_jar_small.jpeg";
 import smallPuck from "./public/shaving_puck_small.jpeg";
+import smallStick from "./public/shaving_stick_small.jpg";
+import smallLogo from "./public/MNS_PDX_SMALL.jpeg";
 
 export const jars = [
   {
@@ -402,6 +404,6 @@ export const pucks = [
 export const shavingSoapFormats = [
   { type: "Jars", image: smallJar, url: "/shaving_jars" },
   { type: "Pucks", image: smallPuck, url: "/shaving_pucks" },
-  { type: "Sticks", image: smallJar, url: "/shaving_jars" },
-  { type: "Sample Pucks", image: smallJar, url: "/shaving_jars" },
+  { type: "Sticks", image: smallStick, url: "/shaving_jars" },
+  { type: "Sample Pucks", image: smallLogo, url: "/shaving_jars" },
 ];

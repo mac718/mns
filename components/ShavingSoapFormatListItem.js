@@ -1,14 +1,15 @@
 import styles from "./ShavingSoapFormatListItem.module.css";
 import Image from "next/image";
+import Link from "next/link";
 
 const ShavingSoapFormatListItem = (props) => {
   return (
     <li className={styles["list-item"]}>
-      <a href={props.url}>
+      <Link href={props.url}>
         <Image src={props.image} width={300} />
-      </a>
+      </Link>
       <div className={styles["list-item-caption"]}>
-        <a href={props.url}>{`Shaving Soap ${props.type}`}</a>
+        <Link href={props.url}>{`Shaving Soap ${props.type}`}</Link>
       </div>
     </li>
   );
