@@ -1,0 +1,33 @@
+.shaving-product {
+  border: solid 1px #aaa;
+  padding: 1rem;
+  background-color: #eee;
+  height: 10rem;
+  margin-bottom: 2rem;
+  line-height: 125%;
+  font-size: 1.15rem;
+}
+
+.shaving-product-name {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.shaving-product-price {
+  font-weight: bold;
+  margin-left: 1em;
+}
+
+.out-of-stock {
+  font-weight: bold;
+  font-style: italic;
+}
+
+@media screen and (max-width: 1000px) {
+  .shaving-product {
+    height: fit-content;
+    width: 90%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+}

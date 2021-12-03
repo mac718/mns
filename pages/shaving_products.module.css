@@ -1,0 +1,57 @@
+.main {
+  width: 50%;
+  margin: auto;
+  overflow-x: hidden;
+}
+
+.blurb {
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 125%;
+  margin: 3rem auto;
+  font-weight: 100;
+  text-align: justify;
+}
+
+.bold-underline {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.ingredients {
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 125%;
+  margin: 3rem auto;
+  font-weight: 100;
+}
+
+.aside {
+  display: block;
+  width: 75%;
+  border: hidden 1px #aaa;
+  padding: 0 1em 0 1em;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff0000;
+  margin: 3rem 0;
+  text-align: left;
+}
+
+.footer {
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  font-size: 16px;
+  border-top: solid;
+  border-width: thin;
+  padding: 30px;
+}
+
+@media screen and (max-width: 1000px) {
+  .main {
+    width: 100%;
+    margin: auto;
+    padding: 1em;
+  }
+}

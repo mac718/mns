@@ -6,5 +6,16 @@
   opacity: 0.9;
   margin-top: 1em;
   margin-bottom: 10px;
-  border-radius: 5px;
+  padding: 5px;
+}
+
+/* part of hack to make box-shadow work with next/image */
+.main-image span {
+  overflow: visible !important;
+}
+
+/* part of hack to make box-shadow work with next/image */
+.main-image img {
+  box-shadow: 10px 10px 5px #aaa;
+  border-radius: 10px;
 }
