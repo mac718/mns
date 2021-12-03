@@ -1,0 +1,11 @@
+.notifications {
+  display: block;
+  width: 75%;
+  border: hidden 1px #aaa;
+  padding: 0 1em 0 1em;
+  font-size: 2em;
+  font-weight: bold;
+  color: #ff0000;
+  margin: 3rem 0;
+  text-align: left;
+}

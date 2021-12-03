@@ -8,6 +8,7 @@ import ShavingProductsList from "../components/ShavingProductsList";
 import Footer from "../components/Footer";
 import { jars } from "../shavingProducts";
 import styles from "./shaving_products.module.css";
+import Notifications from "../components/Notifications";
 
 export default function ShavingJars() {
   return (
@@ -40,9 +41,7 @@ export default function ShavingJars() {
           lanolin, fragrance and/or essential oil(s); saponified coconut oil;
           kaolin clay, vitamin E.
         </p>
-        <aside className={styles.aside}>
-          **I'm currently processing orders from 12/1-12/2. Thanks!**
-        </aside>
+        <Notifications />
         <ShavingProductsList>
           {jars.map((variety) => {
             return (
