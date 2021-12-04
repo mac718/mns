@@ -1,4 +1,5 @@
 import styles from "./NavBar.module.css";
+import Link from "next/link";
 
 const NavBar = () => {
   return (
@@ -15,14 +16,14 @@ const NavBar = () => {
           </a>
         </li>
         <li className={styles["list-item"]}>
-          <a href="Shampoo Bar.html" className={styles.link}>
+          <Link href="/shampoo_bar" className={styles.link}>
             Shampoo Bars
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <a href="Shaving Soaps.html" className={styles.link}>
+          <Link href="/shaving_soaps" className={styles.link}>
             Shaving Soaps
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
           <a href="About Mike.html" className={styles.link}>

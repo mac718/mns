@@ -7,6 +7,7 @@ import styles from "./shaving_products.module.css";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
 import Notifications from "../components/Notifications";
+import Footer from "../components/Footer";
 
 export default function ShampooBar() {
   return (
@@ -30,6 +31,7 @@ export default function ShampooBar() {
           <ShavingProductItem />
         </ShavingProductsList>
       </main>
+      <Footer />
     </>
   );
 }
