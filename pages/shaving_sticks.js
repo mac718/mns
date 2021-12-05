@@ -5,6 +5,10 @@ import sticks from "../public/shaving_sticks.JPG";
 import Image from "next/image";
 import Notifications from "../components/Notifications";
 import Heading from "../components/Heading";
+import { shaveSticks } from "../shavingProducts";
+import ShavingProductsList from "../components/ShavingProductsList";
+import ShavingProductItem from "../components/ShavingProductItem";
+import Checkout from "../components/Checkout";
 
 export default function ShavingSticks() {
   return (
@@ -29,6 +33,18 @@ export default function ShavingSticks() {
           kaolin clay, vitamin E.
         </p>
         <Notifications />
+        <ShavingProductsList>
+          {shaveSticks.map((variety) => (
+            <ShavingProductItem
+              name={variety.scent}
+              description={variety.description}
+              price={variety.price}
+              button={variety.button}
+              inStock={variety.inStock}
+            />
+          ))}
+        </ShavingProductsList>
+        <Checkout />
       </main>
     </>
   );

@@ -401,6 +401,126 @@ export const pucks = [
   },
 ];
 
+export const shaveSticks = [
+  {
+    scent: "Barber Shop",
+    price: "$10.50",
+    description:
+      "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Bay Rum",
+    price: "$13.50",
+    description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Bergamot, Orange, Ylang-ylang",
+    price: "$12.50",
+    description:
+      "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Coconut",
+    price: "$10.50",
+    description: "Refreshing raw coconut with a base of vanilla.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Hungarian Lavender",
+    price: "$12.50",
+    description:
+      "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
+    inStock: false,
+    button: "",
+  },
+
+  {
+    scent: "Lavandin & Eucalyptus",
+    price: "$11.50",
+    description:
+      "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Lemongrass & Eucalyptus",
+    price: "$11.00",
+    description: "Dry, lemony, and invigorating.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Lime",
+    price: "$11.50",
+    description: "Simple, sweet, citrusy invigorating lime",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Orange, Cedarwood, Black Pepper",
+    price: "$12.00",
+    description:
+      "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Peppermint & Rosemary",
+    price: "$11.50",
+    description:
+      "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Pine & Cedarwood",
+    price: "$11.50",
+    description:
+      "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Rose, Patchouli, Cedarwood",
+    price: "$12.50",
+    description:
+      "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Unscented",
+    price: "$10.00",
+    description:
+      "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Vetiver",
+    price: "$16.50",
+    description:
+      "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
+    inStock: false,
+    button: "",
+  },
+  {
+    scent: "Wild Honeysuckle",
+    price: "$11.50",
+    description:
+      "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
+    inStock: false,
+    button: "",
+  },
+];
+
 export const shavingSoapFormats = [
   { type: "Jars", image: smallJar, url: "/shaving_jars" },
   { type: "Pucks", image: smallPuck, url: "/shaving_pucks" },
