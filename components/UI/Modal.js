@@ -13,13 +13,11 @@ const ModalOverlay = (props) => {
   );
 };
 
-const portalElement = document.getElementById("overlays");
-
 const Modal = (props) => {
   return (
     <>
-      {ReactDOM.createPortal(<Backdrop />, portalElement)}
-      {ReactDOM.createPortal(<ModalOverlay />, portalElement)}
+      <Backdrop />
+      <ModalOverlay />
     </>
   );
 };
