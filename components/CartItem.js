@@ -8,7 +8,8 @@ const CartItem = (props) => {
         <div>{props.price}12</div>
       </div>
       <div>
-        <input />
+        <input type="number" step="1" />
+        <button></button>
       </div>
     </div>
   );

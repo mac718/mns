@@ -6,16 +6,13 @@
   margin-bottom: 2rem;
   line-height: 125%;
   font-size: 1.15rem;
+  display: flex;
+  justify-content: space-between;
 }
 
 .shaving-product-name {
   font-weight: bold;
   text-decoration: underline;
-}
-
-.shaving-product-price {
-  font-weight: bold;
-  margin-left: 1em;
 }
 
 .out-of-stock {

@@ -1,5 +1,5 @@
 import styles from "./ShavingProductItem.module.css";
-import AddToCartButton from "./AddToCartButton";
+import ShavingProductItemForm from "./ShavingProductItemForm";
 
 const ShavingProductItem = (props) => {
   return (
@@ -7,12 +7,11 @@ const ShavingProductItem = (props) => {
       <div>
         <span className={styles["shaving-product-name"]}>{props.name}</span>:{" "}
         <span>{props.description}</span>
-        <span className={styles["shaving-product-price"]}>{props.price}</span>
       </div>
       <div>
         {props.inStock ? (
           //props.button
-          <AddToCartButton />
+          <ShavingProductItemForm price={props.price} />
         ) : (
           <span className={styles["out-of-stock"]}>Out Of Stock</span>
         )}
