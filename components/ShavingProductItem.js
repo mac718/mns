@@ -1,4 +1,5 @@
 import styles from "./ShavingProductItem.module.css";
+import AddToCartButton from "./AddToCartButton";
 
 const ShavingProductItem = (props) => {
   return (
@@ -10,7 +11,8 @@ const ShavingProductItem = (props) => {
       </div>
       <div>
         {props.inStock ? (
-          props.button
+          //props.button
+          <AddToCartButton />
         ) : (
           <span className={styles["out-of-stock"]}>Out Of Stock</span>
         )}

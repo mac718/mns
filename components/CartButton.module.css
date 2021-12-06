@@ -1,0 +1,29 @@
+.cart {
+  float: right;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 25px;
+  width: 10rem;
+  background: maroon;
+  margin: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-around;
+}
+
+.cart span {
+  margin-left: 0.5rem;
+}
+
+.badge {
+  background-color: #b94517;
+  padding: 0.25rem 1rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.button:hover .badge,
+.button:active .badge {
+  background-color: #92320c;
+}

@@ -44,7 +44,6 @@ export default function ShavingSticks() {
             />
           ))}
         </ShavingProductsList>
-        <Checkout />
       </main>
     </>
   );
