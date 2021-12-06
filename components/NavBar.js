@@ -2,10 +2,10 @@ import styles from "./NavBar.module.css";
 import Link from "next/link";
 import CartButton from "./CartButton";
 
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <nav>
-      <CartButton />
+      <CartButton onClick={props.showCart} />
       <ul className={styles.list}>
         <li className={styles["list-item"]}>
           <a href="index.html" className={styles.link}>

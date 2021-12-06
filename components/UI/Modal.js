@@ -17,7 +17,7 @@ const Modal = (props) => {
   return (
     <>
       <Backdrop />
-      <ModalOverlay />
+      <ModalOverlay>{props.children}</ModalOverlay>
     </>
   );
 };
