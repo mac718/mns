@@ -1,5 +1,4 @@
 import Heading from "../components/Heading";
-import NavBar from "../components/NavBar";
 import shampoo from "../public/shampoo_bar.jpg";
 import MainImage from "../components/MainImage";
 import Image from "next/image";
@@ -12,7 +11,6 @@ import Footer from "../components/Footer";
 export default function ShampooBar() {
   return (
     <>
-      <NavBar />
       <main className={styles.main}>
         <Heading>Shampoo Bar</Heading>
         <MainImage>

@@ -1,6 +1,5 @@
 import Heading from "../components/Heading";
 import Image from "next/image";
-import NavBar from "../components/NavBar";
 import puck from "../public/shaving_puck.jpeg";
 import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
@@ -13,7 +12,6 @@ import Notifications from "../components/Notifications";
 export default function ShavingPucks() {
   return (
     <>
-      <NavBar />
       <main className={styles.main}>
         <Heading>Tallow, Lanolin, & Kokum Butter Shaving Soap Pucks</Heading>
         <MainImage>

@@ -5,6 +5,7 @@ import smallLogo from "./public/MNS_PDX_SMALL.jpeg";
 
 export const jars = [
   {
+    id: "TLKBSSJBS",
     scent: "Barber Shop",
     price: "$13.00",
     description:
@@ -29,6 +30,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJBR",
     scent: "Bay Rum",
     price: "$16.00",
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
@@ -36,6 +38,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJBOYY",
     scent: "Bergamot, Orange, Ylang-ylang",
     price: "$15.00",
     description:
@@ -60,6 +63,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJC",
     scent: "Coconut",
     price: "$13.00",
     description: "Refreshing raw coconut with a base of vanilla.",
@@ -83,6 +87,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJHL",
     scent: "Hungarian Lavender",
     price: "$15.00",
     description:
@@ -92,6 +97,7 @@ export const jars = [
   },
 
   {
+    id: "TLKBSSJLE",
     scent: "Lavandin & Eucalyptus",
     price: "$14.00",
     description:
@@ -116,6 +122,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJLEE",
     scent: "Lemongrass & Eucalyptus",
     price: "$13.50",
     description: "Dry, lemony, and invigorating.",
@@ -123,6 +130,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJL",
     scent: "Lime",
     price: "$14.00",
     description: "Simple, sweet, citrusy invigorating lime",
@@ -130,6 +138,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJOCWBP",
     scent: "Orange, Cedarwood, Black Pepper",
     price: "$14.50",
     description:
@@ -154,6 +163,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJPR",
     scent: "Peppermint & Rosemary",
     price: "$14.00",
     description:
@@ -162,6 +172,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJPC",
     scent: "Pine & Cedarwood",
     price: "$14.00",
     description:
@@ -170,6 +181,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJRPC",
     scent: "Rose, Patchouli, Cedarwood",
     price: "$15.00",
     description:
@@ -194,6 +206,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJU",
     scent: "Unscented",
     price: "$12.50",
     description:
@@ -218,6 +231,7 @@ export const jars = [
     ),
   },
   {
+    id: "TLKBSSJV",
     scent: "Vetiver",
     price: "$19.00",
     description:
@@ -226,6 +240,7 @@ export const jars = [
     button: "",
   },
   {
+    id: "TLKBSSJWH",
     scent: "Wild Honeysuckle",
     price: "$14.00",
     description:
@@ -235,6 +250,7 @@ export const jars = [
 
 export const pucks = [
   {
+    id: "TLKBSSPBS",
     scent: "Barber Shop",
     price: "$10.50",
     description:
@@ -259,6 +275,7 @@ export const pucks = [
     ),
   },
   {
+    id: "TLKBSSPBR",
     scent: "Bay Rum",
     price: "$13.50",
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
@@ -266,6 +283,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPBOYY",
     scent: "Bergamot, Orange, Ylang-ylang",
     price: "$12.50",
     description:
@@ -274,6 +292,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPC",
     scent: "Coconut",
     price: "$10.50",
     description: "Refreshing raw coconut with a base of vanilla.",
@@ -281,6 +300,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPHL",
     scent: "Hungarian Lavender",
     price: "$12.50",
     description:
@@ -290,6 +310,7 @@ export const pucks = [
   },
 
   {
+    id: "TLKBSSPLE",
     scent: "Lavandin & Eucalyptus",
     price: "$11.50",
     description:
@@ -314,6 +335,7 @@ export const pucks = [
     ),
   },
   {
+    id: "TLKBSSPLEE",
     scent: "Lemongrass & Eucalyptus",
     price: "$11.00",
     description: "Dry, lemony, and invigorating.",
@@ -321,6 +343,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPL",
     scent: "Lime",
     price: "$11.50",
     description: "Simple, sweet, citrusy invigorating lime",
@@ -328,6 +351,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPOCWBP",
     scent: "Orange, Cedarwood, Black Pepper",
     price: "$12.00",
     description:
@@ -336,6 +360,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPPR",
     scent: "Peppermint & Rosemary",
     price: "$11.50",
     description:
@@ -344,6 +369,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPPC",
     scent: "Pine & Cedarwood",
     price: "$11.50",
     description:
@@ -352,6 +378,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPRPC",
     scent: "Rose, Patchouli, Cedarwood",
     price: "$12.50",
     description:
@@ -360,6 +387,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPU",
     scent: "Unscented",
     price: "$10.00",
     description:
@@ -384,6 +412,7 @@ export const pucks = [
     ),
   },
   {
+    id: "TLKBSSPV",
     scent: "Vetiver",
     price: "$16.50",
     description:
@@ -392,6 +421,7 @@ export const pucks = [
     button: "",
   },
   {
+    id: "TLKBSSPWH",
     scent: "Wild Honeysuckle",
     price: "$11.50",
     description:
@@ -403,6 +433,7 @@ export const pucks = [
 
 export const shaveSticks = [
   {
+    id: "TLKBSSSBS",
     scent: "Barber Shop",
     price: "$10.50",
     description:
@@ -411,6 +442,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSBR",
     scent: "Bay Rum",
     price: "$13.50",
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
@@ -418,6 +450,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSBOYY",
     scent: "Bergamot, Orange, Ylang-ylang",
     price: "$12.50",
     description:
@@ -426,6 +459,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSC",
     scent: "Coconut",
     price: "$10.50",
     description: "Refreshing raw coconut with a base of vanilla.",
@@ -433,6 +467,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSHL",
     scent: "Hungarian Lavender",
     price: "$12.50",
     description:
@@ -442,6 +477,7 @@ export const shaveSticks = [
   },
 
   {
+    id: "TLKBSSSLE",
     scent: "Lavandin & Eucalyptus",
     price: "$11.50",
     description:
@@ -450,6 +486,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSLEE",
     scent: "Lemongrass & Eucalyptus",
     price: "$11.00",
     description: "Dry, lemony, and invigorating.",
@@ -457,6 +494,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSL",
     scent: "Lime",
     price: "$11.50",
     description: "Simple, sweet, citrusy invigorating lime",
@@ -464,6 +502,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSOCWBP",
     scent: "Orange, Cedarwood, Black Pepper",
     price: "$12.00",
     description:
@@ -472,6 +511,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSPR",
     scent: "Peppermint & Rosemary",
     price: "$11.50",
     description:
@@ -480,6 +520,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSPC",
     scent: "Pine & Cedarwood",
     price: "$11.50",
     description:
@@ -488,6 +529,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSRPC",
     scent: "Rose, Patchouli, Cedarwood",
     price: "$12.50",
     description:
@@ -496,6 +538,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSU",
     scent: "Unscented",
     price: "$10.00",
     description:
@@ -504,6 +547,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSV",
     scent: "Vetiver",
     price: "$16.50",
     description:
@@ -512,6 +556,7 @@ export const shaveSticks = [
     button: "",
   },
   {
+    id: "TLKBSSSWH",
     scent: "Wild Honeysuckle",
     price: "$11.50",
     description:

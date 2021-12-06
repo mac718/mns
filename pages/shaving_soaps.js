@@ -1,5 +1,3 @@
-import NavBar from "../components/NavBar";
-import Image from "next/image";
 import { shavingSoapFormats } from "../shavingProducts";
 import ShavingSoapFormatList from "../components/ShavingSoapFormatList";
 import ShavingSoapFormatListItem from "../components/ShavingSoapFormatListItem";
@@ -8,7 +6,6 @@ import Heading from "../components/Heading";
 const ShavingSoaps = () => {
   return (
     <>
-      <NavBar />
       <main>
         <Heading>SHaving Soaps</Heading>
         <ShavingSoapFormatList>

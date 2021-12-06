@@ -1,6 +1,5 @@
 import Heading from "../components/Heading";
 import Image from "next/image";
-import NavBar from "../components/NavBar";
 import jar from "../public/shaving_jar.jpeg";
 import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
@@ -13,7 +12,6 @@ import Notifications from "../components/Notifications";
 export default function ShavingJars() {
   return (
     <>
-      <NavBar />
       <main className={styles.main}>
         <Heading>Tallow, Lanolin, & Kokum Butter Shaving Soap Jars</Heading>
 

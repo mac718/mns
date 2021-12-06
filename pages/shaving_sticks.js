@@ -1,5 +1,4 @@
 import MainImage from "../components/MainImage";
-import NavBar from "../components/NavBar";
 import styles from "./shaving_products.module.css";
 import sticks from "../public/shaving_sticks.JPG";
 import Image from "next/image";
@@ -8,12 +7,10 @@ import Heading from "../components/Heading";
 import { shaveSticks } from "../shavingProducts";
 import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
-import Checkout from "../components/Checkout";
 
 export default function ShavingSticks() {
   return (
     <>
-      <NavBar />
       <main className={styles.main}>
         <Heading>Tallow, Lanolin, & Kokum Butter Shaving Soap Sticks</Heading>
         <MainImage>
