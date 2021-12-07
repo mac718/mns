@@ -44,6 +44,7 @@ export default function ShavingJars() {
           {jars.map((variety) => {
             return (
               <ShavingProductItem
+                key={variety.id}
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}

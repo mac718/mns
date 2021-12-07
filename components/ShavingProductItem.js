@@ -11,7 +11,7 @@ const ShavingProductItem = (props) => {
       <div>
         {props.inStock ? (
           //props.button
-          <ShavingProductItemForm price={props.price} />
+          <ShavingProductItemForm price={props.price} id={props.id} />
         ) : (
           <span className={styles["out-of-stock"]}>Out Of Stock</span>
         )}

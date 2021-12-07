@@ -42,6 +42,8 @@ export default function ShavingPucks() {
           {pucks.map((variety) => {
             return (
               <ShavingProductItem
+                key={variety.id}
+                id={variety.id}
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
