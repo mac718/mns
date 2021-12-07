@@ -1,15 +1,31 @@
 import CartContext from "./cart-context";
-import { useState } from "react";
+import { useReducer, useState } from "react";
+
+const defaultCartState = {
+  items: [],
+  total: 0,
+};
+
+const cartReducer = (state, action) => {
+  if (action.type === "ADD") {
+    let updatedItems = state.items.concat(action.item);
+    return { items: updatedItems, total: 0 };
+  }
+  return defaultCartState;
+};
+
 const CartProvider = (props) => {
-  const [items, setItems] = useState([]);
-  const addItemToCartHandler = (e, item) => {
-    e.preventDefault();
-    console.log(item);
-    setItems((prev) => [...prev, item]);
+  const [cartState, dispatchCartAction] = useReducer(
+    cartReducer,
+    defaultCartState
+  );
+  const addItemToCartHandler = (event, item) => {
+    event.preventDefault();
+    dispatchCartAction({ type: "ADD", item });
   };
 
   const cartContext = {
-    items: items,
+    items: cartState.items,
     total: 0,
     addItem: addItemToCartHandler,
   };

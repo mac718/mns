@@ -1,3 +1,4 @@
+import styles from "./Cart.module.css";
 import { useContext, useState } from "react";
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
@@ -13,10 +14,13 @@ const Cart = (props) => {
             name={item.name}
             price={item.price}
             quantity={item.quantity}
+            type={item.type}
           />
         );
       })}
-      <button onClick={props.onClose}>Close</button>
+      <button onClick={props.onClose} className={styles.close}>
+        Close
+      </button>
     </Modal>
   );
 };
