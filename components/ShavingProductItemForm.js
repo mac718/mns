@@ -24,7 +24,15 @@ const ShavingProductItemForm = (props) => {
       <span className={styles["shaving-product-price"]}>{props.price}</span>
       <button
         className={styles["add-to-cart"]}
-        onClick={(e) => cartCtx.addItem(e, { id: props.id, quantity })}
+        onClick={(event) =>
+          cartCtx.addItem(event, {
+            id: props.id,
+            name: props.name,
+            price: props.price,
+            quantity,
+            type: props.type,
+          })
+        }
       >
         Add To Cart
       </button>
