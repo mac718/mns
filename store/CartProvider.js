@@ -14,17 +14,23 @@ const cartReducer = (state, action) => {
     if (sameItemIndex === -1) {
       console.log("hello");
       let updatedItems = state.items.concat(action.item);
-      return { items: updatedItems, total: 0 };
+      let total = state.total;
+      let updatedTotal =
+        total + action.item.price * Number(action.item.quantity);
+      return { items: updatedItems, total: updatedTotal };
     } else {
       let updatedQuantity =
         state.items[sameItemIndex].quantity + Number(action.item.quantity);
       let copyStateItems = state.items.slice(0);
+      let total = state.total;
 
       copyStateItems[sameItemIndex] = {
         ...state.items[sameItemIndex],
         quantity: updatedQuantity,
       };
-      return { items: copyStateItems, total: 0 };
+      let updatedTotal =
+        total + action.item.price * Number(action.item.quantity);
+      return { items: copyStateItems, total: updatedTotal };
     }
   }
   return defaultCartState;
@@ -43,7 +49,7 @@ const CartProvider = (props) => {
 
   const cartContext = {
     items: cartState.items,
-    total: 0,
+    total: cartState.total,
     addItem: addItemToCartHandler,
   };
 

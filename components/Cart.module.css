@@ -4,3 +4,9 @@
   background: lightblue;
   border: transparent;
 }
+
+.total {
+  float: right;
+  font-weight: bold;
+  font-size: 3rem;
+}
