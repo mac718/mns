@@ -8,9 +8,8 @@ const ShavingProductItemForm = (props) => {
   const inputRef = useRef();
   const inputChangeHandler = (e) => {
     e.preventDefault();
-    setQuantity(inputRef.current);
+    setQuantity(inputRef.current.value);
   };
-  console.log(cartCtx.items);
   return (
     <form className={styles.form}>
       <input
@@ -21,7 +20,9 @@ const ShavingProductItemForm = (props) => {
         defaultValue="1"
         onChange={inputChangeHandler}
       />
-      <span className={styles["shaving-product-price"]}>{props.price}</span>
+      <span className={styles["shaving-product-price"]}>
+        ${props.price.toFixed(2)}
+      </span>
       <button
         className={styles["add-to-cart"]}
         onClick={(event) =>

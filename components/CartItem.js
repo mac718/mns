@@ -11,7 +11,7 @@ const CartItem = (props) => {
           defaultValue={props.quantity}
           className={styles.input}
         />
-        <div>{props.price}</div>
+        <div>${(props.price * Number(props.quantity)).toFixed(2)}</div>
       </div>
     </div>
   );
