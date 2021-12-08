@@ -12,7 +12,6 @@ const cartReducer = (state, action) => {
       (item) => item.id === action.item.id
     );
     if (sameItemIndex === -1) {
-      console.log("hello");
       let updatedItems = state.items.concat(action.item);
       let total = state.total;
       let updatedTotal =

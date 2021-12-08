@@ -1,5 +1,4 @@
 .cart {
-  float: right;
   padding: 0.5em 1em 0.5em 1em;
   border-radius: 25px;
   width: 10rem;
@@ -9,6 +8,8 @@
   cursor: pointer;
   display: flex;
   justify-content: space-around;
+  position: fixed;
+  right: 0;
 }
 
 .cart span {
@@ -26,4 +27,11 @@
 .button:hover .badge,
 .button:active .badge {
   background-color: #92320c;
+}
+
+@media screen and (max-width: 900px) {
+  .cart {
+    top: 0;
+    right: 25%;
+  }
 }
