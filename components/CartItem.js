@@ -22,7 +22,7 @@ const CartItem = (props) => {
             })
           }
         />
-        <div>${(props.price * Number(props.quantity)).toFixed(2)}</div>
+        <div>${(Number(props.price) * Number(props.quantity)).toFixed(2)}</div>
       </div>
     </div>
   );

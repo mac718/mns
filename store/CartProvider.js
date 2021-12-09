@@ -34,18 +34,30 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "REMOVE") {
+    console.log("snarf");
     const existingItemIdex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
     const existingItem = state.items[existingItemIdex];
-    let updatedItems = state.items;
+    let updatedItems;
 
     let quantityDifference = existingItem.quantity - action.item.quantity;
 
-    updatedItems[existingItemIdex].quantity -= quantityDifference;
+    const updatedItem = {
+      ...existingItem,
+      quantity: existingItem.quantity - quantityDifference,
+    };
+    //updatedItems[existingItemIdex].quantity -= quantityDifference;
+    //let total = state.total;
+    updatedItems = [...state.items];
+    updatedItems[existingItemIdex] = updatedItem;
 
     let updatedTotal = state.total - existingItem.price * quantityDifference;
-    return { items: updatedItems, total: updatedTotal };
+    console.log("quantityDifference", existingItem);
+    return {
+      items: updatedItems,
+      total: updatedTotal,
+    };
   }
   return defaultCartState;
 };

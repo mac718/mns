@@ -1,5 +1,5 @@
 import styles from "./Cart.module.css";
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 import Modal from "./UI/Modal";
@@ -8,13 +8,14 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   const onChangeQuantity = (event, item) => {
-    console.log(item);
     const itemIndex = cartCtx.items.findIndex(
       (ctxItem) => ctxItem.id === item.id
     );
+    console.log(cartCtx.total);
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
-      cartCtx.addItem(event, { ...item, quantity: 1 });
+      cartCtx.addItem(event, { ...item, quantity: 1 }); //
     } else {
+      console.log("gmmmgmmg");
       cartCtx.removeItem(item);
     }
   };

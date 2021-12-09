@@ -8,7 +8,7 @@ const ShavingProductItemForm = (props) => {
   const inputRef = useRef();
   const inputChangeHandler = (e) => {
     e.preventDefault();
-    setQuantity(inputRef.current.value);
+    setQuantity(Number(inputRef.current.value));
   };
   return (
     <form className={styles.form}>
@@ -17,7 +17,7 @@ const ShavingProductItemForm = (props) => {
         type="number"
         step="1"
         min="1"
-        defaultValue="1"
+        defaultValue={1}
         onChange={inputChangeHandler}
       />
       <span className={styles["shaving-product-price"]}>
