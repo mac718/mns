@@ -18,8 +18,8 @@ const cartReducer = (state, action) => {
       console.log("total", action.item.price, action.item.quantity);
       let updatedTotal =
         total + action.item.price * Number(action.item.quantity);
-      // localStorage.setItem("items", JSON.stringify(updatedItems));
-      // localStorage.setItem("total", updatedTotal);
+      localStorage.setItem("items", JSON.stringify(updatedItems));
+      localStorage.setItem("total", updatedTotal);
       return { items: updatedItems, total: updatedTotal };
     } else {
       let quantityDifference =
@@ -38,8 +38,8 @@ const cartReducer = (state, action) => {
         quantity: updatedQuantity,
       };
       let updatedTotal = total + action.item.price * quantityDifference; //Number(action.item.quantity);
-      // localStorage.setItem("items", JSON.stringify(copyStateItems));
-      // localStorage.setItem("total", updatedTotal);
+      localStorage.setItem("items", JSON.stringify(copyStateItems));
+      localStorage.setItem("total", updatedTotal);
       return { items: copyStateItems, total: updatedTotal };
     }
   }
@@ -78,8 +78,8 @@ const cartReducer = (state, action) => {
 
     let updatedTotal = state.total - existingItem.price * quantityDifference;
 
-    // localStorage.setItem("items", JSON.stringify(copyStateItems));
-    // localStorage.setItem("total", updatedTotal);
+    localStorage.setItem("items", JSON.stringify(copyStateItems));
+    localStorage.setItem("total", updatedTotal);
     return {
       items: updatedItems,
       total: updatedTotal,
@@ -94,18 +94,18 @@ const CartProvider = (props) => {
     defaultCartState
   );
 
-  // useEffect(() => {
-  //   // defaultCartState = {
-  //   //   items: JSON.parse(localStorage["items"]) || [],
-  //   //   total: localStorage["total"] || 0,
-  //   // };
-  //   if (localStorage.items) {
-  //     JSON.parse(localStorage.items).forEach((item) => {
-  //       dispatchCartAction({ type: "ADD", item: item });
-  //     });
-  //   }
-  //   console.log(defaultCartState);
-  // }, []);
+  useEffect(() => {
+    // defaultCartState = {
+    //   items: JSON.parse(localStorage["items"]) || [],
+    //   total: localStorage["total"] || 0,
+    // };
+    if (localStorage.items) {
+      JSON.parse(localStorage.items).forEach((item) => {
+        dispatchCartAction({ type: "ADD", item: item });
+      });
+    }
+    console.log(defaultCartState);
+  }, []);
   console.log(cartState);
   const addItemToCartHandler = (event, item) => {
     event.preventDefault();
