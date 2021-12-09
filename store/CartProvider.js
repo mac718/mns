@@ -19,7 +19,10 @@ const cartReducer = (state, action) => {
       return { items: updatedItems, total: updatedTotal };
     } else {
       let quantityDifference =
-        action.item.quantity - state.items[sameItemIndex].quantity;
+        state.items[sameItemIndex].quantity +
+        action.item.quantity -
+        state.items[sameItemIndex].quantity;
+      console.log("diff", quantityDifference);
       let updatedQuantity =
         state.items[sameItemIndex].quantity + quantityDifference; //Number(action.item.quantity);
       let copyStateItems = state.items.slice(0);
@@ -60,6 +63,8 @@ const cartReducer = (state, action) => {
     updatedItems[existingItemIdex] = updatedItem;
 
     let updatedTotal = state.total - existingItem.price * quantityDifference;
+    // localStorage.setItem("items", updatedItems);
+    // localStorage.setItem("total", total);
     return {
       items: updatedItems,
       total: updatedTotal,

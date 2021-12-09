@@ -7,7 +7,7 @@ const ShavingSoaps = () => {
   return (
     <>
       <main>
-        <Heading>SHaving Soaps</Heading>
+        <Heading>Shaving Soaps</Heading>
         <ShavingSoapFormatList>
           {shavingSoapFormats.map((format) => (
             <ShavingSoapFormatListItem

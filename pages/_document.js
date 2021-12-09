@@ -13,6 +13,11 @@ class MyDocument extends Document {
           {/* <script
             src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}`}
           ></script> */}
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200&family=Vollkorn+SC&display=swap"
+            rel="stylesheet"
+          />
         </Head>
         <body>
           <div id="overlays"></div>

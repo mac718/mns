@@ -8,11 +8,11 @@
   font-size: 2em;
   margin-top: 0.5em;
   width: 70%;
+  color: #506183;
 }
 
 .list-item-caption a {
   text-decoration: none;
-  color: #444;
 }
 
 .list-item-caption a:hover {
