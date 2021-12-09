@@ -15,7 +15,7 @@ const Cart = (props) => {
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
       cartCtx.addItem(event, { ...item, quantity: 1 });
     } else {
-      cartCtx.removeItem(item.id);
+      cartCtx.removeItem(item);
     }
   };
 

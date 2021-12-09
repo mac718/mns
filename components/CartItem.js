@@ -11,6 +11,7 @@ const CartItem = (props) => {
           ref={inputRef}
           type="number"
           step="1"
+          min="1"
           defaultValue={props.quantity}
           className={styles.input}
           onChange={(event) =>
