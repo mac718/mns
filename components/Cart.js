@@ -8,14 +8,14 @@ const Cart = (props) => {
   const cartCtx = useContext(CartContext);
 
   const onChangeQuantity = (event, item) => {
+    console.log("qunat", item.quantity);
     const itemIndex = cartCtx.items.findIndex(
       (ctxItem) => ctxItem.id === item.id
     );
     console.log(cartCtx.total);
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
-      cartCtx.addItem(event, { ...item, quantity: 1 }); //
+      cartCtx.addItem(event, { ...item, quantity: item.quantity }); //
     } else {
-      console.log("gmmmgmmg");
       cartCtx.removeItem(item);
     }
   };

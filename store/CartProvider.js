@@ -18,8 +18,10 @@ const cartReducer = (state, action) => {
         total + action.item.price * Number(action.item.quantity);
       return { items: updatedItems, total: updatedTotal };
     } else {
+      let quantityDifference =
+        action.item.quantity - state.items[sameItemIndex].quantity;
       let updatedQuantity =
-        state.items[sameItemIndex].quantity + Number(action.item.quantity);
+        state.items[sameItemIndex].quantity + quantityDifference; //Number(action.item.quantity);
       let copyStateItems = state.items.slice(0);
       let total = state.total;
 
@@ -27,14 +29,12 @@ const cartReducer = (state, action) => {
         ...state.items[sameItemIndex],
         quantity: updatedQuantity,
       };
-      let updatedTotal =
-        total + action.item.price * Number(action.item.quantity);
+      let updatedTotal = total + action.item.price * quantityDifference; //Number(action.item.quantity);
       return { items: copyStateItems, total: updatedTotal };
     }
   }
 
   if (action.type === "REMOVE") {
-    console.log("snarf");
     const existingItemIdex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
@@ -47,13 +47,10 @@ const cartReducer = (state, action) => {
       ...existingItem,
       quantity: existingItem.quantity - quantityDifference,
     };
-    //updatedItems[existingItemIdex].quantity -= quantityDifference;
-    //let total = state.total;
     updatedItems = [...state.items];
     updatedItems[existingItemIdex] = updatedItem;
 
     let updatedTotal = state.total - existingItem.price * quantityDifference;
-    console.log("quantityDifference", existingItem);
     return {
       items: updatedItems,
       total: updatedTotal,
