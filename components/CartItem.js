@@ -18,14 +18,14 @@ const CartItem = (props) => {
             props.onChange(event, {
               id: props.id,
               price: props.price,
-              quantity: inputRef.current.value,
+              quantity: Number(inputRef.current.value),
             })
           }
           onBlur={(event) =>
             props.onBlur(event, {
               id: props.id,
               price: props.price,
-              quantity: inputRef.current.value,
+              quantity: Number(inputRef.current.value),
             })
           }
         />

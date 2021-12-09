@@ -6,10 +6,18 @@ const ShavingProductItemForm = (props) => {
   const cartCtx = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
   const inputRef = useRef();
+  const existingItemIndex = cartCtx.items.findIndex(
+    (item) => item.id === props.id
+  );
+  const existingItem = cartCtx.items[existingItemIndex];
+
   const inputChangeHandler = (e) => {
     e.preventDefault();
     setQuantity(Number(inputRef.current.value));
   };
+  let cumulativeQuantity = existingItem
+    ? quantity + existingItem.quantity
+    : quantity;
   return (
     <form className={styles.form}>
       <input
@@ -30,7 +38,7 @@ const ShavingProductItemForm = (props) => {
             id: props.id,
             name: props.name,
             price: props.price,
-            quantity,
+            quantity: cumulativeQuantity,
             type: props.type,
           })
         }
