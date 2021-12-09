@@ -21,6 +21,13 @@ const CartItem = (props) => {
               quantity: inputRef.current.value,
             })
           }
+          onBlur={(event) =>
+            props.onBlur(event, {
+              id: props.id,
+              price: props.price,
+              quantity: inputRef.current.value,
+            })
+          }
         />
         <div>${(Number(props.price) * Number(props.quantity)).toFixed(2)}</div>
       </div>

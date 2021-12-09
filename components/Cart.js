@@ -15,7 +15,15 @@ const Cart = (props) => {
     console.log(cartCtx.total);
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
       cartCtx.addItem(event, { ...item, quantity: item.quantity }); //
+    } else if (item.quantity === "") {
+      return;
     } else {
+      cartCtx.removeItem(item);
+    }
+  };
+
+  const onBlurHandler = (event, item) => {
+    if (event.target.value === "") {
       cartCtx.removeItem(item);
     }
   };
@@ -25,13 +33,14 @@ const Cart = (props) => {
       {cartCtx.items.map((item) => {
         return (
           <CartItem
-            key={item.id}
+            key={Math.random()}
             id={item.id}
             name={item.name}
             price={item.price}
             quantity={item.quantity}
             type={item.type}
             onChange={onChangeQuantity}
+            onBlur={onBlurHandler}
           />
         );
       })}
