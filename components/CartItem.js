@@ -1,15 +1,25 @@
+import { useRef } from "react";
 import styles from "./CartItem.module.css";
 
 const CartItem = (props) => {
+  const inputRef = useRef();
   return (
     <div className={styles.item}>
       {props.name} {props.type}
       <div>
         <input
+          ref={inputRef}
           type="number"
           step="1"
           defaultValue={props.quantity}
           className={styles.input}
+          onChange={(event) =>
+            props.onChange(event, {
+              id: props.id,
+              price: props.price,
+              quantity: inputRef.current.value,
+            })
+          }
         />
         <div>${(props.price * Number(props.quantity)).toFixed(2)}</div>
       </div>

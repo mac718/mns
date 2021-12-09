@@ -1,12 +1,27 @@
 .close {
   width: 4rem;
   height: 2rem;
-  background: lightblue;
+  background: white;
+  border: 1px lightblue solid;
+  color: lightblue;
+  margin: 0.5rem;
+}
+
+.checkout {
+  width: 4rem;
+  height: 2rem;
+  background: lightGreen;
   border: transparent;
+  color: white;
+  margin: 0.5rem;
 }
 
 .total {
   float: right;
   font-weight: bold;
   font-size: 3rem;
+}
+
+.cart-footer {
+  float: right;
 }
