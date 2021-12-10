@@ -45,10 +45,11 @@ export default function ShavingJars() {
             return (
               <ShavingProductItem
                 key={variety.id}
+                id={variety.id}
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
-                type="Shavign Soap Jar"
+                type="Shaving Soap Jar"
                 button={variety.button}
                 inStock={variety.inStock}
               />

@@ -11,6 +11,7 @@ const ShavingSoaps = () => {
         <ShavingSoapFormatList>
           {shavingSoapFormats.map((format) => (
             <ShavingSoapFormatListItem
+              key={format.type}
               type={format.type}
               image={format.image}
               url={format.url}

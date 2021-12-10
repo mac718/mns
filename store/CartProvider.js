@@ -55,6 +55,8 @@ const cartReducer = (state, action) => {
       const updatedItems = state.items.filter(
         (item) => item.id !== action.item.id
       );
+      localStorage.setItem("items", JSON.stringify(updatedItems));
+      localStorage.setItem("total", updatedTotal);
 
       return {
         items: updatedItems,

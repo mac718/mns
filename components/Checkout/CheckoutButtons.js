@@ -9,17 +9,22 @@ const CheckoutButtons = () => {
   const [items, setItems] = React.useState([]);
   const paypalRef = React.useRef();
   React.useEffect(() => {
-    setItems(JSON.parse(localStorage.getItem("items")));
-    let units = JSON.parse(localStorage.getItem("items")).map((item) => {
-      return {
-        description: `${item.name} ${item.type}`,
-        amount: { value: item.price * item.quantity },
-      };
-    });
+    let units;
+    if (localStorage.getItem("items")) {
+      setItems(JSON.parse(localStorage.getItem("items")));
+      units = JSON.parse(localStorage.getItem("items")).map((item) => {
+        return {
+          description: `${item.name} ${item.type}`,
+          amount: { value: item.price * item.quantity },
+        };
+      });
+    }
+
     console.log(units);
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
+          console.log("data", data);
           return actions.order.create({
             intent: "CAPTURE",
             purchase_units: units,
@@ -33,12 +38,25 @@ const CheckoutButtons = () => {
         onError: (err) => {
           setError(err), console.error(err);
         },
+        onShippingChange: (data, actions) => {
+          if (data.shipping_address.zip_code !== enteredZip) {
+            actions.reject();
+          }
+          if (
+            data.shipping_address.country_code !== "US" ||
+            data.shipping_address.country_code !== "CAN"
+          ) {
+            actions.reject();
+          }
+          actions.resolve();
+        },
       })
       .render(paypalRef.current);
     console.log(paypalRef.current);
   }, []);
 
   if (paid) {
+    localStorage.clear();
     return <div>Payment successful.!</div>;
   }
 
