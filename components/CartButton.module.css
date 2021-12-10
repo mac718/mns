@@ -8,6 +8,7 @@
   cursor: pointer;
   display: flex;
   justify-content: space-around;
+  align-items: center;
   position: fixed;
   right: 0;
 }

@@ -95,10 +95,6 @@ const CartProvider = (props) => {
   );
 
   useEffect(() => {
-    // defaultCartState = {
-    //   items: JSON.parse(localStorage["items"]) || [],
-    //   total: localStorage["total"] || 0,
-    // };
     if (localStorage.items) {
       JSON.parse(localStorage.items).forEach((item) => {
         dispatchCartAction({ type: "ADD", item: item });

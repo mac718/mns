@@ -10,9 +10,9 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* <script
-            src={`https://www.paypal.com/sdk/js?client-id=${process.env.NEXT_PUBLIC_PAYPAL_CLIENT_ID}`}
-          ></script> */}
+          <script
+            src={`https://www.paypal.com/sdk/js?client-id=${process.env.PAYPAL_CLIENT_ID}`}
+          ></script>
 
           <link
             href="https://fonts.googleapis.com/css2?family=Spectral+SC:wght@200&family=Vollkorn+SC&display=swap"

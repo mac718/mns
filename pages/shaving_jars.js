@@ -48,6 +48,7 @@ export default function ShavingJars() {
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
+                type="Shavign Soap Jar"
                 button={variety.button}
                 inStock={variety.inStock}
               />

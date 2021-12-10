@@ -1,0 +1,35 @@
+.summary {
+  margin: auto;
+  border-radius: 5px;
+  border: 1px solid lightgray;
+  width: 50%;
+  height: 75%;
+  overflow: scroll;
+  padding: 1rem;
+}
+
+.item {
+  text-align: center;
+  border-bottom: 1px solid lightgray;
+  padding: 0.5rem;
+}
+
+.total {
+  padding: 0.25rem;
+  font-weight: bold;
+  font-size: 2rem;
+  position: relative;
+  right: 0;
+}
+
+.subheading {
+  text-align: center;
+  width: 100%;
+  color: #223366;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+}
+
+.total td {
+  text-align: center;
+}

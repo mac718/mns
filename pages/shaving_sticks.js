@@ -37,6 +37,7 @@ export default function ShavingSticks() {
               name={variety.scent}
               description={variety.description}
               price={variety.price}
+              type="Shaving Soap Stick"
               button={variety.button}
               inStock={variety.inStock}
             />

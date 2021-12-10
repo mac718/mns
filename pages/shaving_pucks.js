@@ -44,7 +44,7 @@ export default function ShavingPucks() {
               <ShavingProductItem
                 key={variety.id}
                 id={variety.id}
-                type="pucks"
+                type="Shaving Soap Puck"
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}

@@ -26,6 +26,18 @@
   font-weight: 100;
 }
 
+.checkout-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  margin: 1rem auto 0 auto;
+}
+
+.checkout-buttons div:nth-child(1) {
+  width: 75%;
+}
+
 @media screen and (max-width: 1000px) {
   .main {
     width: 100%;

@@ -1,11 +1,13 @@
 import styles from "./Cart.module.css";
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext } from "react";
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 import Modal from "./UI/Modal";
+import { useRouter } from "next/router";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
+  const router = useRouter();
 
   const onChangeQuantity = (event, item) => {
     console.log("qunat", item.quantity);
@@ -50,7 +52,11 @@ const Cart = (props) => {
           <button onClick={props.onClose} className={styles.close}>
             Close
           </button>
-          <button className={styles.checkout}>Checkout</button>
+          {router.pathname === "/checkout" ? (
+            <button className={styles.checkout}>Update</button>
+          ) : (
+            <button className={styles.checkout}>Checkout</button>
+          )}
         </div>
       </div>
     </Modal>
