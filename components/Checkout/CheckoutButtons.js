@@ -6,22 +6,23 @@ import ReactDOM from "react-dom";
 const CheckoutButtons = () => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
+  const [items, setItems] = React.useState([]);
   const paypalRef = React.useRef();
   React.useEffect(() => {
+    setItems(JSON.parse(localStorage.getItem("items")));
+    let units = JSON.parse(localStorage.getItem("items")).map((item) => {
+      return {
+        description: `${item.name} ${item.type}`,
+        amount: { value: item.price * item.quantity },
+      };
+    });
+    console.log(units);
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
           return actions.order.create({
             intent: "CAPTURE",
-            purchase_units: [
-              {
-                description: "Your description",
-                amount: {
-                  currency_code: "USD",
-                  value: 500.0,
-                },
-              },
-            ],
+            purchase_units: units,
           });
         },
         onApprove: async (data, actions) => {

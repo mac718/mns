@@ -4,6 +4,7 @@ import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 import Modal from "./UI/Modal";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -55,7 +56,11 @@ const Cart = (props) => {
           {router.pathname === "/checkout" ? (
             <button className={styles.checkout}>Update</button>
           ) : (
-            <button className={styles.checkout}>Checkout</button>
+            <Link href="/checkout">
+              <button className={styles.checkout} onClick={props.onClose}>
+                Checkout
+              </button>
+            </Link>
           )}
         </div>
       </div>

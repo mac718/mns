@@ -19,7 +19,7 @@ const CheckoutSummary = () => {
         <table className={styles.summary}>
           {items.map((item) => {
             return (
-              <tr>
+              <tr key={item.id}>
                 <td className={styles.item}>
                   {item.name} {item.type}
                 </td>

@@ -36,6 +36,7 @@
 
 .checkout-buttons div:nth-child(1) {
   width: 75%;
+  z-index: 0;
 }
 
 @media screen and (max-width: 1000px) {
