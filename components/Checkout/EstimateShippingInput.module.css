@@ -1,0 +1,20 @@
+.estimate-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+}
+
+.estimate-buttons button {
+  margin-top: 0.5rem;
+  width: 50%;
+  background: turquoise;
+  border: transparent;
+  color: white;
+  cursor: pointer;
+}
+
+.estimate-buttons button:hover {
+  opacity: 0.7;
+}

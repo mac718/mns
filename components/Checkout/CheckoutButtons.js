@@ -3,10 +3,11 @@ import ReactDOM from "react-dom";
 
 //const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
 
-const CheckoutButtons = () => {
+const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
+  console.log(props.zip);
   const paypalRef = React.useRef();
   React.useEffect(() => {
     let units;
@@ -57,7 +58,7 @@ const CheckoutButtons = () => {
 
   if (paid) {
     localStorage.clear();
-    return <div>Payment successful.!</div>;
+    return <div>Payment successful!</div>;
   }
 
   // If any error occurs

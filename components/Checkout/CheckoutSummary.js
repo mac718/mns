@@ -1,8 +1,9 @@
 import styles from "./CheckoutSummary.module.css";
 import Heading from "../Heading";
 import { useEffect, useState } from "react";
+import EstimateShippingInput from "./EsitmateShippingInput";
 
-const CheckoutSummary = () => {
+const CheckoutSummary = (props) => {
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -33,6 +34,13 @@ const CheckoutSummary = () => {
                 </tr>
               );
             })}
+            <tr>
+              <td></td>
+              <td className={styles.item}>Estimated Shipping</td>
+              <td className={styles.item}>
+                <EstimateShippingInput onEnterZip={props.onEnterZip} />
+              </td>
+            </tr>
             <tr className={styles.total}>
               <td></td>
               <td>Total:</td>
