@@ -28,6 +28,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: 10,
   },
   {
     id: "TLKBSSJBR",

@@ -14,6 +14,13 @@ const CheckoutSummary = (props) => {
     }
   }, []);
 
+  const orderWeight = items.reduce(
+    (total, current) => total + current.weight * current.quantity,
+    0
+  );
+
+  console.log(orderWeight);
+
   return (
     <>
       <Heading>Checkout</Heading>
@@ -38,7 +45,10 @@ const CheckoutSummary = (props) => {
               <td></td>
               <td className={styles.item}>Estimated Shipping</td>
               <td className={styles.item}>
-                <EstimateShippingInput onEnterZip={props.onEnterZip} />
+                <EstimateShippingInput
+                  onEnterZip={props.onEnterZip}
+                  orderWeight={orderWeight}
+                />
               </td>
             </tr>
             <tr className={styles.total}>

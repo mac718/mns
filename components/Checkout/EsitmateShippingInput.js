@@ -15,7 +15,11 @@ const EstimateShippingInput = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     //props.onEnterZip(zip);
-    axios("/api/getShippingRates")
+    axios
+      .post("/api/getShippingRates", {
+        zip: zip,
+        orderWeight: props.orderWeight,
+      })
       .then((res) => setCost(res))
       .catch((err) => setError(err.message));
   };
@@ -24,7 +28,7 @@ const EstimateShippingInput = (props) => {
     return (
       <ul>
         {cost.data.map((option) => (
-          <li>
+          <li key={option.serviceName}>
             {option.serviceName} {option.shipmentCost}
           </li>
         ))}

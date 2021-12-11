@@ -13,6 +13,7 @@ const ShavingProductItem = (props) => {
           //props.button
           <ShavingProductItemForm
             name={props.name}
+            weight={props.weight}
             price={props.price}
             id={props.id}
             type={props.type}

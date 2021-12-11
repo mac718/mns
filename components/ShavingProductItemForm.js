@@ -39,6 +39,7 @@ const ShavingProductItemForm = (props) => {
             name: props.name,
             price: props.price,
             quantity: cumulativeQuantity,
+            weight: props.weight,
             type: props.type,
           })
         }

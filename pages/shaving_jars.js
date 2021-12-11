@@ -51,6 +51,7 @@ export default function ShavingJars() {
                 price={variety.price}
                 type="Shaving Soap Jar"
                 button={variety.button}
+                weight={variety.weight}
                 inStock={variety.inStock}
               />
             );

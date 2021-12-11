@@ -23,6 +23,8 @@ function runMiddleware(req, res, fn) {
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
+  const { zip, orderWeight } = req.body;
+
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Basic ${process.env.SHIPSTATION_AUTH}`,
@@ -38,25 +40,22 @@ export default async function handler(req, res) {
     serviceCode: "",
     packageCode: null,
     fromPostalCode: "97225",
-    toState: "DC",
+    toState: null,
     toCountry: "US",
-    toPostalCode: "20500",
-    toCity: "Washington",
-    weight: { value: 3, units: "ounces" },
-    dimensions: { units: "inches", length: 7, width: 5, height: 6 },
-    confirmation: "delivery",
-    residential: false,
+    toPostalCode: `${zip}`,
+    toCity: null,
+    weight: { value: orderWeight, units: "ounces" },
+    dimensions: null,
+    confirmation: null,
+    residential: true,
   };
+
   rates = await axios({
     method: "POST",
     url: "https://ssapi.shipstation.com/shipments/getrates",
     data: raw,
     headers: headers,
   });
-  // .then((res) => {
-  //   rates = res;
-  // })
-  // .catch((err) => console.log(err));
 
   return res.send(rates.data);
 }
