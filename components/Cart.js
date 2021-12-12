@@ -5,6 +5,7 @@ import CartItem from "./CartItem";
 import Modal from "./UI/Modal";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import Heading from "./Heading";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -33,6 +34,7 @@ const Cart = (props) => {
 
   return (
     <Modal onClose={props.onClose}>
+      <Heading>Your Cart</Heading>
       {cartCtx.items.map((item) => {
         return (
           <CartItem

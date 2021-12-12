@@ -2,18 +2,31 @@
   width: 4rem;
   height: 2rem;
   background: white;
-  border: 1px lightblue solid;
-  color: lightblue;
+  border: 1px rgb(128, 205, 231) solid;
+  color: rgb(128, 205, 231);
   margin: 0.5rem;
+  cursor: pointer;
+}
+
+.close:hover {
+  background-color: rgb(128, 205, 231);
+  color: white;
 }
 
 .checkout {
   width: 4rem;
   height: 2rem;
-  background: lightGreen;
+  background: rgb(98, 228, 98);
   border: transparent;
   color: white;
   margin: 0.5rem;
+  cursor: pointer;
+}
+
+.checkout:hover {
+  border: 1px rgb(98, 228, 98) solid;
+  color: rgb(98, 228, 98);
+  background: white;
 }
 
 .total {

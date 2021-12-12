@@ -1,5 +1,5 @@
 import CartContext from "./cart-context";
-import { useEffect, useReducer, useState } from "react";
+import { useEffect, useReducer } from "react";
 
 let defaultCartState = {
   items: [],
@@ -32,15 +32,18 @@ const cartReducer = (state, action) => {
     } else {
       let quantityDifference =
         action.item.quantity - state.items[sameItemIndex].quantity;
+
       let updatedQuantity =
         state.items[sameItemIndex].quantity + quantityDifference;
       updatedItems = state.items.slice(0);
+
       let total = state.total;
 
       updatedItems[sameItemIndex] = {
         ...state.items[sameItemIndex],
         quantity: updatedQuantity,
       };
+
       updatedTotal = total + action.item.price * quantityDifference;
 
       updateLocalStorage(updatedItems, updatedTotal);
@@ -54,7 +57,9 @@ const cartReducer = (state, action) => {
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
       );
+
       const existingItem = state.items[existingItemIndex];
+
       updatedTotal = state.total - existingItem.quantity * existingItem.price;
       updatedItems = state.items.filter((item) => item.id !== action.item.id);
 
@@ -76,6 +81,7 @@ const cartReducer = (state, action) => {
       ...existingItem,
       quantity: existingItem.quantity - quantityDifference,
     };
+
     updatedItems = [...state.items];
     updatedItems[existingItemIdex] = updatedItem;
 
@@ -103,9 +109,8 @@ const CartProvider = (props) => {
         dispatchCartAction({ type: "ADD", item: item });
       });
     }
-    console.log(defaultCartState);
   }, []);
-  console.log(cartState);
+
   const addItemToCartHandler = (event, item) => {
     event.preventDefault();
     dispatchCartAction({ type: "ADD", item });
