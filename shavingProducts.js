@@ -3,6 +3,10 @@ import smallPuck from "./public/shaving_puck_small.jpeg";
 import smallStick from "./public/shaving_stick_small.jpg";
 import smallLogo from "./public/MNS_PDX_SMALL.jpeg";
 
+const JAR_WEIGHT = 10;
+const PUCK_WEIGHT = 7;
+const STICK_WIEGHT = 6;
+
 export const jars = [
   {
     id: "TLKBSSJBS",
@@ -28,7 +32,7 @@ export const jars = [
         />
       </form>
     ),
-    weight: 10,
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJBR",
@@ -37,6 +41,7 @@ export const jars = [
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJBOYY",
@@ -62,6 +67,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJC",
@@ -86,6 +92,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJHL",
@@ -95,6 +102,7 @@ export const jars = [
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
 
   {
@@ -121,6 +129,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJLEE",
@@ -129,6 +138,7 @@ export const jars = [
     description: "Dry, lemony, and invigorating.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJL",
@@ -137,6 +147,7 @@ export const jars = [
     description: "Simple, sweet, citrusy invigorating lime",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJOCWBP",
@@ -162,6 +173,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJPR",
@@ -171,6 +183,7 @@ export const jars = [
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJPC",
@@ -180,6 +193,7 @@ export const jars = [
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJRPC",
@@ -205,6 +219,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJU",
@@ -230,6 +245,7 @@ export const jars = [
         />
       </form>
     ),
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJV",
@@ -239,6 +255,7 @@ export const jars = [
       "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
     inStock: false,
     button: "",
+    weight: JAR_WEIGHT,
   },
   {
     id: "TLKBSSJWH",
@@ -246,6 +263,8 @@ export const jars = [
     price: 14.0,
     description:
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
+    inStock: false,
+    weight: JAR_WEIGHT,
   },
 ];
 
@@ -274,6 +293,7 @@ export const pucks = [
         />
       </form>
     ),
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPBR",
@@ -282,6 +302,7 @@ export const pucks = [
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPBOYY",
@@ -291,6 +312,7 @@ export const pucks = [
       "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPC",
@@ -299,6 +321,7 @@ export const pucks = [
     description: "Refreshing raw coconut with a base of vanilla.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPHL",
@@ -308,6 +331,7 @@ export const pucks = [
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
 
   {
@@ -334,6 +358,7 @@ export const pucks = [
         />
       </form>
     ),
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPLEE",
@@ -342,6 +367,7 @@ export const pucks = [
     description: "Dry, lemony, and invigorating.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPL",
@@ -350,6 +376,7 @@ export const pucks = [
     description: "Simple, sweet, citrusy invigorating lime",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPOCWBP",
@@ -359,6 +386,7 @@ export const pucks = [
       "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPPR",
@@ -368,6 +396,7 @@ export const pucks = [
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPPC",
@@ -377,6 +406,7 @@ export const pucks = [
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPRPC",
@@ -386,6 +416,7 @@ export const pucks = [
       "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPU",
@@ -411,6 +442,7 @@ export const pucks = [
         />
       </form>
     ),
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPV",
@@ -420,6 +452,7 @@ export const pucks = [
       "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
   {
     id: "TLKBSSPWH",
@@ -429,6 +462,7 @@ export const pucks = [
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
     inStock: false,
     button: "",
+    weigh: PUCK_WEIGHT,
   },
 ];
 
@@ -441,6 +475,7 @@ export const shaveSticks = [
       "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSBR",
@@ -449,6 +484,7 @@ export const shaveSticks = [
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSBOYY",
@@ -458,6 +494,7 @@ export const shaveSticks = [
       "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSC",
@@ -466,6 +503,7 @@ export const shaveSticks = [
     description: "Refreshing raw coconut with a base of vanilla.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSHL",
@@ -475,6 +513,7 @@ export const shaveSticks = [
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
 
   {
@@ -485,6 +524,7 @@ export const shaveSticks = [
       "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSLEE",
@@ -493,6 +533,7 @@ export const shaveSticks = [
     description: "Dry, lemony, and invigorating.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSL",
@@ -501,6 +542,7 @@ export const shaveSticks = [
     description: "Simple, sweet, citrusy invigorating lime",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSOCWBP",
@@ -510,6 +552,7 @@ export const shaveSticks = [
       "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSPR",
@@ -519,6 +562,7 @@ export const shaveSticks = [
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSPC",
@@ -528,6 +572,7 @@ export const shaveSticks = [
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSRPC",
@@ -537,6 +582,7 @@ export const shaveSticks = [
       "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSU",
@@ -546,6 +592,7 @@ export const shaveSticks = [
       "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSV",
@@ -555,6 +602,7 @@ export const shaveSticks = [
       "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
   {
     id: "TLKBSSSWH",
@@ -564,6 +612,7 @@ export const shaveSticks = [
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
     inStock: false,
     button: "",
+    weight: STICK_WIEGHT,
   },
 ];
 

@@ -6,41 +6,39 @@ let defaultCartState = {
   total: 0,
 };
 
+let updatedItems;
+let updatedTotal;
+
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
-    console.log("herro");
     let sameItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
+
     if (sameItemIndex === -1) {
-      let updatedItems = state.items.concat(action.item);
+      updatedItems = state.items.concat(action.item);
       let total = state.total;
       console.log("total", action.item.price, action.item.quantity);
-      let updatedTotal =
-        total + action.item.price * Number(action.item.quantity);
+      updatedTotal = total + action.item.price * Number(action.item.quantity);
       localStorage.setItem("items", JSON.stringify(updatedItems));
       localStorage.setItem("total", updatedTotal);
       return { items: updatedItems, total: updatedTotal };
     } else {
       let quantityDifference =
         action.item.quantity - state.items[sameItemIndex].quantity;
-      //   state.items[sameItemIndex].quantity +
-      //   action.item.quantity -
-      //   state.items[sameItemIndex].quantity;
-      // console.log("diff", quantityDifference);
       let updatedQuantity =
-        state.items[sameItemIndex].quantity + quantityDifference; //Number(action.item.quantity);
-      let copyStateItems = state.items.slice(0);
+        state.items[sameItemIndex].quantity + quantityDifference;
+      updatedItems = state.items.slice(0);
       let total = state.total;
 
-      copyStateItems[sameItemIndex] = {
+      updatedItems[sameItemIndex] = {
         ...state.items[sameItemIndex],
         quantity: updatedQuantity,
       };
-      let updatedTotal = total + action.item.price * quantityDifference; //Number(action.item.quantity);
-      localStorage.setItem("items", JSON.stringify(copyStateItems));
+      updatedTotal = total + action.item.price * quantityDifference;
+      localStorage.setItem("items", JSON.stringify(updatedItems));
       localStorage.setItem("total", updatedTotal);
-      return { items: copyStateItems, total: updatedTotal };
+      return { items: updatedItems, total: updatedTotal };
     }
   }
 
@@ -50,11 +48,8 @@ const cartReducer = (state, action) => {
         (item) => item.id === action.item.id
       );
       const existingItem = state.items[existingItemIndex];
-      const updatedTotal =
-        state.total - existingItem.quantity * existingItem.price;
-      const updatedItems = state.items.filter(
-        (item) => item.id !== action.item.id
-      );
+      updatedTotal = state.total - existingItem.quantity * existingItem.price;
+      updatedItems = state.items.filter((item) => item.id !== action.item.id);
       localStorage.setItem("items", JSON.stringify(updatedItems));
       localStorage.setItem("total", updatedTotal);
 
@@ -67,7 +62,6 @@ const cartReducer = (state, action) => {
       (item) => item.id === action.item.id
     );
     const existingItem = state.items[existingItemIdex];
-    let updatedItems;
 
     let quantityDifference = existingItem.quantity - action.item.quantity;
 
@@ -78,9 +72,9 @@ const cartReducer = (state, action) => {
     updatedItems = [...state.items];
     updatedItems[existingItemIdex] = updatedItem;
 
-    let updatedTotal = state.total - existingItem.price * quantityDifference;
+    updatedTotal = state.total - existingItem.price * quantityDifference;
 
-    localStorage.setItem("items", JSON.stringify(copyStateItems));
+    localStorage.setItem("items", JSON.stringify(updatedItems));
     localStorage.setItem("total", updatedTotal);
     return {
       items: updatedItems,
