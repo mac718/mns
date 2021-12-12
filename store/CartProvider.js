@@ -9,6 +9,11 @@ let defaultCartState = {
 let updatedItems;
 let updatedTotal;
 
+const updateLocalStorage = (items, total) => {
+  localStorage.setItem("items", JSON.stringify(items));
+  localStorage.setItem("total", total);
+};
+
 const cartReducer = (state, action) => {
   if (action.type === "ADD") {
     let sameItemIndex = state.items.findIndex(
@@ -17,11 +22,12 @@ const cartReducer = (state, action) => {
 
     if (sameItemIndex === -1) {
       updatedItems = state.items.concat(action.item);
-      let total = state.total;
-      console.log("total", action.item.price, action.item.quantity);
-      updatedTotal = total + action.item.price * Number(action.item.quantity);
-      localStorage.setItem("items", JSON.stringify(updatedItems));
-      localStorage.setItem("total", updatedTotal);
+
+      updatedTotal =
+        state.total + action.item.price * Number(action.item.quantity);
+
+      updateLocalStorage(updatedItems, updatedTotal);
+
       return { items: updatedItems, total: updatedTotal };
     } else {
       let quantityDifference =
@@ -36,8 +42,9 @@ const cartReducer = (state, action) => {
         quantity: updatedQuantity,
       };
       updatedTotal = total + action.item.price * quantityDifference;
-      localStorage.setItem("items", JSON.stringify(updatedItems));
-      localStorage.setItem("total", updatedTotal);
+
+      updateLocalStorage(updatedItems, updatedTotal);
+
       return { items: updatedItems, total: updatedTotal };
     }
   }
@@ -50,8 +57,8 @@ const cartReducer = (state, action) => {
       const existingItem = state.items[existingItemIndex];
       updatedTotal = state.total - existingItem.quantity * existingItem.price;
       updatedItems = state.items.filter((item) => item.id !== action.item.id);
-      localStorage.setItem("items", JSON.stringify(updatedItems));
-      localStorage.setItem("total", updatedTotal);
+
+      updateLocalStorage(updatedItems, updatedTotal);
 
       return {
         items: updatedItems,
@@ -74,8 +81,8 @@ const cartReducer = (state, action) => {
 
     updatedTotal = state.total - existingItem.price * quantityDifference;
 
-    localStorage.setItem("items", JSON.stringify(updatedItems));
-    localStorage.setItem("total", updatedTotal);
+    updateLocalStorage(updatedItems, updatedTotal);
+
     return {
       items: updatedItems,
       total: updatedTotal,
