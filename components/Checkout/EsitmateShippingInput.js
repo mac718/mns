@@ -26,9 +26,13 @@ const EstimateShippingInput = (props) => {
 
   if (cost) {
     return (
-      <ul>
+      <ul className={styles["options-list"]}>
         {cost.data.map((option) => (
           <li key={option.serviceName}>
+            <input
+              type="radio"
+              value={[option.serviceName, option.shipmentCost]}
+            />
             {option.serviceName} {option.shipmentCost}
           </li>
         ))}

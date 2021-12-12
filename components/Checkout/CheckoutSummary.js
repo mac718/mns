@@ -1,9 +1,11 @@
 import styles from "./CheckoutSummary.module.css";
 import Heading from "../Heading";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
+import CartContext from "../../store/cart-context";
 
 const CheckoutSummary = (props) => {
+  const cartCtx = useContext(CartContext);
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
 
@@ -12,7 +14,7 @@ const CheckoutSummary = (props) => {
       setItems(JSON.parse(localStorage.getItem("items")));
       setTotal(Number(localStorage.getItem("total")));
     }
-  }, []);
+  }, [cartCtx.items]);
 
   const orderWeight = items.reduce(
     (total, current) => total + current.weight * current.quantity,
