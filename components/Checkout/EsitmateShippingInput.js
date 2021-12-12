@@ -14,14 +14,16 @@ const EstimateShippingInput = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    //props.onEnterZip(zip);
+
+    const errorMessage =
+      "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
     axios
       .post("/api/getShippingRates", {
         zip: zip,
         orderWeight: props.orderWeight,
       })
       .then((res) => setCost(res))
-      .catch((err) => setError(err.message));
+      .catch((err) => setError(errorMessage));
   };
 
   if (cost) {
@@ -46,7 +48,7 @@ const EstimateShippingInput = (props) => {
         <input type="text" onChange={setZipHandler} value={zip} />
         <button>Submit</button>
       </form>
-      {error && <div>{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </>
   );
 };
