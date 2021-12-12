@@ -8,6 +8,7 @@ const CheckoutSummary = (props) => {
   const cartCtx = useContext(CartContext);
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const [shippingService, setShippingService] = useState(["", 0]);
 
   useEffect(() => {
     if (localStorage.getItem("items")) {
@@ -16,12 +17,16 @@ const CheckoutSummary = (props) => {
     }
   }, [cartCtx.items]);
 
+  const onShippingServiceSelect = (service) => {
+    setShippingService(service.split(","));
+  };
+
   const orderWeight = items.reduce(
     (total, current) => total + current.weight * current.quantity,
     0
   );
 
-  console.log(orderWeight);
+  console.log(shippingService);
 
   return (
     <>
@@ -53,13 +58,16 @@ const CheckoutSummary = (props) => {
                 <EstimateShippingInput
                   onEnterZip={props.onEnterZip}
                   orderWeight={orderWeight}
+                  onShippingServiceSelect={onShippingServiceSelect}
                 />
               </td>
             </tr>
             <tr className={styles.total}>
               <td></td>
               <td>Total:</td>
-              <td>{`$${total.toFixed(2)}`}</td>
+              <td>
+                ${(Number(total) + Number(shippingService[1])).toFixed(2)}
+              </td>
             </tr>
           </tbody>
         </table>
