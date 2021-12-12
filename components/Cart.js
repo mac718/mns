@@ -55,9 +55,7 @@ const Cart = (props) => {
           <button onClick={props.onClose} className={styles.close}>
             Close
           </button>
-          {router.pathname === "/checkout" ? (
-            <button className={styles.checkout}>Update</button>
-          ) : (
+          {router.pathname === "/checkout" ? null : (
             <Link href="/checkout">
               <button className={styles.checkout} onClick={props.onClose}>
                 Checkout
