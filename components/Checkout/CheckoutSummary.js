@@ -28,6 +28,9 @@ const CheckoutSummary = (props) => {
       <Heading>Checkout</Heading>
       <main>
         <div className={styles.subheading}>Order Summary</div>
+        <div className={styles["edit-button"]}>
+          <button onClick={props.onShow}>Edit Order</button>
+        </div>
         <table className={styles.summary}>
           <tbody>
             {items.map((item) => {

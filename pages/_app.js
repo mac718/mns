@@ -21,7 +21,11 @@ function MyApp({ Component, pageProps }) {
       <Portal>{showCart && <Cart onClose={hideCartHandler} />}</Portal>
       <NavBar showCart={showCartHandler} />
 
-      <Component {...pageProps} />
+      <Component
+        {...pageProps}
+        onShow={showCartHandler}
+        onClose={hideCartHandler}
+      />
     </CartProvider>
   );
 }
