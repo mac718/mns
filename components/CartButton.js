@@ -7,13 +7,16 @@ const CartButton = (props) => {
   const [btnAnimated, setBtnAnimated] = useState(false);
   const cartCtx = useContext(CartContext);
 
-  const buttonClasses = `${styles.cart} ${btnAnimated ? styles.bump : ""}`;
-
   const { items } = cartCtx;
 
   let numberOfItems = items.reduce((total, item) => {
     return Number(total) + Number(item.quantity);
   }, 0);
+
+  const buttonClasses = `${styles.cart} ${btnAnimated ? styles.bump : ""}`;
+  const badgeClasses = `${
+    numberOfItems === 0 ? styles["badge-empty"] : styles["badge-full"]
+  }`;
 
   useEffect(() => {
     if (items.length === 0) {
@@ -32,7 +35,7 @@ const CartButton = (props) => {
   return (
     <div className={buttonClasses} onClick={props.onClick}>
       <MdShoppingCart />
-      <span className={styles.badge}>{numberOfItems}</span>
+      <span className={badgeClasses}>{numberOfItems}</span>
     </div>
   );
 };

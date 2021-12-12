@@ -17,8 +17,17 @@
   margin-left: 0.5rem;
 }
 
-.badge {
+.badge-empty {
   background-color: turquoise;
+  color: white;
+  padding: 0.25rem 1rem;
+  border-radius: 25px;
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.badge-full {
+  background-color: orangered;
   color: white;
   padding: 0.25rem 1rem;
   border-radius: 25px;
