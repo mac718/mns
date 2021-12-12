@@ -48,6 +48,7 @@ export default function ShavingPucks() {
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
+                weight={variety.weight}
                 button={variety.button}
                 inStock={variety.inStock}
               />
