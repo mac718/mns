@@ -1,11 +1,13 @@
 import { useState } from "react";
 import styles from "./EstimateShippingInput.module.css";
 import axios from "axios";
+import Spinner from "../UI/Spinner";
 
 const EstimateShippingInput = (props) => {
   const [zip, setZip] = useState("");
   const [cost, setCost] = useState(0);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const setZipHandler = (event) => {
     console.log(event.target.value);
@@ -14,7 +16,7 @@ const EstimateShippingInput = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-
+    setLoading(true);
     const errorMessage =
       "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
     axios
@@ -22,9 +24,16 @@ const EstimateShippingInput = (props) => {
         zip: zip,
         orderWeight: props.orderWeight,
       })
-      .then((res) => setCost(res))
+      .then((res) => {
+        setCost(res);
+        setLoading(false);
+      })
       .catch((err) => setError(errorMessage));
   };
+
+  if (loading) {
+    return <Spinner />;
+  }
 
   if (cost) {
     return (
