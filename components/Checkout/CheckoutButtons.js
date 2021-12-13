@@ -7,8 +7,12 @@ const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
+  const [shipping, setShipping] = React.useState([]);
   console.log(props.zip);
   const paypalRef = React.useRef();
+  React.useEffect(() => {
+    setShipping(props.shippingService);
+  }, [props.shippingService]);
   React.useEffect(() => {
     let units;
     if (localStorage.getItem("items")) {
@@ -17,11 +21,23 @@ const CheckoutButtons = (props) => {
         return {
           description: `${item.name} ${item.type}`,
           amount: { value: item.price * item.quantity },
+          reference_id: item.id,
         };
       });
     }
 
-    units = [...units, localStorage.getItem];
+    //setShipping(localStorage.getItem("shipping").split(","));
+
+    console.log("shipping", props.shippingService);
+
+    units = [
+      ...units,
+      {
+        description: `Shipping: ${props.shippingService[0]}`,
+        amount: { value: Number(props.shippingService[1]) },
+        reference_id: "shipping",
+      },
+    ];
 
     console.log(units);
     window.paypal

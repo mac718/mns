@@ -1,6 +1,6 @@
 import styles from "./CheckoutSummary.module.css";
 import Heading from "../Heading";
-import React, { useContext, useDebugValue, useEffect, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
 import CartContext from "../../store/cart-context";
 
@@ -17,13 +17,14 @@ const CheckoutSummary = (props) => {
     }
   }, [cartCtx.items]);
 
+  let firstRender = useRef(true);
   useEffect(() => {
-    localStorage.setItem("shipping", shippingService);
-  }, [shippingService]);
-
-  const onShippingServiceSelect = (service) => {
-    setShippingService(service.split(","));
-  };
+    if (firstRender.current) {
+      firstRender.current = false;
+    } else {
+      setShippingService(props.shippingService);
+    }
+  }, [props.shippingService]);
 
   const orderWeight = items.reduce(
     (total, current) => total + current.weight * current.quantity,
@@ -81,7 +82,7 @@ const CheckoutSummary = (props) => {
                 <EstimateShippingInput
                   onEnterZip={props.onEnterZip}
                   orderWeight={orderWeight}
-                  onShippingServiceSelect={onShippingServiceSelect}
+                  onShippingServiceSelect={props.onShippingServiceSelect}
                   totalJars={totalJars}
                   totalPucks={totalPucks}
                   totalSticks={totalSticks}
