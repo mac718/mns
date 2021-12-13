@@ -21,6 +21,8 @@ const CheckoutButtons = (props) => {
       });
     }
 
+    units = [...units, localStorage.getItem];
+
     console.log(units);
     window.paypal
       .Buttons({

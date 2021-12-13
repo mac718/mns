@@ -1,7 +1,7 @@
 import CheckoutSummary from "../components/Checkout/CheckoutSummary";
 import CheckoutButtons from "../components/Checkout/CheckoutButtons";
 import styles from "./shaving_products.module.css";
-import { useState } from "react";
+import React, { useState } from "react";
 
 export default function Checkout(props) {
   const [zip, setZip] = useState("");

@@ -1,6 +1,6 @@
 import styles from "./CheckoutSummary.module.css";
 import Heading from "../Heading";
-import { useContext, useEffect, useState } from "react";
+import React, { useContext, useDebugValue, useEffect, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
 import CartContext from "../../store/cart-context";
 
@@ -17,6 +17,10 @@ const CheckoutSummary = (props) => {
     }
   }, [cartCtx.items]);
 
+  useEffect(() => {
+    localStorage.setItem("shipping", shippingService);
+  }, [shippingService]);
+
   const onShippingServiceSelect = (service) => {
     setShippingService(service.split(","));
   };
@@ -26,7 +30,26 @@ const CheckoutSummary = (props) => {
     0
   );
 
-  console.log(shippingService);
+  let jarItems = items.filter((item) => item.type.includes("Jar"));
+  let puckItems = items.filter((item) => item.type.includes("Puck"));
+  let stickItems = items.filter((item) => item.type.includes("Stick"));
+
+  let totalJars = jarItems.reduce(
+    (total, current) => total + current.quantity,
+    0
+  );
+
+  let totalPucks = puckItems.reduce(
+    (total, current) => total + current.quantity,
+    0
+  );
+
+  let totalSticks = stickItems.reduce(
+    (total, current) => total + current.quantity,
+    0
+  );
+
+  let totalItems = totalJars + totalPucks + totalSticks;
 
   return (
     <>
@@ -59,6 +82,10 @@ const CheckoutSummary = (props) => {
                   onEnterZip={props.onEnterZip}
                   orderWeight={orderWeight}
                   onShippingServiceSelect={onShippingServiceSelect}
+                  totalJars={totalJars}
+                  totalPucks={totalPucks}
+                  totalSticks={totalSticks}
+                  totalItems={totalItems}
                 />
               </td>
             </tr>
