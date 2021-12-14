@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react";
 
 export default function Checkout(props) {
   const [zip, setZip] = useState("");
-  const [shippingService, setShippingService] = useState([]);
+  const [shippingService, setShippingService] = useState([0, ""]);
   const [serviceSelected, setServiceSelected] = useState(false);
 
   const onEnterZip = (enteredZip) => {

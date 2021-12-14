@@ -107,7 +107,7 @@ const CheckoutButtons = (props) => {
 
   // If any error occurs
   if (error) {
-    return <div>Error Occurred in processing payment.! Please try again.</div>;
+    return <div>Error Occurred in processing payment! Please try again.</div>;
   }
 
   // {

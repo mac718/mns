@@ -8,12 +8,16 @@ const CheckoutSummary = (props) => {
   const cartCtx = useContext(CartContext);
   const [items, setItems] = useState([]);
   const [total, setTotal] = useState(0);
+  const [weight, setWeight] = useState(0);
   const [shippingService, setShippingService] = useState(["", 0]);
+
+  console.log("weight", cartCtx.weight);
 
   useEffect(() => {
     if (localStorage.getItem("items")) {
       setItems(JSON.parse(localStorage.getItem("items")));
       setTotal(Number(localStorage.getItem("total")));
+      setWeight(Number(localStorage.getItem("weight")));
     }
   }, [cartCtx.items]);
 
@@ -26,10 +30,12 @@ const CheckoutSummary = (props) => {
     }
   }, [props.shippingService]);
 
-  const orderWeight = items.reduce(
-    (total, current) => total + current.weight * current.quantity,
-    0
-  );
+  // const orderWeight = items.reduce(
+  //   (total, current) => total + current.weight * current.quantity,
+  //   0
+  // );
+
+  // console.log(orderWeight);
 
   let jarItems = items.filter((item) => item.type.includes("Jar"));
   let puckItems = items.filter((item) => item.type.includes("Puck"));
@@ -81,7 +87,7 @@ const CheckoutSummary = (props) => {
               <td className={styles.item}>
                 <EstimateShippingInput
                   onEnterZip={props.onEnterZip}
-                  orderWeight={orderWeight}
+                  orderWeight={weight}
                   onShippingServiceSelect={props.onShippingServiceSelect}
                   totalJars={totalJars}
                   totalPucks={totalPucks}

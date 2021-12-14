@@ -4,14 +4,17 @@ import { useEffect, useReducer } from "react";
 let defaultCartState = {
   items: [],
   total: 0,
+  weight: 0,
 };
 
 let updatedItems;
 let updatedTotal;
+let updatedWeight;
 
-const updateLocalStorage = (items, total) => {
+const updateLocalStorage = (items, total, weight) => {
   localStorage.setItem("items", JSON.stringify(items));
   localStorage.setItem("total", total);
+  localStorage.setItem("weight", weight);
 };
 
 const cartReducer = (state, action) => {
@@ -26,9 +29,15 @@ const cartReducer = (state, action) => {
       updatedTotal =
         state.total + action.item.price * Number(action.item.quantity);
 
-      updateLocalStorage(updatedItems, updatedTotal);
+      updatedWeight = state.weight + action.item.weight * action.item.quantity;
 
-      return { items: updatedItems, total: updatedTotal };
+      updateLocalStorage(updatedItems, updatedTotal, updatedWeight);
+
+      return {
+        items: updatedItems,
+        total: updatedTotal,
+        weight: updatedWeight,
+      };
     } else {
       let quantityDifference =
         action.item.quantity - state.items[sameItemIndex].quantity;
@@ -46,9 +55,16 @@ const cartReducer = (state, action) => {
 
       updatedTotal = total + action.item.price * quantityDifference;
 
-      updateLocalStorage(updatedItems, updatedTotal);
+      updatedWeight =
+        state.weight + state.items[sameItemIndex].weight * quantityDifference;
 
-      return { items: updatedItems, total: updatedTotal };
+      updateLocalStorage(updatedItems, updatedTotal, updatedWeight);
+
+      return {
+        items: updatedItems,
+        total: updatedTotal,
+        weight: updatedWeight,
+      };
     }
   }
 
@@ -62,12 +78,15 @@ const cartReducer = (state, action) => {
 
       updatedTotal = state.total - existingItem.quantity * existingItem.price;
       updatedItems = state.items.filter((item) => item.id !== action.item.id);
+      updatedWeight =
+        state.weight - existingItem.quantity * existingItem.weight;
 
-      updateLocalStorage(updatedItems, updatedTotal);
+      updateLocalStorage(updatedItems, updatedTotal, updatedWeight);
 
       return {
         items: updatedItems,
         total: updatedTotal,
+        weight: updatedWeight,
       };
     }
     const existingItemIdex = state.items.findIndex(
@@ -86,12 +105,14 @@ const cartReducer = (state, action) => {
     updatedItems[existingItemIdex] = updatedItem;
 
     updatedTotal = state.total - existingItem.price * quantityDifference;
+    updatedWeight = state.weight - existingItem.weight * quantityDifference;
 
-    updateLocalStorage(updatedItems, updatedTotal);
+    updateLocalStorage(updatedItems, updatedTotal, updatedWeight);
 
     return {
       items: updatedItems,
       total: updatedTotal,
+      weight: updatedWeight,
     };
   }
   return defaultCartState;
@@ -123,6 +144,7 @@ const CartProvider = (props) => {
   const cartContext = {
     items: cartState.items,
     total: cartState.total,
+    weight: cartState.weight,
     addItem: addItemToCartHandler,
     removeItem: removeItemFromCartHandler,
   };

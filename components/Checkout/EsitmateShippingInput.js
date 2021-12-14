@@ -18,72 +18,93 @@ const EstimateShippingInput = (props) => {
     setZip(event.target.value);
   };
 
+  console.log(
+    "total items",
+    props.totalItems,
+    cartCtx.weight,
+    props.totalJars,
+    zip
+  );
+
+  const filterServices = (data) => {
+    console.log("stuff", cartCtx.weight, props);
+    let services;
+    if (cartCtx.weight < 16) {
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("First Class Mail - Package") ||
+          service.serviceName.includes("Small Flat Rate Box")
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems === 2 &&
+      props.totalJars === 2
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes("Small Flat Rate Box")
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems === 3 &&
+      props.totalJars === 3
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems > 2 &&
+      props.totalItems < 7 &&
+      props.totalJars < 4
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems == 4 &&
+      props.totalJars === 4
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else {
+      services = data.filter((service) =>
+        service.serviceName.includes("Medium Flate Rate Box")
+      );
+    }
+    return services;
+  };
   const fetchShippingServices = () => {
+    console.log("zip", zip, cartCtx.weight);
     setLoading(true);
     const errorMessage =
       "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
     axios
       .post("/api/getShippingRates", {
         zip: zip,
-        orderWeight: props.orderWeight,
+        orderWeight: Number(cartCtx.weight),
       })
       .then((res) => {
-        let services = res.data;
-        if (props.orderWeight < 16) {
-          services = res.data.filter(
-            (service) =>
-              service.serviceName.includes("First Class Mail - Package") ||
-              service.serviceName.includes("Small Flat Rate Box")
-          );
-        } else if (
-          props.orderWeight >= 16 &&
-          props.totalItems === 2 &&
-          props.totalJars === 2
-        ) {
-          services = res.data.filter((service) =>
-            service.serviceName.includes("Small Flat Rate Box")
-          );
-        } else if (
-          props.orderWeight >= 16 &&
-          props.totalItems === 3 &&
-          props.totalJars === 3
-        ) {
-          services = res.data.filter((service) =>
-            service.serviceName.includes(
-              "Priority Mail - Flat Rate Padded Envelope"
-            )
-          );
-        } else if (
-          props.orderWeight >= 16 &&
-          props.totalItems > 2 &&
-          props.totalItems < 7 &&
-          props.totalJars < 4
-        ) {
-          services = res.data.filter((service) =>
-            service.serviceName.includes(
-              "Priority Mail - Flat Rate Padded Envelope"
-            )
-          );
-        } else if (
-          props.orderWeight >= 16 &&
-          props.totalItems == 4 &&
-          props.totalJars === 4
-        ) {
-          services = res.data.filter((service) =>
-            service.serviceName.includes(
-              "Priority Mail - Flat Rate Padded Envelope"
-            )
-          );
-        } else {
-          services = res.data.filter((service) =>
-            service.serviceName.includes("Medium Flate Rate Box")
-          );
-        }
+        let data = res.data;
 
+        console.log("services", data);
+        return filterServices(data);
+      })
+      .then((services) => {
         setCost(services);
         setLoading(false);
       })
-      .catch((err) => setError(errorMessage));
+      .catch((err) => {
+        setLoading(false);
+        setError(errorMessage);
+      });
   };
 
   const submitHandler = (event) => {
@@ -94,13 +115,15 @@ const EstimateShippingInput = (props) => {
   //const isMounted = useRef(true);
   //console.log("mounted", isMounted);
   useEffect(() => {
-    if (pageLoads < 2) {
+    if (pageLoads < 1) {
       //isMounted.current = false;
       setPageLoads((prev) => prev + 1);
     } else {
       fetchShippingServices();
     }
-  }, [cartCtx.items]);
+  }, [props.totalItems]);
+
+  console.log("cost", cost);
 
   if (loading) {
     return <Spinner />;
