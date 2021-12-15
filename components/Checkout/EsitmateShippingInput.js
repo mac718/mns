@@ -12,10 +12,13 @@ const EstimateShippingInput = (props) => {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
   const [pageLoads, setPageLoads] = useState(0);
+  const [disabled, setDisabled] = useState(true);
 
   const setZipHandler = (event) => {
-    console.log(event.target.value);
     setZip(event.target.value);
+    if (event.target.value.length === 5) {
+      setDisabled(false);
+    }
   };
 
   console.log(
@@ -154,7 +157,7 @@ const EstimateShippingInput = (props) => {
           enter in Paypal)
         </label>
         <input id="shipping" type="text" onChange={setZipHandler} value={zip} />
-        <button>Submit</button>
+        <button disabled={disabled}>Submit</button>
       </form>
       {error && <div className={styles.error}>{error}</div>}
     </>

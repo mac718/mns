@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import styles from "./confirmation.module.css";
 import Router from "next/router";
 
-export default function Confirmation() {
-  const [paid, setPaid] = useState(true);
+export default function Confirmation(props) {
+  const [paid, setPaid] = useState(false);
+
+  if (props.router) {
+    setPaid(props.router.query.paid);
+  }
 
   useEffect(() => {
     if (!paid) {

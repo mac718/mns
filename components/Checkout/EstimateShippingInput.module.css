@@ -23,6 +23,11 @@
   opacity: 0.7;
 }
 
+.estimate-buttons button:disabled {
+  opacity: 0.7;
+  cursor: auto;
+}
+
 .error {
   color: orangered;
 }
