@@ -70,6 +70,12 @@ const CheckoutButtons = (props) => {
         onError: (err) => {
           setError(err), console.error(err);
         },
+        onShippingChange: (data, action) => {
+          console.log(data.shipping_address.postal_code, props);
+          if (data.shipping_address.postal_code !== props.zip) {
+            console.log("nope");
+          }
+        },
       })
       .render(paypalRef.current);
     console.log(paypalRef.current);

@@ -13,12 +13,17 @@ const EstimateShippingInput = (props) => {
   const [loading, setLoading] = useState(false);
   const [pageLoads, setPageLoads] = useState(0);
   const [disabled, setDisabled] = useState(true);
+  const [country, setCountry] = useState(null);
 
   const setZipHandler = (event) => {
     setZip(event.target.value);
     if (event.target.value.length === 5) {
       setDisabled(false);
     }
+  };
+
+  const selectCountryHandler = (event) => {
+    setCountry(event.target.value);
   };
 
   console.log(
@@ -111,6 +116,7 @@ const EstimateShippingInput = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    props.onEnterZip(zip);
     fetchShippingServices();
   };
 
@@ -152,14 +158,46 @@ const EstimateShippingInput = (props) => {
   return (
     <>
       <form className={styles["estimate-buttons"]} onSubmit={submitHandler}>
-        <label htmlFor="shipping">
-          Enter Postal Code (must match postal code of shipping address you
-          enter in Paypal)
-        </label>
-        <input id="shipping" type="text" onChange={setZipHandler} value={zip} />
-        <button disabled={disabled}>Submit</button>
+        <div>
+          <label htmlFor="country">Select Destination Country</label>
+          <div>
+            <input
+              type="radio"
+              name="country"
+              id="US"
+              value="US"
+              onClick={selectCountryHandler}
+            />
+            <label htmlFor="US">US</label>
+
+            <input
+              type="radio"
+              name="country"
+              id="Canada"
+              value="Canada"
+              onClick={selectCountryHandler}
+            />
+            <label htmlFor="Canada">Canada</label>
+          </div>
+        </div>
+
+        {country && (
+          <div className={styles["estimate-buttons"]}>
+            <label htmlFor="shipping">
+              Enter Postal Code (must match postal code of shipping address you
+              enter in Paypal)
+            </label>
+            <input
+              id="shipping"
+              type="text"
+              onChange={setZipHandler}
+              value={zip}
+            />
+            <button disabled={disabled}>Submit</button>
+          </div>
+        )}
       </form>
-      {error && <div className={styles.error}>{error}</div>}
+      {error && country && <div className={styles.error}>{error}</div>}
     </>
   );
 };
