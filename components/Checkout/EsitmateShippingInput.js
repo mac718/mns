@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import styles from "./EstimateShippingInput.module.css";
 import axios from "axios";
 import Spinner from "../UI/Spinner";
@@ -27,7 +27,6 @@ const EstimateShippingInput = (props) => {
   );
 
   const filterServices = (data) => {
-    console.log("stuff", cartCtx.weight, props);
     let services;
     if (cartCtx.weight < 16) {
       services = data.filter(
@@ -150,7 +149,11 @@ const EstimateShippingInput = (props) => {
   return (
     <>
       <form className={styles["estimate-buttons"]} onSubmit={submitHandler}>
-        <input type="text" onChange={setZipHandler} value={zip} />
+        <label htmlFor="shipping">
+          Enter Postal Code (must match postal code of shipping address you
+          enter in Paypal)
+        </label>
+        <input id="shipping" type="text" onChange={setZipHandler} value={zip} />
         <button>Submit</button>
       </form>
       {error && <div className={styles.error}>{error}</div>}

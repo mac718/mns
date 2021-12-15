@@ -11,8 +11,6 @@ const CheckoutSummary = (props) => {
   const [weight, setWeight] = useState(0);
   const [shippingService, setShippingService] = useState(["", 0]);
 
-  console.log("weight", cartCtx.weight);
-
   useEffect(() => {
     if (localStorage.getItem("items")) {
       setItems(JSON.parse(localStorage.getItem("items")));
@@ -29,13 +27,6 @@ const CheckoutSummary = (props) => {
       setShippingService(props.shippingService);
     }
   }, [props.shippingService]);
-
-  // const orderWeight = items.reduce(
-  //   (total, current) => total + current.weight * current.quantity,
-  //   0
-  // );
-
-  // console.log(orderWeight);
 
   let jarItems = items.filter((item) => item.type.includes("Jar"));
   let puckItems = items.filter((item) => item.type.includes("Puck"));
@@ -83,7 +74,7 @@ const CheckoutSummary = (props) => {
             })}
             <tr>
               <td></td>
-              <td className={styles.item}>Estimated Shipping</td>
+              <td className={styles.item}>Shipping</td>
               <td className={styles.item}>
                 <EstimateShippingInput
                   onEnterZip={props.onEnterZip}

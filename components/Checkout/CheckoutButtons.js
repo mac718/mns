@@ -1,19 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom";
-
-//const PayPalButton = paypal.Buttons.driver("react", { React, ReactDOM });
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
-  //const [total, setTotal] = React.useState(0);
   const [shipping, setShipping] = React.useState([]);
-  console.log(props.zip);
+
   const paypalRef = React.useRef();
+
   React.useEffect(() => {
     setShipping(props.shippingService);
   }, [props.shippingService]);
+
   React.useEffect(() => {
     let lineItems;
     let total;
@@ -34,10 +32,6 @@ const CheckoutButtons = (props) => {
       }
     }
 
-    //setShipping(localStorage.getItem("shipping").split(","));
-
-    console.log("shipping", Number(total) + Number(props.shippingService[1]));
-
     lineItems = [
       ...lineItems,
       {
@@ -48,7 +42,6 @@ const CheckoutButtons = (props) => {
       },
     ];
 
-    console.log(lineItems);
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
@@ -82,16 +75,18 @@ const CheckoutButtons = (props) => {
         },
         onShippingChange: (data, actions) => {
           console.log(data.shipping_address);
-          // if (data.shipping_address.zip_code !== enteredZip) {
-          //   actions.reject("Entered zip and Address zip don't match.");
-          // }
+          if (data.shipping_address.zip_code !== enteredZip) {
+            setError("Entered zip and Address zip don't match.");
+            actions.reject();
+          }
           if (
             !(
               data.shipping_address.country_code === "US" ||
               data.shipping_address.country_code === "CA"
             )
           ) {
-            actions.reject("wrong country");
+            setError("Shipping is only available to the US and Canada.");
+            actions.reject();
           }
           actions.resolve();
         },

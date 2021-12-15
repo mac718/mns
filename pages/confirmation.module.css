@@ -1,0 +1,22 @@
+.confirmation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.thank-you {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.thank-you div {
+  font-size: 10rem;
+}
+
+.thank-you p {
+  font-size: 1.5rem;
+}
