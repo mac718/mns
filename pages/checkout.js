@@ -26,9 +26,15 @@ export default function Checkout(props) {
     } else {
       localStorage.setItem("shipping", shippingService);
       setServiceSelected(false);
-      setTimeout(() => {
+
+      //create slight delay to prevent batch processing of state changes so
+      //CheckoutButtons is re-evaluated and changed shipping info is received
+      const timer = setTimeout(() => {
         setServiceSelected(true);
       }, 500);
+      return () => {
+        clearTimeout(timer);
+      };
     }
   }, [shippingService]);
 

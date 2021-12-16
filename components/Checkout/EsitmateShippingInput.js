@@ -52,100 +52,57 @@ const EstimateShippingInput = (props) => {
 
   const filterServices = (data) => {
     let services;
-    if ((country = "US")) {
-      if (cartCtx.weight < 16) {
-        services = data.filter(
-          (service) =>
-            service.serviceName.includes("First Class Mail - Package") ||
-            service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems === 2 &&
-        props.totalJars === 2
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems === 3 &&
-        props.totalJars === 3
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes(
-            "Priority Mail - Flat Rate Padded Envelope"
-          )
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems > 2 &&
-        props.totalItems < 7 &&
-        props.totalJars < 4
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes(
-            "Priority Mail - Flat Rate Padded Envelope"
-          )
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems == 4 &&
-        props.totalJars === 4
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes(
-            "Priority Mail - Flat Rate Padded Envelope"
-          )
-        );
-      } else {
-        services = data.filter((service) =>
-          service.serviceName.includes("Medium Flate Rate Box")
-        );
-      }
-    }
 
-    if (country === "CA") {
-      if (cartCtx.weight < 16) {
-        services = data.filter(
-          (service) =>
-            service.serviceName.includes("First Class Mail Intl - Package") ||
-            service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (cartCtx.weight >= 16 && totalItems === 2 && totalJars == 2) {
-        services = data.filter((service) =>
+    if (cartCtx.weight < 16) {
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("First Class Mail - Package") ||
+          service.serviceName.includes("First Class Mail Intl- Package") ||
           service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (cartCtx.weight >= 16 && totalItems === 2 && totalJars === 1) {
-        services = data.filter((service) =>
-          service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (cartCtx.weight >= 16 && totalItems === 3 && totalJars === 0) {
-        services = data.filter((service) =>
-          service.serviceName.includes("Small Flat Rate Box")
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems > 2 &&
-        props.totalItems < 7 &&
-        props.totalJars < 4
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes("Flat Rate Padded Envelope")
-        );
-      } else if (
-        cartCtx.weight >= 16 &&
-        props.totalItems == 4 &&
-        props.totalJars === 4
-      ) {
-        services = data.filter((service) =>
-          service.serviceName.includes("Flat Rate Padded Envelope")
-        );
-      } else {
-        services = data.filter((service) =>
-          service.serviceName.includes("Medium Flate Rate Box")
-        );
-      }
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems === 2 &&
+      props.totalJars === 2
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes("Small Flat Rate Box")
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems === 3 &&
+      props.totalJars === 3
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems > 2 &&
+      props.totalItems < 7 &&
+      props.totalJars < 4
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else if (
+      cartCtx.weight >= 16 &&
+      props.totalItems == 4 &&
+      props.totalJars === 4
+    ) {
+      services = data.filter((service) =>
+        service.serviceName.includes(
+          "Priority Mail - Flat Rate Padded Envelope"
+        )
+      );
+    } else {
+      services = data.filter((service) =>
+        service.serviceName.includes("Medium Flate Rate Box")
+      );
     }
 
     return services;
