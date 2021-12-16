@@ -6,9 +6,12 @@ const CheckoutButtons = (props) => {
   const [shipping, setShipping] = React.useState([]);
 
   const paypalRef = React.useRef();
-  React.useEffect(() => {
-    setShipping(props.shippingService);
-  }, [props.shippingService]);
+
+  console.log(props.shippingService);
+  //setShipping(props.shippingService);
+  // React.useEffect(() => {
+
+  // }, [props.shippingService]);
 
   React.useEffect(() => {
     let lineItems;
@@ -24,21 +27,24 @@ const CheckoutButtons = (props) => {
         };
       });
 
+      lineItems = [
+        ...lineItems,
+        {
+          name: `Shipping: ${props.shippingService[0]}`,
+          unit_amount: {
+            value: props.shippingService[1],
+            currency_code: "USD",
+          },
+          quantity: 1,
+          description: "Shipping",
+        },
+      ];
+
       if (localStorage.total) {
         console.log(localStorage.getItem("total"));
         total = localStorage.getItem("total");
       }
     }
-
-    lineItems = [
-      ...lineItems,
-      {
-        name: `Shipping: ${props.shippingService[0]}`,
-        unit_amount: { value: props.shippingService[1], currency_code: "USD" },
-        quantity: 1,
-        description: "Shipping",
-      },
-    ];
 
     window.paypal
       .Buttons({
@@ -70,7 +76,9 @@ const CheckoutButtons = (props) => {
         onError: (err) => {
           setError(err), console.error(err);
         },
-        onShippingChange: (data, action) => {
+        onShippingChange: async (data, action) => {
+          // let services = await props.fetchShippingServices(props.filter);
+          // console.log(services);
           console.log(data.shipping_address.postal_code, props);
           if (data.shipping_address.postal_code !== props.zip) {
             console.log("nope");
