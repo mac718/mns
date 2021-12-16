@@ -93,6 +93,7 @@ const CheckoutButtons = (props) => {
 
   if (paid) {
     localStorage.clear();
+    localStorage.setItem("paid", true);
     router.push("/confirmation");
     return <div>Payment successful!</div>;
   }
