@@ -23,7 +23,7 @@ function runMiddleware(req, res, fn) {
 export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
-  const { zip, orderWeight } = req.body;
+  const { country, zip, orderWeight } = req.body;
 
   const headers = {
     "Content-Type": "application/json",
@@ -41,7 +41,7 @@ export default async function handler(req, res) {
     packageCode: null,
     fromPostalCode: "97225",
     toState: null,
-    toCountry: "US",
+    toCountry: `${country}`,
     toPostalCode: `${zip}`,
     toCity: null,
     weight: { value: orderWeight, units: "ounces" },
@@ -49,13 +49,16 @@ export default async function handler(req, res) {
     confirmation: null,
     residential: true,
   };
-
-  rates = await axios({
-    method: "POST",
-    url: "https://ssapi.shipstation.com/shipments/getrates",
-    data: raw,
-    headers: headers,
-  });
+  try {
+    rates = await axios({
+      method: "POST",
+      url: "https://ssapi.shipstation.com/shipments/getrates",
+      data: raw,
+      headers: headers,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 
   return res.send(rates.data);
 }

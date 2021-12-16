@@ -14,11 +14,27 @@ const EstimateShippingInput = (props) => {
   const [pageLoads, setPageLoads] = useState(0);
   const [disabled, setDisabled] = useState(true);
   const [country, setCountry] = useState(null);
+  const [maxZipLength, setMaxZipLength] = useState(null);
 
   const setZipHandler = (event) => {
     setZip(event.target.value);
-    if (event.target.value.length === 5) {
-      setDisabled(false);
+    if (country === "US") {
+      setMaxZipLength(5);
+
+      if (event.target.value.length === 5) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
+      }
+    }
+    if (country === "CA") {
+      setMaxZipLength(7);
+
+      if (event.target.value.length === 7) {
+        setDisabled(false);
+      } else {
+        setDisabled(true);
+      }
     }
   };
 
@@ -36,56 +52,102 @@ const EstimateShippingInput = (props) => {
 
   const filterServices = (data) => {
     let services;
-    if (cartCtx.weight < 16) {
-      services = data.filter(
-        (service) =>
-          service.serviceName.includes("First Class Mail - Package") ||
+    if ((country = "US")) {
+      if (cartCtx.weight < 16) {
+        services = data.filter(
+          (service) =>
+            service.serviceName.includes("First Class Mail - Package") ||
+            service.serviceName.includes("Small Flat Rate Box")
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems === 2 &&
+        props.totalJars === 2
+      ) {
+        services = data.filter((service) =>
           service.serviceName.includes("Small Flat Rate Box")
-      );
-    } else if (
-      cartCtx.weight >= 16 &&
-      props.totalItems === 2 &&
-      props.totalJars === 2
-    ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Small Flat Rate Box")
-      );
-    } else if (
-      cartCtx.weight >= 16 &&
-      props.totalItems === 3 &&
-      props.totalJars === 3
-    ) {
-      services = data.filter((service) =>
-        service.serviceName.includes(
-          "Priority Mail - Flat Rate Padded Envelope"
-        )
-      );
-    } else if (
-      cartCtx.weight >= 16 &&
-      props.totalItems > 2 &&
-      props.totalItems < 7 &&
-      props.totalJars < 4
-    ) {
-      services = data.filter((service) =>
-        service.serviceName.includes(
-          "Priority Mail - Flat Rate Padded Envelope"
-        )
-      );
-    } else if (
-      cartCtx.weight >= 16 &&
-      props.totalItems == 4 &&
-      props.totalJars === 4
-    ) {
-      services = data.filter((service) =>
-        service.serviceName.includes(
-          "Priority Mail - Flat Rate Padded Envelope"
-        )
-      );
-    } else {
-      services = data.filter((service) =>
-        service.serviceName.includes("Medium Flate Rate Box")
-      );
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems === 3 &&
+        props.totalJars === 3
+      ) {
+        services = data.filter((service) =>
+          service.serviceName.includes(
+            "Priority Mail - Flat Rate Padded Envelope"
+          )
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems > 2 &&
+        props.totalItems < 7 &&
+        props.totalJars < 4
+      ) {
+        services = data.filter((service) =>
+          service.serviceName.includes(
+            "Priority Mail - Flat Rate Padded Envelope"
+          )
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems == 4 &&
+        props.totalJars === 4
+      ) {
+        services = data.filter((service) =>
+          service.serviceName.includes(
+            "Priority Mail - Flat Rate Padded Envelope"
+          )
+        );
+      } else {
+        services = data.filter((service) =>
+          service.serviceName.includes("Medium Flate Rate Box")
+        );
+      }
     }
+
+    if (country === "CA") {
+      if (cartCtx.weight < 16) {
+        services = data.filter(
+          (service) =>
+            service.serviceName.includes("First Class Mail Intl - Package") ||
+            service.serviceName.includes("Small Flat Rate Box")
+        );
+      } else if (cartCtx.weight >= 16 && totalItems === 2 && totalJars == 2) {
+        services = data.filter((service) =>
+          service.serviceName.includes("Small Flat Rate Box")
+        );
+      } else if (cartCtx.weight >= 16 && totalItems === 2 && totalJars === 1) {
+        services = data.filter((service) =>
+          service.serviceName.includes("Small Flat Rate Box")
+        );
+      } else if (cartCtx.weight >= 16 && totalItems === 3 && totalJars === 0) {
+        services = data.filter((service) =>
+          service.serviceName.includes("Small Flat Rate Box")
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems > 2 &&
+        props.totalItems < 7 &&
+        props.totalJars < 4
+      ) {
+        services = data.filter((service) =>
+          service.serviceName.includes("Flat Rate Padded Envelope")
+        );
+      } else if (
+        cartCtx.weight >= 16 &&
+        props.totalItems == 4 &&
+        props.totalJars === 4
+      ) {
+        services = data.filter((service) =>
+          service.serviceName.includes("Flat Rate Padded Envelope")
+        );
+      } else {
+        services = data.filter((service) =>
+          service.serviceName.includes("Medium Flate Rate Box")
+        );
+      }
+    }
+
     return services;
   };
   const fetchShippingServices = () => {
@@ -95,6 +157,7 @@ const EstimateShippingInput = (props) => {
       "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
     axios
       .post("/api/getShippingRates", {
+        country: country,
         zip: zip,
         orderWeight: Number(cartCtx.weight),
       })
@@ -120,11 +183,8 @@ const EstimateShippingInput = (props) => {
     fetchShippingServices();
   };
 
-  //const isMounted = useRef(true);
-  //console.log("mounted", isMounted);
   useEffect(() => {
     if (pageLoads < 1) {
-      //isMounted.current = false;
       setPageLoads((prev) => prev + 1);
     } else {
       fetchShippingServices();
@@ -174,7 +234,7 @@ const EstimateShippingInput = (props) => {
               type="radio"
               name="country"
               id="Canada"
-              value="Canada"
+              value="CA"
               onClick={selectCountryHandler}
             />
             <label htmlFor="Canada">Canada</label>
@@ -192,6 +252,7 @@ const EstimateShippingInput = (props) => {
               type="text"
               onChange={setZipHandler}
               value={zip}
+              maxLength={maxZipLength}
             />
             <button disabled={disabled}>Submit</button>
           </div>
