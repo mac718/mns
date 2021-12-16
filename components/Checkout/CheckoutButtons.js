@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import React from "react";
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
@@ -6,6 +7,7 @@ const CheckoutButtons = (props) => {
   const [shipping, setShipping] = React.useState([]);
 
   const paypalRef = React.useRef();
+  const router = useRouter();
 
   console.log(props.shippingService);
   //setShipping(props.shippingService);
@@ -49,6 +51,7 @@ const CheckoutButtons = (props) => {
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
+          console.log(data);
           return actions.order.create({
             intent: "CAPTURE",
             purchase_units: [
@@ -76,13 +79,12 @@ const CheckoutButtons = (props) => {
         onError: (err) => {
           setError(err), console.error(err);
         },
-        onShippingChange: async (data, action) => {
-          // let services = await props.fetchShippingServices(props.filter);
-          // console.log(services);
+        onShippingChange: async (data, actions) => {
           console.log(data.shipping_address.postal_code, props);
           if (data.shipping_address.postal_code !== props.zip) {
-            console.log("nope");
+            actions.reject();
           }
+          actions.resolve();
         },
       })
       .render(paypalRef.current);
@@ -91,7 +93,7 @@ const CheckoutButtons = (props) => {
 
   if (paid) {
     localStorage.clear();
-
+    router.push("/confirmation");
     return <div>Payment successful!</div>;
   }
 
@@ -100,25 +102,6 @@ const CheckoutButtons = (props) => {
     return <div>Error Occurred in processing payment! Please try again.</div>;
   }
 
-  // {
-  //   checkout === true ? (
-  //     <div className="payment-div">
-  //       <ReactPayPal total={500} />
-  //     </div>
-  //   ) : (
-  //     <div>
-  //       <h1>React-PayPal</h1>
-  //       <button
-  //         onClick={() => {
-  //           setCheckout(true);
-  //         }}
-  //         className="checkout-button"
-  //       >
-  //         Checkout
-  //       </button>
-  //     </div>
-  //   );
-  // }
   return <div ref={paypalRef}></div>;
 };
 
