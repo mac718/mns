@@ -1,9 +1,23 @@
 .footer {
-  width: 100%;
+  width: 50%;
   margin: auto;
   text-align: center;
   font-size: 16px;
   border-top: solid;
   border-width: thin;
   padding: 30px;
+}
+
+.footer a {
+  color: #223366;
+  text-decoration: none;
+}
+.footer a:hover {
+  font-weight: bold;
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    width: 100%;
+  }
 }
