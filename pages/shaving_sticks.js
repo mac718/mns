@@ -4,7 +4,8 @@ import sticks from "../public/shaving_sticks.JPG";
 import Image from "next/image";
 import Notifications from "../components/Notifications";
 import Heading from "../components/Heading";
-import { shaveSticks } from "../shavingProducts";
+//import { shaveSticks } from "../shavingProducts";
+import shavingProducts from "../products.json";
 import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
 
@@ -31,7 +32,7 @@ export default function ShavingSticks() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {shaveSticks.map((variety) => (
+          {shavingProducts.shaveSticks.map((variety) => (
             <ShavingProductItem
               key={variety.id}
               name={variety.scent}

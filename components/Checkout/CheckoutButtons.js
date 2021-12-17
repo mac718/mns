@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { updateStock } from "../../shavingProducts";
+import updateStock from "../../products.json";
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
@@ -12,10 +12,6 @@ const CheckoutButtons = (props) => {
   const router = useRouter();
 
   console.log(props.shippingService);
-  //setShipping(props.shippingService);
-  // React.useEffect(() => {
-
-  // }, [props.shippingService]);
 
   React.useEffect(() => {
     let lineItems;

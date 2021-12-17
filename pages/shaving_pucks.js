@@ -5,7 +5,8 @@ import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
 import Footer from "../components/Footer";
-import { pucks } from "../shavingProducts";
+//import { pucks } from "../shavingProducts";
+import shavingProducts from "../products.json";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
 
@@ -39,7 +40,7 @@ export default function ShavingPucks() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {pucks.map((variety) => {
+          {shavingProducts.pucks.map((variety) => {
             return (
               <ShavingProductItem
                 key={variety.id}
