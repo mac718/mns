@@ -52,6 +52,7 @@ const EstimateShippingInput = (props) => {
 
   const filterServices = (data) => {
     let services;
+    console.log("weight", cartCtx.weight);
 
     if (cartCtx.weight < 16) {
       services = data.filter(
@@ -63,7 +64,7 @@ const EstimateShippingInput = (props) => {
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems === 2 &&
-      (props.totalJars === 1 || totalJars === 2)
+      (props.totalJars === 1 || props.totalJars === 2)
     ) {
       services = data.filter((service) =>
         service.serviceName.includes("Small Flat Rate Box")
