@@ -58,6 +58,11 @@ const CheckoutSummary = (props) => {
           <button onClick={props.onShow}>Edit Order</button>
         </div>
         <table className={styles.summary}>
+          <thead>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Cost</th>
+          </thead>
           <tbody>
             {items.map((item) => {
               return (

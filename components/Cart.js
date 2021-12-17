@@ -27,7 +27,7 @@ const Cart = (props) => {
   };
 
   const onBlurHandler = (event, item) => {
-    if (event.target.value === "") {
+    if (event.target.value === "" || event.target.value === "0") {
       cartCtx.removeItem(item);
     }
   };

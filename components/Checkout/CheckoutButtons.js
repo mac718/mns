@@ -1,5 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { updateStock } from "../../shavingProducts";
+
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
@@ -92,6 +94,12 @@ const CheckoutButtons = (props) => {
   }, []);
 
   if (paid) {
+    try {
+      updateStock(JSON.parse(localStorage.getItem("items")));
+    } catch (error) {
+      console.log(error);
+    }
+
     localStorage.clear();
     localStorage.setItem("paid", true);
     router.push("/confirmation");

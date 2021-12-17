@@ -14,24 +14,7 @@ export const jars = [
     price: 13.0,
     description:
       "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="EYKE47SL9ET5A" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 14,
     weight: JAR_WEIGHT,
   },
   {
@@ -39,8 +22,7 @@ export const jars = [
     scent: "Bay Rum",
     price: 16.0,
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -49,24 +31,7 @@ export const jars = [
     price: 15.0,
     description:
       "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="74RCMESZRQXBL" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 1,
     weight: JAR_WEIGHT,
   },
   {
@@ -74,24 +39,7 @@ export const jars = [
     scent: "Coconut",
     price: 13.0,
     description: "Refreshing raw coconut with a base of vanilla.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="6T5MWC2LT59QL" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 3,
     weight: JAR_WEIGHT,
   },
   {
@@ -100,8 +48,7 @@ export const jars = [
     price: 15.0,
     description:
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
 
@@ -111,24 +58,7 @@ export const jars = [
     price: 14.0,
     description:
       "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="DZ3Z84XYXTW4C" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 4,
     weight: JAR_WEIGHT,
   },
   {
@@ -136,8 +66,7 @@ export const jars = [
     scent: "Lemongrass & Eucalyptus",
     price: 13.5,
     description: "Dry, lemony, and invigorating.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -145,8 +74,7 @@ export const jars = [
     scent: "Lime",
     price: 14.0,
     description: "Simple, sweet, citrusy invigorating lime",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -155,24 +83,7 @@ export const jars = [
     price: 14.5,
     description:
       "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="9EXE864P7LZ78" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 3,
     weight: JAR_WEIGHT,
   },
   {
@@ -181,8 +92,7 @@ export const jars = [
     price: 14.0,
     description:
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -191,8 +101,7 @@ export const jars = [
     price: 14.0,
     description:
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -201,24 +110,7 @@ export const jars = [
     price: 15.0,
     description:
       "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="SLHP9MZM69CYS" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 1,
     weight: JAR_WEIGHT,
   },
   {
@@ -227,24 +119,7 @@ export const jars = [
     price: 12.5,
     description:
       "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="25Y23T6Y8AVPC" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 12,
     weight: JAR_WEIGHT,
   },
   {
@@ -253,8 +128,7 @@ export const jars = [
     price: 19.0,
     description:
       "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
   {
@@ -263,7 +137,7 @@ export const jars = [
     price: 14.0,
     description:
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
-    inStock: false,
+    inStock: 0,
     weight: JAR_WEIGHT,
   },
 ];
@@ -275,24 +149,7 @@ export const pucks = [
     price: 10.5,
     description:
       "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="UZKC9RWW5GUW4" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 10,
     weight: PUCK_WEIGHT,
   },
   {
@@ -300,8 +157,7 @@ export const pucks = [
     scent: "Bay Rum",
     price: 13.5,
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -310,8 +166,7 @@ export const pucks = [
     price: 12.5,
     description:
       "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -319,8 +174,7 @@ export const pucks = [
     scent: "Coconut",
     price: 10.5,
     description: "Refreshing raw coconut with a base of vanilla.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -329,8 +183,7 @@ export const pucks = [
     price: 12.5,
     description:
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
 
@@ -340,24 +193,7 @@ export const pucks = [
     price: 11.5,
     description:
       "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="4CJPYX3CS5KNJ" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 8,
     weight: PUCK_WEIGHT,
   },
   {
@@ -365,8 +201,7 @@ export const pucks = [
     scent: "Lemongrass & Eucalyptus",
     price: 11.0,
     description: "Dry, lemony, and invigorating.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -374,8 +209,7 @@ export const pucks = [
     scent: "Lime",
     price: 11.5,
     description: "Simple, sweet, citrusy invigorating lime",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -384,8 +218,7 @@ export const pucks = [
     price: 12.0,
     description:
       "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -394,8 +227,7 @@ export const pucks = [
     price: 11.5,
     description:
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -404,8 +236,7 @@ export const pucks = [
     price: 11.5,
     description:
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -414,8 +245,7 @@ export const pucks = [
     price: 12.5,
     description:
       "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
   {
@@ -424,24 +254,7 @@ export const pucks = [
     price: 10.0,
     description:
       "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
-    inStock: true,
-    button: (
-      <form
-        target="paypal"
-        action="https://www.paypal.com/cgi-bin/webscr"
-        method="post"
-      >
-        <input type="hidden" name="cmd" value="_s-xclick" />
-        <input type="hidden" name="hosted_button_id" value="MXB8J6FY6E88Q" />
-        <input
-          type="image"
-          src="https://www.paypalobjects.com/en_US/i/btn/btn_cart_LG.gif"
-          border="0"
-          name="submit"
-          alt="PayPal - The safer, easier way to pay online!"
-        />
-      </form>
-    ),
+    inStock: 5,
     weight: PUCK_WEIGHT,
   },
   {
@@ -460,8 +273,7 @@ export const pucks = [
     price: 11.5,
     description:
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: PUCK_WEIGHT,
   },
 ];
@@ -473,8 +285,7 @@ export const shaveSticks = [
     price: 10.5,
     description:
       "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -482,8 +293,7 @@ export const shaveSticks = [
     scent: "Bay Rum",
     price: 13.5,
     description: "Spicy bay leaf combined with bergamot and a dab of vanilla.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -492,8 +302,7 @@ export const shaveSticks = [
     price: 12.5,
     description:
       "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -501,8 +310,7 @@ export const shaveSticks = [
     scent: "Coconut",
     price: 10.5,
     description: "Refreshing raw coconut with a base of vanilla.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -511,8 +319,7 @@ export const shaveSticks = [
     price: 12.5,
     description:
       "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
 
@@ -522,8 +329,7 @@ export const shaveSticks = [
     price: 11.5,
     description:
       "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -531,8 +337,7 @@ export const shaveSticks = [
     scent: "Lemongrass & Eucalyptus",
     price: 11.0,
     description: "Dry, lemony, and invigorating.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -540,8 +345,7 @@ export const shaveSticks = [
     scent: "Lime",
     price: 11.5,
     description: "Simple, sweet, citrusy invigorating lime",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -550,8 +354,7 @@ export const shaveSticks = [
     price: 12.0,
     description:
       "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -560,8 +363,7 @@ export const shaveSticks = [
     price: 11.5,
     description:
       "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -570,8 +372,7 @@ export const shaveSticks = [
     price: 11.5,
     description:
       "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -580,8 +381,7 @@ export const shaveSticks = [
     price: 12.5,
     description:
       "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -590,8 +390,7 @@ export const shaveSticks = [
     price: 10.0,
     description:
       "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -600,8 +399,7 @@ export const shaveSticks = [
     price: 16.5,
     description:
       "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
   {
@@ -610,8 +408,7 @@ export const shaveSticks = [
     price: 11.5,
     description:
       "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
-    inStock: false,
-    button: "",
+    inStock: 0,
     weight: STICK_WIEGHT,
   },
 ];
@@ -622,3 +419,16 @@ export const shavingSoapFormats = [
   { type: "Sticks", image: smallStick, url: "/shaving_jars" },
   { type: "Sample Pucks", image: smallLogo, url: "/shaving_jars" },
 ];
+
+export const updateStock = (order) => {
+  console.log("order", order);
+  order.forEach((item) => {
+    let purchasedItem;
+    if (item.id.includes("SSJ")) {
+      purchasedItem = jars.filter((jar) => jar.id === item.id);
+    } else if (item.id.includes("SSP")) {
+      purchasedItem = pucks.filter((jar) => jar.id === item.id);
+    }
+    purchasedItem.inStock -= item.quantity;
+  });
+};
