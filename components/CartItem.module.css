@@ -16,3 +16,9 @@
 .input::-webkit-inner-spin-button {
   height: 2rem;
 }
+
+.error {
+  color: red;
+  width: 100%;
+  text-align: center;
+}

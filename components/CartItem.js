@@ -29,7 +29,9 @@ const CartItem = (props) => {
             })
           }
         />
-        {props.error && props.errorId === props.id && <div>{props.error}</div>}
+        {props.error && props.errorId === props.id && (
+          <div className={styles.error}>{props.error}</div>
+        )}
         <div>${(Number(props.price) * Number(props.quantity)).toFixed(2)}</div>
       </div>
     </div>
