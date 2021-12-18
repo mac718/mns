@@ -1,5 +1,6 @@
 import CartContext from "./cart-context";
 import { useEffect, useReducer } from "react";
+import shavingProducts from "../products.json";
 
 let defaultCartState = {
   items: [],

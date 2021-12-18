@@ -6,19 +6,44 @@ import Modal from "./UI/Modal";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Heading from "./Heading";
+import shavingProducts from "../products.json";
+import { useState } from "react";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
   const router = useRouter();
 
+  const [error, setError] = useState("");
+  const [errorId, setErrorId] = useState(null);
+
   const onChangeQuantity = (event, item) => {
     console.log("qunat", item.quantity);
+    setError(false);
     const itemIndex = cartCtx.items.findIndex(
       (ctxItem) => ctxItem.id === item.id
     );
+    let amountInStock;
+    if (item.id.includes("SSJ")) {
+      amountInStock = shavingProducts.jars.filter(
+        (jar) => jar.id === item.id
+      )[0].inStock;
+    } else if (item.id.includes("SSP")) {
+      amountInStock = shavingProducts.pucks.filter(
+        (puck) => puck.id === item.id
+      )[0].inStock;
+    }
+
+    if (item.quantity > amountInStock) {
+      setError(
+        `Only ${amountInStock} of this item availble. Please enter ${amountInStock} or fewer.`
+      );
+      setErrorId(item.id);
+      return;
+    }
+
     console.log(cartCtx.total);
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
-      cartCtx.addItem(event, { ...item, quantity: item.quantity }); //
+      cartCtx.addItem(event, { ...item, quantity: item.quantity });
     } else if (!item.quantity) {
       return;
     } else {
@@ -46,6 +71,8 @@ const Cart = (props) => {
             type={item.type}
             onChange={onChangeQuantity}
             onBlur={onBlurHandler}
+            error={error}
+            errorId={errorId}
           />
         );
       })}
