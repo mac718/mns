@@ -5,7 +5,11 @@ import styles from "./ShavingProductItemForm.module.css";
 const ShavingProductItemForm = (props) => {
   const cartCtx = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
+  const [error, setError] = useState("");
+  const [disabled, setDisabled] = useState(false);
+
   const inputRef = useRef();
+
   const existingItemIndex = cartCtx.items.findIndex(
     (item) => item.id === props.id
   );
@@ -13,6 +17,21 @@ const ShavingProductItemForm = (props) => {
 
   const inputChangeHandler = (e) => {
     e.preventDefault();
+    setError("");
+    console.log(e.target.value);
+    if (existingItem) {
+      console.log("instock", existingItem.quantity, e.target.value);
+      if (
+        Number(existingItem.quantity) + Number(e.target.value) >
+        existingItem.inStock
+      ) {
+        setError(
+          `Only ${existingItem.inStock} in stock. Please adjust quantity.`
+        );
+        setDisabled(true);
+        return;
+      }
+    }
     setQuantity(Number(inputRef.current.value));
   };
   let cumulativeQuantity = existingItem
@@ -33,6 +52,7 @@ const ShavingProductItemForm = (props) => {
       </span>
       <button
         className={styles["add-to-cart"]}
+        disabled={disabled}
         onClick={(event) =>
           cartCtx.addItem(event, {
             id: props.id,
@@ -41,11 +61,13 @@ const ShavingProductItemForm = (props) => {
             quantity: cumulativeQuantity,
             weight: props.weight,
             type: props.type,
+            inStock: props.inStock,
           })
         }
       >
         Add To Cart
       </button>
+      {error && <div>{error}</div>}
     </form>
   );
 };

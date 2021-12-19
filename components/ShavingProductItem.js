@@ -17,6 +17,7 @@ const ShavingProductItem = (props) => {
             price={props.price}
             id={props.id}
             type={props.type}
+            inStock={props.inStock}
           />
         ) : (
           <span className={styles["out-of-stock"]}>Out Of Stock</span>

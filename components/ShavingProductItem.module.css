@@ -2,7 +2,7 @@
   border: solid 1px #aaa;
   padding: 1rem;
   background-color: #eee;
-  height: 10rem;
+  min-height: 10rem;
   margin-bottom: 2rem;
   font-size: 1.15rem;
   display: flex;
