@@ -13,9 +13,9 @@ const NavBar = (props) => {
           </a>
         </li>
         <li className={styles["list-item"]}>
-          <a href="Bath Soaps.html" className={styles.link}>
+          <Link href="/bath_soaps" className={styles.link}>
             Bath Soaps
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
           <Link href="/shampoo_bar" className={styles.link}>
@@ -28,19 +28,19 @@ const NavBar = (props) => {
           </Link>
         </li>
         <li className={styles["list-item"]}>
-          <a href="About Mike.html" className={styles.link}>
+          <Link href="/about_mike" className={styles.link}>
             About Mike/Contact
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <a href="Properties and Benefits.html" className={styles.link}>
+          <Link href="/properties" className={styles.link}>
             Properties and Benefits of Oils/Butters
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
-          <a href="FAQ.html" className={styles.link}>
+          <Link href="/faq" className={styles.link}>
             FAQ
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
