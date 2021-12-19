@@ -25,6 +25,8 @@ export default async function handler(req, res) {
 
   const { country, zip, orderWeight } = req.body;
 
+  console.log(process.env.SHIPSTATION_AUTH);
+
   const headers = {
     "Content-Type": "application/json",
     Authorization: `Basic ${process.env.SHIPSTATION_AUTH}`,
