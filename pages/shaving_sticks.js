@@ -32,7 +32,7 @@ export default function ShavingSticks() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {shavingProducts.shaveSticks.map((variety) => (
+          {shavingProducts.sticks.map((variety) => (
             <ShavingProductItem
               key={variety.id}
               name={variety.scent}
