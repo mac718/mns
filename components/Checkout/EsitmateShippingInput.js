@@ -144,7 +144,7 @@ const EstimateShippingInput = (props) => {
   };
 
   useEffect(() => {
-    if (pageLoads < 1) {
+    if (pageLoads < 2) {
       setPageLoads((prev) => prev + 1);
     } else {
       fetchShippingServices();

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import CartContext from "../store/cart-context";
 import styles from "./ShavingProductItemForm.module.css";
 
@@ -38,12 +38,13 @@ const ShavingProductItemForm = (props) => {
       </span>
       <button
         className={styles["add-to-cart"]}
-        disabled={disabled}
         onClick={(event) => {
           event.preventDefault();
           if (
-            Number(existingItem.quantity) + Number(inputRef.current.value) <=
-            existingItem.inStock
+            (existingItem &&
+              Number(existingItem.quantity) + Number(inputRef.current.value) <=
+                existingItem.inStock) ||
+            (!existingItem && Number(inputRef.current.value) <= props.inStock)
           ) {
             cartCtx.addItem(event, {
               id: props.id,
