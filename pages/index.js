@@ -5,6 +5,7 @@ import MainImage from "../components/MainImage";
 import Heading from "../components/Heading";
 import Footer from "../components/Footer";
 import SubHeading from "../components/SubHeading";
+import Script from "next/script";
 
 export default function Home() {
   return (
