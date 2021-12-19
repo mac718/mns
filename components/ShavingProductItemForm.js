@@ -64,7 +64,7 @@ const ShavingProductItemForm = (props) => {
       >
         Add To Cart
       </button>
-      {error && <div>{error}</div>}
+      {error && <div className={styles.error}>{error}</div>}
     </form>
   );
 };
