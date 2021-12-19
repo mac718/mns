@@ -11,8 +11,6 @@ const CheckoutButtons = (props) => {
   const paypalRef = React.useRef();
   const router = useRouter();
 
-  console.log(props.shippingService);
-
   React.useEffect(() => {
     let lineItems;
     let total;
@@ -41,7 +39,6 @@ const CheckoutButtons = (props) => {
       ];
 
       if (localStorage.total) {
-        console.log(localStorage.getItem("total"));
         total = localStorage.getItem("total");
       }
     }
@@ -49,7 +46,6 @@ const CheckoutButtons = (props) => {
     window.paypal
       .Buttons({
         createOrder: (data, actions) => {
-          console.log(data);
           return actions.order.create({
             intent: "CAPTURE",
             purchase_units: [
@@ -72,13 +68,11 @@ const CheckoutButtons = (props) => {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
           setPaid(true);
-          console.log(order);
         },
         onError: (err) => {
           setError(err), console.error(err);
         },
         onShippingChange: async (data, actions) => {
-          console.log(data.shipping_address.postal_code, props);
           if (data.shipping_address.postal_code !== props.zip) {
             actions.reject();
           }
@@ -86,7 +80,6 @@ const CheckoutButtons = (props) => {
         },
       })
       .render(paypalRef.current);
-    console.log(paypalRef.current);
   }, []);
 
   if (paid) {

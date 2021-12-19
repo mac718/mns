@@ -42,17 +42,8 @@ const EstimateShippingInput = (props) => {
     setCountry(event.target.value);
   };
 
-  console.log(
-    "total items",
-    props.totalItems,
-    cartCtx.weight,
-    props.totalJars,
-    zip
-  );
-
   const filterServices = (data) => {
     let services;
-    console.log("weight", cartCtx.weight);
 
     if (cartCtx.weight < 16) {
       services = data.filter(
@@ -111,7 +102,6 @@ const EstimateShippingInput = (props) => {
     return services;
   };
   const fetchShippingServices = () => {
-    console.log("zip", zip, cartCtx.weight);
     setLoading(true);
     const errorMessage =
       "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
@@ -123,8 +113,6 @@ const EstimateShippingInput = (props) => {
       })
       .then((res) => {
         let data = res.data;
-
-        console.log("services", data);
         return filterServices(data);
       })
       .then((services) => {
@@ -150,8 +138,6 @@ const EstimateShippingInput = (props) => {
       fetchShippingServices();
     }
   }, [props.totalItems]);
-
-  console.log("cost", cost);
 
   if (loading) {
     return <Spinner />;

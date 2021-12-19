@@ -17,7 +17,6 @@ const Cart = (props) => {
   const [errorId, setErrorId] = useState(null);
 
   const onChangeQuantity = (event, item) => {
-    console.log("qunat", item.quantity);
     setError(false);
     const itemIndex = cartCtx.items.findIndex(
       (ctxItem) => ctxItem.id === item.id
@@ -41,7 +40,6 @@ const Cart = (props) => {
       return;
     }
 
-    console.log(cartCtx.total);
     if (item.quantity > cartCtx.items[itemIndex].quantity) {
       cartCtx.addItem(event, { ...item, quantity: item.quantity });
     } else if (!item.quantity) {
