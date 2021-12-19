@@ -8,9 +8,9 @@ const NavBar = (props) => {
       <CartButton onClick={props.showCart} />
       <ul className={styles.list}>
         <li className={styles["list-item"]}>
-          <a href="index.html" className={styles.link}>
+          <Link href="/" className={styles.link}>
             Welcome
-          </a>
+          </Link>
         </li>
         <li className={styles["list-item"]}>
           <Link href="/bath_soaps" className={styles.link}>
