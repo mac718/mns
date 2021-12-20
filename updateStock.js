@@ -7,9 +7,9 @@ export default function updateStock(order) {
   order.forEach((item) => {
     let updated;
     if (item.id.includes("SSJ")) {
-      let updated = products.jars.filter((jar) => jar.id === item.id)[0];
+      updated = products.jars.filter((jar) => jar.id === item.id)[0];
     } else if (item.id.includes("SSP")) {
-      let updated = products.pucks.filter((jar) => jar.id === item.id)[0];
+      updated = products.pucks.filter((jar) => jar.id === item.id)[0];
     }
     updated.inStock -= item.quantity;
     fs.writeFileSync("./products.json", JSON.stringify({ ...products }));
