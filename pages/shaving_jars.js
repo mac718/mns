@@ -83,7 +83,7 @@ export async function getServerSideProps(context) {
   let res;
   let data;
   console.log("context", context.req.headers);
-  res = await axios(`https://${context.req.headers.host}/api/jars`);
+  res = await axios(`https://mns.vercel.app/api/jars`);
   //console.log("Res", res);
   //data = await res.json();
   //console.log(data);
