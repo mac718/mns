@@ -8,8 +8,9 @@ import Footer from "../components/Footer";
 import shavingProducts from "../products.json";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
+import axios from "axios";
 
-export default function ShavingJars() {
+export default function ShavingJars(props) {
   return (
     <>
       <main className={styles.main}>
@@ -41,10 +42,25 @@ export default function ShavingJars() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {shavingProducts.jars.map((variety) => {
+          {/* {shavingProducts.jars.map((variety) => {
             return (
               <ShavingProductItem
                 key={variety.id}
+                id={variety.id}
+                name={variety.scent}
+                description={variety.description}
+                price={variety.price}
+                type="Shaving Soap Jar"
+                button={variety.button}
+                weight={variety.weight}
+                inStock={variety.inStock}
+              />
+            );
+          })} */}
+          {props.jars.map((variety) => {
+            return (
+              <ShavingProductItem
+                key={variety._id}
                 id={variety.id}
                 name={variety.scent}
                 description={variety.description}
@@ -61,4 +77,24 @@ export default function ShavingJars() {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps(context) {
+  let res;
+  let data;
+  res = await axios("http://localhost:3000/api/jars");
+  console.log("Res", res);
+  //data = await res.json();
+  console.log(data);
+  // try {
+  //   res = await axios("http://localhost:3000/api/jars");
+  //   console.log("Res", res);
+  //   data = await res.json();
+  // } catch (err) {
+  //   console.log(err);
+  // }
+
+  return {
+    props: { jars: res.data.jars },
+  };
 }

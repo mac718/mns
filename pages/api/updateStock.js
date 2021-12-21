@@ -1,10 +1,17 @@
-import fs from "fs";
+const fs = require("fs");
+const products = require("../../products.json");
 
-function updateStock(order) {
+export default async function handler(req, res) {
+  const { items } = req.body;
+
+  items = JSON.parse(items);
+
+  console.log(items);
+
   let products = fs.readFileSync("./products.json");
   products = JSON.parse(products);
 
-  order.forEach((item) => {
+  items.forEach((item) => {
     let updated;
     if (item.id.includes("SSJ")) {
       updated = products.jars.filter((jar) => jar.id === item.id)[0];
@@ -14,6 +21,6 @@ function updateStock(order) {
     updated.inStock -= item.quantity;
     fs.writeFileSync("./products.json", JSON.stringify({ ...products }));
   });
-}
 
-module.exports = { updateStock };
+  return res.status(200).send();
+}

@@ -1,6 +1,7 @@
 import { useRouter } from "next/router";
 import React from "react";
 import updateStock from "../../products.json";
+import axios from "axios";
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
@@ -84,9 +85,11 @@ const CheckoutButtons = (props) => {
 
   if (paid) {
     try {
-      updateStock(JSON.parse(localStorage.getItem("items")));
-    } catch (error) {
-      console.log(error);
+      axios.post("/api/updateStock", {
+        items: localStorage.getItem("items"),
+      });
+    } catch (err) {
+      console.log(err);
     }
 
     localStorage.clear();

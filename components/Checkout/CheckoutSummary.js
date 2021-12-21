@@ -59,9 +59,11 @@ const CheckoutSummary = (props) => {
         </div>
         <table className={styles.summary}>
           <thead>
-            <th>Product</th>
-            <th>Quantity</th>
-            <th>Cost</th>
+            <tr>
+              <th>Product</th>
+              <th>Quantity</th>
+              <th>Cost</th>
+            </tr>
           </thead>
           <tbody>
             {items.map((item) => {
