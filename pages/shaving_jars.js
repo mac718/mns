@@ -79,13 +79,14 @@ export default function ShavingJars(props) {
   );
 }
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   let res;
   let data;
-  res = await axios("http://localhost:3000/api/jars");
-  console.log("Res", res);
+  console.log("context", context.req.headers);
+  res = await axios(`https://${context.req.headers.host}/api/jars`);
+  //console.log("Res", res);
   //data = await res.json();
-  console.log(data);
+  //console.log(data);
   // try {
   //   res = await axios("http://localhost:3000/api/jars");
   //   console.log("Res", res);
