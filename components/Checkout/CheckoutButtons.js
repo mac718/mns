@@ -12,6 +12,11 @@ const CheckoutButtons = (props) => {
   const paypalRef = React.useRef();
   const router = useRouter();
 
+  // React.useEffect(() => {
+  //   localStorage.clear();
+  //   localStorage.setItem("paid", true);
+  // }, [paid]);
+
   React.useEffect(() => {
     let lineItems;
     let total;
@@ -85,15 +90,18 @@ const CheckoutButtons = (props) => {
 
   if (paid) {
     try {
-      axios.post("/api/updateStock", {
-        items: localStorage.getItem("items"),
-      });
+      axios
+        .patch("http://localhost:3000/api/updateStock", {
+          items: items,
+        })
+        .then(() => {
+          localStorage.clear();
+          localStorage.setItem("paid", true);
+        });
     } catch (err) {
       console.log(err);
     }
 
-    localStorage.clear();
-    localStorage.setItem("paid", true);
     router.push("/confirmation");
     return <div>Payment successful!</div>;
   }

@@ -3,7 +3,7 @@ import CheckoutButtons from "../components/Checkout/CheckoutButtons";
 import styles from "./shaving_products.module.css";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
-
+import axios from "axios";
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
   const [zip, setZip] = useState("");

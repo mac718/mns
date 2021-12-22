@@ -34,7 +34,7 @@ const Cart = (props) => {
       (ctxItem) => ctxItem.id === item.id
     );
 
-    let amountInStock; //item.id.includes("SSJ")
+    let amountInStock;
     if (item.type === "jar") {
       const jars = products.data.products.filter(
         (product) => product.type === "jar"

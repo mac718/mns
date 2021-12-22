@@ -7,7 +7,8 @@ const ProductSchema = new Schema({
   description: String,
   price: Number,
   weight: Number,
-  stock: Number,
+  inStock: Number,
+  type: String,
 });
 
 mongoose.models = {};
