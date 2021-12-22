@@ -8,8 +8,9 @@ import Footer from "../components/Footer";
 import shavingProducts from "../products.json";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
+import axios from "axios";
 
-export default function ShavingPucks() {
+export default function ShavingPucks(props) {
   return (
     <>
       <main className={styles.main}>
@@ -39,10 +40,25 @@ export default function ShavingPucks() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {shavingProducts.pucks.map((variety) => {
+          {/* {shavingProducts.pucks.map((variety) => {
             return (
               <ShavingProductItem
                 key={variety.id}
+                id={variety.id}
+                type="Shaving Soap Puck"
+                name={variety.scent}
+                description={variety.description}
+                price={variety.price}
+                weight={variety.weight}
+                button={variety.button}
+                inStock={variety.inStock}
+              />
+            );
+          })} */}
+          {props.pucks.map((variety) => {
+            return (
+              <ShavingProductItem
+                key={variety._id}
                 id={variety.id}
                 type="Shaving Soap Puck"
                 name={variety.scent}
@@ -59,4 +75,18 @@ export default function ShavingPucks() {
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  let res;
+  const host =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://mns.vercel.app";
+  console.log("context", context.req.headers);
+  res = await axios(`${host}/api/pucks`);
+
+  return {
+    props: { pucks: res.data.pucks },
+  };
 }

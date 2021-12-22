@@ -17,6 +17,7 @@ const CartItem = (props) => {
           onChange={(event) =>
             props.onChange(event, {
               id: props.id,
+              type: props.type,
               price: props.price,
               quantity: Number(inputRef.current.value),
             })
@@ -24,6 +25,7 @@ const CartItem = (props) => {
           onBlur={(event) =>
             props.onBlur(event, {
               id: props.id,
+              type: props.type,
               price: props.price,
               quantity: Number(inputRef.current.value),
             })

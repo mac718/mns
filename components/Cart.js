@@ -21,8 +21,10 @@ const Cart = (props) => {
     const itemIndex = cartCtx.items.findIndex(
       (ctxItem) => ctxItem.id === item.id
     );
-    let amountInStock;
-    if (item.id.includes("SSJ")) {
+
+    console.log("type", item.type);
+    let amountInStock; //item.id.includes("SSJ")
+    if (item.type === "jar") {
       amountInStock = shavingProducts.jars.filter(
         (jar) => jar.id === item.id
       )[0].inStock;
@@ -62,7 +64,7 @@ const Cart = (props) => {
         return (
           <CartItem
             key={Math.random()}
-            id={item.id}
+            id={item._id}
             name={item.name}
             price={item.price}
             quantity={item.quantity}

@@ -7,8 +7,9 @@ import Heading from "../components/Heading";
 import shavingProducts from "../products.json";
 import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
+import axios from "axios";
 
-export default function ShavingSticks() {
+export default function ShavingSticks(props) {
   return (
     <>
       <main className={styles.main}>
@@ -31,9 +32,20 @@ export default function ShavingSticks() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {shavingProducts.sticks.map((variety) => (
+          {/* {shavingProducts.sticks.map((variety) => (
             <ShavingProductItem
               key={variety.id}
+              name={variety.scent}
+              description={variety.description}
+              price={variety.price}
+              type="Shaving Soap Stick"
+              button={variety.button}
+              inStock={variety.inStock}
+            />
+          ))} */}
+          {props.sticks.map((variety) => (
+            <ShavingProductItem
+              key={variety._id}
               name={variety.scent}
               description={variety.description}
               price={variety.price}
@@ -46,4 +58,18 @@ export default function ShavingSticks() {
       </main>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  let res;
+  const host =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://mns.vercel.app";
+  console.log("context", context.req.headers);
+  res = await axios(`${host}/api/sticks`);
+
+  return {
+    props: { sticks: res.data.sticks },
+  };
 }

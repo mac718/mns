@@ -1,0 +1,126 @@
+{
+  "pucks": [
+    {
+      "id": "TLKBSSPBS",
+      "scent": "Barber Shop",
+      "price": 10.5,
+      "description": "A complex, potent, manly scent consisting of bergamot, basil, oakmoss, and patchouli.",
+      "inStock": 10,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPBR",
+      "scent": "Bay Rum",
+      "price": 13.5,
+      "description": "Spicy bay leaf combined with bergamot and a dab of vanilla.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPBOYY",
+      "scent": "Bergamot, Orange, Ylang-ylang",
+      "price": 12.5,
+      "description": "Citrus top notes supported by the deep, sweet, sultry aroma of the ylang-ylang flower.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPC",
+      "scent": "Coconut",
+      "price": 10.5,
+      "description": "Refreshing raw coconut with a base of vanilla.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPHL",
+      "scent": "Hungarian Lavender",
+      "price": 12.5,
+      "description": "I've acquired a Hungarian lavender essential oil that I'm very enthusiastic about. It's flowery, herbaceous, earthy, and fresh.",
+      "inStock": 0,
+      "weight": 7
+    },
+
+    {
+      "id": "TLKBSSPLE",
+      "scent": "Lavandin & Eucalyptus",
+      "price": 11.5,
+      "description": "A subtle scent similar to lavender, but with a slightly more camphorous, slightly less floral quality. More invigorating than calming/soothing.",
+      "inStock": 8,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPLEE",
+      "scent": "Lemongrass & Eucalyptus",
+      "price": 11.0,
+      "description": "Dry, lemony, and invigorating.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPL",
+      "scent": "Lime",
+      "price": 11.5,
+      "description": "Simple, sweet, citrusy invigorating lime",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPOCWBP",
+      "scent": "Orange, Cedarwood, Black Pepper",
+      "price": 12.0,
+      "description": "While orange is the dominant scent here, a judicious blend of cedarwood and black pepper is easily discerned and provides additional complexity.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPPR",
+      "scent": "Peppermint & Rosemary",
+      "price": 11.5,
+      "description": "A minty, fresh, and herbaceous combo that imparts a mild cooling sensation to the skin.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPPC",
+      "scent": "Pine & Cedarwood",
+      "price": 11.5,
+      "description": "This scent is simultaneously invigorating and warm. The dominant note is pine, which is backed up and rounded out by a cedarwood base.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPRPC",
+      "scent": "Rose, Patchouli, Cedarwood",
+      "price": 12.5,
+      "description": "Sweet and delicate rose geranium rounds out a soft, woody base of patchouli & cedarwood.",
+      "inStock": 0,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPU",
+      "scent": "Unscented",
+      "price": 10.0,
+      "description": "I add no fragrance or essential oils to this soap. It smells simply like the ingredients of which it is composed.",
+      "inStock": 4,
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPV",
+      "scent": "Vetiver",
+      "price": 16.5,
+      "description": "The vetiver essential oil used in this soap hails from Haiti. It's deep, earthy, smoky, and just a little sweet.",
+      "inStock": false,
+      "button": "",
+      "weight": 7
+    },
+    {
+      "id": "TLKBSSPWH",
+      "scent": "Wild Honeysuckle",
+      "price": 11.5,
+      "description": "The sweet, uplifting scent of wild honeysuckle. Avoid this one if you have an especially sensitive schnoz; it's pretty potent.",
+      "inStock": 0,
+      "weight": 7
+    }
+  ]
+}

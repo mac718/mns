@@ -416,7 +416,7 @@ export const shaveSticks = [
 export const shavingSoapFormats = [
   { type: "Jars", image: smallJar, url: "/shaving_jars" },
   { type: "Pucks", image: smallPuck, url: "/shaving_pucks" },
-  { type: "Sticks", image: smallStick, url: "/shaving_jars" },
+  { type: "Sticks", image: smallStick, url: "/shaving_sticks" },
   { type: "Sample Pucks", image: smallLogo, url: "/shaving_jars" },
 ];
 

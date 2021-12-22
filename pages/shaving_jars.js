@@ -65,7 +65,7 @@ export default function ShavingJars(props) {
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
-                type="Shaving Soap Jar"
+                type={variety.type}
                 button={variety.button}
                 weight={variety.weight}
                 inStock={variety.inStock}
@@ -82,18 +82,12 @@ export default function ShavingJars(props) {
 export async function getServerSideProps(context) {
   let res;
   let data;
+  const host =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://mns.vercel.app";
   console.log("context", context.req.headers);
-  res = await axios(`https://mns.vercel.app/api/jars`);
-  //console.log("Res", res);
-  //data = await res.json();
-  //console.log(data);
-  // try {
-  //   res = await axios("http://localhost:3000/api/jars");
-  //   console.log("Res", res);
-  //   data = await res.json();
-  // } catch (err) {
-  //   console.log(err);
-  // }
+  res = await axios(`${host}/api/jars`);
 
   return {
     props: { jars: res.data.jars },

@@ -10,7 +10,6 @@ const ShavingProductItem = (props) => {
       </div>
       <div>
         {props.inStock ? (
-          //props.button
           <ShavingProductItemForm
             name={props.name}
             weight={props.weight}
