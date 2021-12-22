@@ -8,6 +8,8 @@ import Link from "next/link";
 import Heading from "./Heading";
 import shavingProducts from "../products.json";
 import { useState } from "react";
+import axios from "axios";
+import { useEffect } from "react";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -15,6 +17,16 @@ const Cart = (props) => {
 
   const [error, setError] = useState("");
   const [errorId, setErrorId] = useState(null);
+  const [products, setProducts] = useState([]);
+
+  useEffect(async () => {
+    try {
+      const products = await axios("http://localhost:3000/api/products");
+      setProducts(products);
+    } catch (error) {
+      console.log(err);
+    }
+  }, []);
 
   const onChangeQuantity = (event, item) => {
     setError(false);
@@ -22,16 +34,18 @@ const Cart = (props) => {
       (ctxItem) => ctxItem.id === item.id
     );
 
-    console.log("type", item.type);
     let amountInStock; //item.id.includes("SSJ")
     if (item.type === "jar") {
-      amountInStock = shavingProducts.jars.filter(
-        (jar) => jar.id === item.id
-      )[0].inStock;
-    } else if (item.id.includes("SSP")) {
-      amountInStock = shavingProducts.pucks.filter(
-        (puck) => puck.id === item.id
-      )[0].inStock;
+      const jars = products.data.products.filter(
+        (product) => product.type === "jar"
+      );
+      amountInStock = jars.filter((jar) => jar._id === item.id)[0].inStock;
+      console.log("stock", item.id);
+    } else if (item.type === "puck") {
+      const pucks = products.data.products.filter(
+        (product) => product.type === "puck"
+      );
+      amountInStock = pucks.filter((puck) => puck.id === item.id)[0].inStock;
     }
 
     if (item.quantity > amountInStock) {
@@ -64,7 +78,7 @@ const Cart = (props) => {
         return (
           <CartItem
             key={Math.random()}
-            id={item._id}
+            id={item.id}
             name={item.name}
             price={item.price}
             quantity={item.quantity}

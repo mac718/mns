@@ -61,7 +61,7 @@ export default function ShavingJars(props) {
             return (
               <ShavingProductItem
                 key={variety._id}
-                id={variety.id}
+                id={variety._id}
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
