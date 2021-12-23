@@ -82,9 +82,13 @@ const CheckoutButtons = (props) => {
   }, []);
 
   if (paid) {
+    let host =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://mns.vercel.app";
     try {
       axios
-        .patch("http://localhost:3000/api/updateStock", {
+        .patch(`${host}/api/updateStock`, {
           items: items,
         })
         .then(() => {

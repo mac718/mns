@@ -19,7 +19,11 @@ const Cart = (props) => {
 
   useEffect(async () => {
     try {
-      const products = await axios("http://localhost:3000/api/products");
+      let host =
+        process.env.NODE_ENV === "development"
+          ? "http://localhost:3000"
+          : "https://mns.vercel.app";
+      const products = await axios(`${host}api/products`);
       setProducts(products);
     } catch (error) {
       console.log(err);

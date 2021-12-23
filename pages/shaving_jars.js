@@ -70,7 +70,6 @@ export async function getServerSideProps(context) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://mns.vercel.app";
-  console.log("context", context.req.headers);
   res = await axios(`${host}/api/products`);
   const jars = res.data.products.filter((product) => product.type === "jar");
 
