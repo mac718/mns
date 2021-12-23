@@ -30,6 +30,7 @@ const Cart = (props) => {
     }
   }, []);
 
+  //cause re-render on confirmation page to clear cart
   useEffect(() => {
     if (router.pathname === "/confirmation") {
       setRerender(true);

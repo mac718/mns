@@ -28,9 +28,9 @@ const CheckoutSummary = (props) => {
     }
   }, [props.shippingService]);
 
-  let jarItems = items.filter((item) => item.type.includes("Jar"));
-  let puckItems = items.filter((item) => item.type.includes("Puck"));
-  let stickItems = items.filter((item) => item.type.includes("Stick"));
+  let jarItems = items.filter((item) => item.type === "jar");
+  let puckItems = items.filter((item) => item.type === "puck");
+  let stickItems = items.filter((item) => item.type === "stick");
 
   let totalJars = jarItems.reduce(
     (total, current) => total + current.quantity,
