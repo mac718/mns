@@ -23,10 +23,10 @@ const Cart = (props) => {
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000"
           : "https://mns.vercel.app";
-      const products = await axios(`${host}api/products`);
+      const products = await axios(`${host}/api/products`);
       setProducts(products);
     } catch (error) {
-      console.log(err);
+      console.log(error);
     }
   }, []);
 

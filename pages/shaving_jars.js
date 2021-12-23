@@ -5,7 +5,6 @@ import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
 import Footer from "../components/Footer";
-import shavingProducts from "../products.json";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
 import axios from "axios";
@@ -70,7 +69,12 @@ export async function getServerSideProps(context) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://mns.vercel.app";
-  res = await axios(`${host}/api/products`);
+  try {
+    res = await axios(`${host}/api/products`);
+  } catch (err) {
+    console.log(err);
+  }
+  //console.log(res);
   const jars = res.data.products.filter((product) => product.type === "jar");
 
   return {
