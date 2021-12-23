@@ -40,21 +40,6 @@ export default function ShavingPucks(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {/* {shavingProducts.pucks.map((variety) => {
-            return (
-              <ShavingProductItem
-                key={variety.id}
-                id={variety.id}
-                type="Shaving Soap Puck"
-                name={variety.scent}
-                description={variety.description}
-                price={variety.price}
-                weight={variety.weight}
-                button={variety.button}
-                inStock={variety.inStock}
-              />
-            );
-          })} */}
           {props.pucks.map((variety) => {
             return (
               <ShavingProductItem
@@ -83,10 +68,10 @@ export async function getServerSideProps(context) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://mns.vercel.app";
-  console.log("context", context.req.headers);
-  res = await axios(`${host}/api/pucks`);
+  res = await axios(`${host}/api/products`);
+  const pucks = res.data.products.filter((product) => product.type === "puck");
 
   return {
-    props: { pucks: res.data.pucks },
+    props: { pucks: pucks },
   };
 }

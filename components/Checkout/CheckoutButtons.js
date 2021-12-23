@@ -1,21 +1,14 @@
 import { useRouter } from "next/router";
 import React from "react";
-import updateStock from "../../products.json";
 import axios from "axios";
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
-  const [shipping, setShipping] = React.useState([]);
 
   const paypalRef = React.useRef();
   const router = useRouter();
-
-  // React.useEffect(() => {
-  //   localStorage.clear();
-  //   localStorage.setItem("paid", true);
-  // }, [paid]);
 
   React.useEffect(() => {
     let lineItems;

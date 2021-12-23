@@ -1,15 +1,12 @@
 import styles from "./Cart.module.css";
-import { useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import CartContext from "../store/cart-context";
 import CartItem from "./CartItem";
 import Modal from "./UI/Modal";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import Heading from "./Heading";
-import shavingProducts from "../products.json";
-import { useState } from "react";
 import axios from "axios";
-import { useEffect } from "react";
 
 const Cart = (props) => {
   const cartCtx = useContext(CartContext);
@@ -40,7 +37,6 @@ const Cart = (props) => {
         (product) => product.type === "jar"
       );
       amountInStock = jars.filter((jar) => jar._id === item.id)[0].inStock;
-      console.log("stock", item.id);
     } else if (item.type === "puck") {
       const pucks = products.data.products.filter(
         (product) => product.type === "puck"

@@ -42,21 +42,6 @@ export default function ShavingJars(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {/* {shavingProducts.jars.map((variety) => {
-            return (
-              <ShavingProductItem
-                key={variety.id}
-                id={variety.id}
-                name={variety.scent}
-                description={variety.description}
-                price={variety.price}
-                type="Shaving Soap Jar"
-                button={variety.button}
-                weight={variety.weight}
-                inStock={variety.inStock}
-              />
-            );
-          })} */}
           {props.jars.map((variety) => {
             return (
               <ShavingProductItem
@@ -81,15 +66,15 @@ export default function ShavingJars(props) {
 
 export async function getServerSideProps(context) {
   let res;
-  let data;
   const host =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://mns.vercel.app";
   console.log("context", context.req.headers);
-  res = await axios(`${host}/api/jars`);
+  res = await axios(`${host}/api/products`);
+  const jars = res.data.products.filter((product) => product.type === "jar");
 
   return {
-    props: { jars: res.data.jars },
+    props: { jars: jars },
   };
 }

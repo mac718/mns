@@ -32,17 +32,6 @@ export default function ShavingSticks(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {/* {shavingProducts.sticks.map((variety) => (
-            <ShavingProductItem
-              key={variety.id}
-              name={variety.scent}
-              description={variety.description}
-              price={variety.price}
-              type="Shaving Soap Stick"
-              button={variety.button}
-              inStock={variety.inStock}
-            />
-          ))} */}
           {props.sticks.map((variety) => (
             <ShavingProductItem
               key={variety._id}
@@ -66,10 +55,12 @@ export async function getServerSideProps(context) {
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
       : "https://mns.vercel.app";
-  console.log("context", context.req.headers);
-  res = await axios(`${host}/api/sticks`);
+  res = await axios(`${host}/api/products`);
+  const sticks = res.data.products.filter(
+    (product) => product.type === "stick"
+  );
 
   return {
-    props: { sticks: res.data.sticks },
+    props: { sticks: sticks },
   };
 }
