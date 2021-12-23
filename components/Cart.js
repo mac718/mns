@@ -15,6 +15,7 @@ const Cart = (props) => {
   const [error, setError] = useState("");
   const [errorId, setErrorId] = useState(null);
   const [products, setProducts] = useState([]);
+  const [rerender, setRerender] = useState(false);
 
   useEffect(async () => {
     try {
@@ -22,6 +23,13 @@ const Cart = (props) => {
       setProducts(products);
     } catch (error) {
       console.log(err);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (router.pathname === "/confirmation") {
+      setRerender(true);
+      console.log("render");
     }
   }, []);
 
