@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./CartButton.module.css";
 import { MdShoppingCart } from "react-icons/md";
 import { useContext, useState, useEffect } from "react";
@@ -23,11 +24,9 @@ const CartButton = (props) => {
       return;
     }
     setBtnAnimated(true);
-
     const timer = setTimeout(() => {
       setBtnAnimated(false);
     }, 300);
-
     return () => {
       clearTimeout(timer);
     };

@@ -4,9 +4,11 @@ import { useState } from "react";
 import NavBar from "../components/NavBar";
 import Cart from "../components/Cart";
 import CartProvider from "../store/CartProvider";
+import { useRouter } from "next/router";
 
 function MyApp({ Component, pageProps }) {
   const [showCart, setShowCart] = useState(false);
+  const router = useRouter();
 
   const showCartHandler = () => {
     setShowCart(true);

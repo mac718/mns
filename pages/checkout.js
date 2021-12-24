@@ -4,6 +4,7 @@ import styles from "./shaving_products.module.css";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
 import axios from "axios";
+
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
   const [zip, setZip] = useState("");
@@ -49,6 +50,8 @@ export default function Checkout(props) {
         onShow={props.onShow}
         onShippingServiceSelect={onShippingServiceSelect}
         shippingService={shippingService}
+        products={props.products}
+        cart={cartCtx} //circumvent fact that context is not yet hydrated by localstorage when summary loads
       />
       <div className={styles["checkout-buttons"]}>
         {serviceSelected && (
@@ -57,4 +60,23 @@ export default function Checkout(props) {
       </div>
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  let res;
+  const host =
+    process.env.NODE_ENV === "development"
+      ? "http://localhost:3000"
+      : "https://mns.vercel.app";
+  try {
+    res = await axios(`${host}/api/products`);
+  } catch (err) {
+    console.log(err);
+  }
+  //console.log(res);
+  const products = res.data.products;
+
+  return {
+    props: { products },
+  };
 }

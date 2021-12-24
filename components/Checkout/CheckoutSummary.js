@@ -3,6 +3,7 @@ import Heading from "../Heading";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
 import CartContext from "../../store/cart-context";
+import { useRouter } from "next/router";
 
 const CheckoutSummary = (props) => {
   const cartCtx = useContext(CartContext);
@@ -10,13 +11,57 @@ const CheckoutSummary = (props) => {
   const [total, setTotal] = useState(0);
   const [weight, setWeight] = useState(0);
   const [shippingService, setShippingService] = useState(["", 0]);
+  const [error, setError] = useState(null);
+  const [errorId, setErrorId] = useState(null);
 
+  // useEffect(() => {
+  //   if (localStorage.getItem("items")) {
+  //     let items = JSON.parse(localStorage.getItem("items"));
+  //     let total = Number(localStorage.getItem("total"));
+  //     let weight = Number(localStorage.getItem("weight"));
+
+  //     items.forEach((item) => {
+  //       let product = props.products.filter(
+  //         (product) => product._id === item.id
+  //       )[0];
+  //       if (item.quantity > product.inStock) {
+  //         // total -= (item.quantity - product.inStock) * item.price;
+  //         // weight -= (item.quantity - product.inStock) * item.weight;
+  //         // item.quantity = product.inStock;
+  //         cartCtx.removeItem(item);
+  //       }
+  //     });
+  //     setItems(items);
+  //     setTotal(total);
+  //     setWeight(weight);
+  //   }
+  // }, []);
   useEffect(() => {
-    if (localStorage.getItem("items")) {
-      setItems(JSON.parse(localStorage.getItem("items")));
-      setTotal(Number(localStorage.getItem("total")));
-      setWeight(Number(localStorage.getItem("weight")));
-    }
+    props.cart.items.forEach((item) => {
+      let product = props.products.filter(
+        (product) => product._id === item.id
+      )[0];
+      if (item.quantity > product.inStock) {
+        // total -= (item.quantity - product.inStock) * item.price;
+        // weight -= (item.quantity - product.inStock) * item.weight;
+        // item.quantity = product.inStock;
+        console.log(item);
+        props.cart.removeItem({
+          ...product,
+          id: product._id,
+          quantity: product.inStock,
+        });
+        setError(
+          "Quantity in stock has reduced since you added this item to the cart. Quantity has been adjusted to amount in stock."
+        );
+        setErrorId(item.id);
+      }
+    });
+  }, []);
+  useEffect(() => {
+    setItems(cartCtx.items);
+    setTotal(cartCtx.total);
+    setWeight(cartCtx.weight);
   }, [cartCtx.items]);
 
   let firstRender = useRef(true);
@@ -49,6 +94,8 @@ const CheckoutSummary = (props) => {
 
   let totalItems = totalJars + totalPucks + totalSticks;
 
+  let quantity;
+
   return (
     <>
       <Heading>Checkout</Heading>
@@ -72,7 +119,10 @@ const CheckoutSummary = (props) => {
                   <td className={styles.item}>
                     {item.name} {item.type}
                   </td>
-                  <td className={styles.item}> {item.quantity}</td>
+                  <td className={styles.item}>
+                    {error && errorId === item.id && <div>{error}</div>}{" "}
+                    {item.quantity}
+                  </td>
                   <td className={styles.item}>{`$${(
                     item.quantity * item.price
                   ).toFixed(2)}`}</td>

@@ -1,6 +1,6 @@
 import CartContext from "./cart-context";
 import { useEffect, useReducer } from "react";
-import shavingProducts from "../products.json";
+import { useRouter } from "next/router";
 
 let defaultCartState = {
   items: [],
@@ -70,7 +70,8 @@ const cartReducer = (state, action) => {
   }
 
   if (action.type === "REMOVE") {
-    if (!action.item.quantity) {
+    console.log(action.item);
+    if (!action.item.quantity && !action.item.inStock) {
       const existingItemIndex = state.items.findIndex(
         (item) => item.id === action.item.id
       );
@@ -90,10 +91,15 @@ const cartReducer = (state, action) => {
         weight: updatedWeight,
       };
     }
-    const existingItemIdex = state.items.findIndex(
+
+    console.log("state.items", state.items);
+    let items = state.items;
+    const existingItemIdex = items.findIndex(
       (item) => item.id === action.item.id
     );
-    const existingItem = state.items[existingItemIdex];
+
+    console.log("existingItem", items);
+    const existingItem = items[existingItemIdex];
 
     let quantityDifference = existingItem.quantity - action.item.quantity;
 
@@ -125,9 +131,11 @@ const CartProvider = (props) => {
     defaultCartState
   );
 
+  const router = useRouter();
+
   useEffect(() => {
-    if (localStorage.items) {
-      JSON.parse(localStorage.items).forEach((item) => {
+    if (localStorage.getItem("items")) {
+      JSON.parse(localStorage.getItem("items")).forEach((item) => {
         dispatchCartAction({ type: "ADD", item: item });
       });
     }
