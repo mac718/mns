@@ -37,6 +37,7 @@ const CheckoutSummary = (props) => {
   //   }
   // }, []);
   useEffect(() => {
+    console.log("hmmmmmmmmmm");
     props.cart.items.forEach((item) => {
       let product = props.products.filter(
         (product) => product._id === item.id
@@ -57,7 +58,7 @@ const CheckoutSummary = (props) => {
         setErrorId(item.id);
       }
     });
-  }, []);
+  }, [props.cart.items]);
   useEffect(() => {
     setItems(cartCtx.items);
     setTotal(cartCtx.total);

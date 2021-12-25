@@ -4,12 +4,14 @@ import styles from "./shaving_products.module.css";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
 import axios from "axios";
+import { useRouter } from "next/router";
 
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
   const [zip, setZip] = useState("");
   const [shippingService, setShippingService] = useState([0, ""]);
   const [serviceSelected, setServiceSelected] = useState(false);
+  const [refresh, setRefresh] = useState(false);
 
   const onEnterZip = (enteredZip) => {
     setZip(enteredZip);
@@ -19,6 +21,13 @@ export default function Checkout(props) {
     setShippingService(service.split(","));
     setServiceSelected(true);
   };
+
+  const router = useRouter();
+
+  setTimeout(() => {
+    console.log("reload");
+    router.reload();
+  }, 100000);
 
   let firstRender = useRef(true);
   useEffect(() => {
