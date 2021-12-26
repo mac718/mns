@@ -11,7 +11,6 @@ export default function Checkout(props) {
   const [zip, setZip] = useState("");
   const [shippingService, setShippingService] = useState([0, ""]);
   const [serviceSelected, setServiceSelected] = useState(false);
-  const [refresh, setRefresh] = useState(false);
 
   const onEnterZip = (enteredZip) => {
     setZip(enteredZip);
@@ -25,7 +24,6 @@ export default function Checkout(props) {
   const router = useRouter();
 
   setTimeout(() => {
-    console.log("reload");
     router.reload();
   }, 100000);
 

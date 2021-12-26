@@ -121,8 +121,10 @@ const CheckoutSummary = (props) => {
                     {item.name} {item.type}
                   </td>
                   <td className={styles.item}>
-                    {error && errorId === item.id && <div>{error}</div>}{" "}
                     {item.quantity}
+                    {error && errorId === item.id && (
+                      <div className={styles.error}>{error}</div>
+                    )}{" "}
                   </td>
                   <td className={styles.item}>{`$${(
                     item.quantity * item.price
