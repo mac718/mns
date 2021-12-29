@@ -14,39 +14,12 @@ const CheckoutSummary = (props) => {
   const [error, setError] = useState(null);
   const [errorId, setErrorId] = useState(null);
 
-  // useEffect(() => {
-  //   if (localStorage.getItem("items")) {
-  //     let items = JSON.parse(localStorage.getItem("items"));
-  //     let total = Number(localStorage.getItem("total"));
-  //     let weight = Number(localStorage.getItem("weight"));
-
-  //     items.forEach((item) => {
-  //       let product = props.products.filter(
-  //         (product) => product._id === item.id
-  //       )[0];
-  //       if (item.quantity > product.inStock) {
-  //         // total -= (item.quantity - product.inStock) * item.price;
-  //         // weight -= (item.quantity - product.inStock) * item.weight;
-  //         // item.quantity = product.inStock;
-  //         cartCtx.removeItem(item);
-  //       }
-  //     });
-  //     setItems(items);
-  //     setTotal(total);
-  //     setWeight(weight);
-  //   }
-  // }, []);
   useEffect(() => {
-    console.log("hmmmmmmmmmm");
     props.cart.items.forEach((item) => {
       let product = props.products.filter(
         (product) => product._id === item.id
       )[0];
       if (item.quantity > product.inStock) {
-        // total -= (item.quantity - product.inStock) * item.price;
-        // weight -= (item.quantity - product.inStock) * item.weight;
-        // item.quantity = product.inStock;
-        console.log(item);
         props.cart.removeItem({
           ...product,
           id: product._id,
