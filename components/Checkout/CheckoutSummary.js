@@ -4,6 +4,7 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
 import CartContext from "../../store/cart-context";
 import { useRouter } from "next/router";
+import Spinner from "../UI/Spinner";
 
 const CheckoutSummary = (props) => {
   const cartCtx = useContext(CartContext);
@@ -32,6 +33,7 @@ const CheckoutSummary = (props) => {
       }
     });
   }, [props.cart.items]);
+
   useEffect(() => {
     setItems(cartCtx.items);
     setTotal(cartCtx.total);
@@ -67,8 +69,6 @@ const CheckoutSummary = (props) => {
   );
 
   let totalItems = totalJars + totalPucks + totalSticks;
-
-  let quantity;
 
   return (
     <>

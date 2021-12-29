@@ -5,13 +5,15 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
 import axios from "axios";
 import { useRouter } from "next/router";
+import Spinner from "../components/UI/Spinner";
 
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
   const [zip, setZip] = useState("");
   const [shippingService, setShippingService] = useState([0, ""]);
   const [serviceSelected, setServiceSelected] = useState(false);
-  // const [reload, setReload] = useState(false);
+
+  props.hideSpinner(true);
 
   const onEnterZip = (enteredZip) => {
     setZip(enteredZip);

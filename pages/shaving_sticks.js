@@ -35,11 +35,11 @@ export default function ShavingSticks(props) {
           {props.sticks.map((variety) => (
             <ShavingProductItem
               key={variety._id}
+              id={variety._id}
               name={variety.scent}
               description={variety.description}
               price={variety.price}
-              type="Shaving Soap Stick"
-              button={variety.button}
+              type={variety.type}
               inStock={variety.inStock}
             />
           ))}

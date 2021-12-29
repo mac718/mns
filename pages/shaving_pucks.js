@@ -44,13 +44,12 @@ export default function ShavingPucks(props) {
             return (
               <ShavingProductItem
                 key={variety._id}
-                id={variety.id}
-                type="Shaving Soap Puck"
+                id={variety._id}
+                type={variety.type}
                 name={variety.scent}
                 description={variety.description}
                 price={variety.price}
                 weight={variety.weight}
-                button={variety.button}
                 inStock={variety.inStock}
               />
             );

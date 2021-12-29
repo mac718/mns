@@ -50,7 +50,6 @@ export default function ShavingJars(props) {
                 description={variety.description}
                 price={variety.price}
                 type={variety.type}
-                button={variety.button}
                 weight={variety.weight}
                 inStock={variety.inStock}
               />
