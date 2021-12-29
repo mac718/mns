@@ -6,7 +6,7 @@ import Cart from "../components/Cart";
 import CartProvider from "../store/CartProvider";
 import { useRouter } from "next/router";
 import Spinner from "../components/UI/Spinner";
-import Modal from "../components/UI/Modal";
+import { Backdrop } from "../components/UI/Modal";
 
 function MyApp({ Component, pageProps }) {
   const [showCart, setShowCart] = useState(false);
@@ -38,9 +38,9 @@ function MyApp({ Component, pageProps }) {
       </Portal>
       <Portal>
         {showSpinner && (
-          <Modal>
+          <Backdrop>
             <Spinner />
-          </Modal>
+          </Backdrop>
         )}
       </Portal>
       <NavBar showCart={showCartHandler} />
