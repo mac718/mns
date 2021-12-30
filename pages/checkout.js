@@ -13,8 +13,6 @@ export default function Checkout(props) {
   const [shippingService, setShippingService] = useState([0, ""]);
   const [serviceSelected, setServiceSelected] = useState(false);
 
-  props.hideSpinner(true);
-
   const onEnterZip = (enteredZip) => {
     setZip(enteredZip);
   };
@@ -27,6 +25,7 @@ export default function Checkout(props) {
   const router = useRouter();
 
   useEffect(() => {
+    props.hideSpinner(true);
     const timer = setInterval(() => {
       router.reload();
     }, 100000);

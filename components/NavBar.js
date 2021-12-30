@@ -42,6 +42,11 @@ const NavBar = (props) => {
             FAQ
           </Link>
         </li>
+        <li className={styles["list-item"]}>
+          <Link href="/policies" className={styles.link}>
+            Shipping/Returns/Exchanges
+          </Link>
+        </li>
       </ul>
     </nav>
   );
