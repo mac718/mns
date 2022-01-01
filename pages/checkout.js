@@ -23,16 +23,16 @@ export default function Checkout(props) {
 
   const router = useRouter();
 
-  // useEffect(() => {
-  //   props.hideSpinner(true);
-  //   const timer = setInterval(() => {
-  //     router.reload();
-  //   }, 100000);
+  useEffect(() => {
+    props.hideSpinner(true);
+    const timer = setInterval(() => {
+      router.reload();
+    }, 100000);
 
-  //   return () => {
-  //     clearInterval(timer);
-  //   };
-  // }, []);
+    return () => {
+      clearInterval(timer);
+    };
+  }, []);
 
   let firstRender = useRef(true);
   useEffect(() => {
