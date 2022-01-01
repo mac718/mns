@@ -75,7 +75,7 @@ export default function Checkout(props) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Paypal's Acceptable Use Policy
+            Paypal&apos;s Acceptable Use Policy
           </a>
         </div>
       )}
