@@ -92,13 +92,11 @@ const cartReducer = (state, action) => {
       };
     }
 
-    console.log("state.items", state.items);
     let items = state.items;
     const existingItemIdex = items.findIndex(
       (item) => item.id === action.item.id
     );
 
-    console.log("existingItem", items);
     const existingItem = items[existingItemIdex];
 
     let quantityDifference = existingItem.quantity - action.item.quantity;

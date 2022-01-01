@@ -28,10 +28,15 @@
 
 .checkout-buttons {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 50%;
   margin: 1rem auto 0 auto;
+}
+
+.checkout-buttons a {
+  display: block;
 }
 
 .checkout-buttons div:nth-child(1) {

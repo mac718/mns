@@ -7,6 +7,14 @@
   margin-bottom: 1rem;
 }
 
+.main section {
+  margin-bottom: 2rem;
+}
+
+.main a {
+  color: blue;
+}
+
 .heading {
   font-size: 3rem;
 }

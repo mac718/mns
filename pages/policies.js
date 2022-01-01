@@ -32,7 +32,11 @@ export default function Policies() {
       <section>
         <div className={styles.heading}>Returns/Exchanges</div>
         I'm happy to accomdate return and exchange requests for unused items in
-        good condition. Buyer is responsible for shipping fees.
+        good condition. Buyer is responsible for shipping fees. Email me at{" "}
+        <a href="mailto:mike@mikesnaturalsoaps.com">
+          mike@mikesnaturalsoaps.com
+        </a>{" "}
+        for a return or exchange request.
       </section>
     </main>
   );

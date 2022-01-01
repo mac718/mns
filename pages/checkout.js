@@ -5,7 +5,6 @@ import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
 import axios from "axios";
 import { useRouter } from "next/router";
-import Spinner from "../components/UI/Spinner";
 
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
@@ -24,16 +23,16 @@ export default function Checkout(props) {
 
   const router = useRouter();
 
-  useEffect(() => {
-    props.hideSpinner(true);
-    const timer = setInterval(() => {
-      router.reload();
-    }, 100000);
+  // useEffect(() => {
+  //   props.hideSpinner(true);
+  //   const timer = setInterval(() => {
+  //     router.reload();
+  //   }, 100000);
 
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
+  //   return () => {
+  //     clearInterval(timer);
+  //   };
+  // }, []);
 
   let firstRender = useRef(true);
   useEffect(() => {
@@ -68,11 +67,18 @@ export default function Checkout(props) {
         products={props.products}
         cart={cartCtx} //circumvent fact that context is not yet hydrated by localstorage when summary loads
       />
-      <div className={styles["checkout-buttons"]}>
-        {serviceSelected && (
+      {serviceSelected && (
+        <div className={styles["checkout-buttons"]}>
           <CheckoutButtons zip={zip} shippingService={shippingService} />
-        )}
-      </div>
+          <a
+            href="https://www.paypal.com/us/webapps/mpp/ua/acceptableuse-full?_ga=1.72228883.1460938886.1639541941"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Paypal's Acceptable Use Policy
+          </a>
+        </div>
+      )}
     </>
   );
 }
@@ -88,7 +94,6 @@ export async function getServerSideProps(context) {
   } catch (err) {
     console.log(err);
   }
-  //console.log(res);
   const products = res.data.products;
 
   return {

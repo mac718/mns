@@ -3,8 +3,6 @@ import Heading from "../Heading";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import EstimateShippingInput from "./EsitmateShippingInput";
 import CartContext from "../../store/cart-context";
-import { useRouter } from "next/router";
-import Spinner from "../UI/Spinner";
 
 const CheckoutSummary = (props) => {
   const cartCtx = useContext(CartContext);
