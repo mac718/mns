@@ -3,10 +3,13 @@ import styles from "./CartButton.module.css";
 import { MdShoppingCart } from "react-icons/md";
 import { useContext, useState, useEffect } from "react";
 import CartContext from "../store/cart-context";
+import { useRouter } from "next/router";
 
 const CartButton = (props) => {
   const [btnAnimated, setBtnAnimated] = useState(false);
+  const [rerender, setRerender] = useState(false);
   const cartCtx = useContext(CartContext);
+  const router = useRouter();
 
   const { items } = cartCtx;
 
@@ -18,6 +21,15 @@ const CartButton = (props) => {
   const badgeClasses = `${
     numberOfItems === 0 ? styles["badge-empty"] : styles["badge-full"]
   }`;
+
+  //cause re-render on confirmation page to clear cart
+  useEffect(() => {
+    console.log(router.pathname);
+    if (router.pathname === "/confirmation") {
+      setRerender(true);
+      console.log("render");
+    }
+  }, [router.pathname]);
 
   useEffect(() => {
     if (items.length === 0) {
