@@ -23,10 +23,10 @@ export default function PropertiesBenefits() {
             <u>Avocado Oil</u>
           </strong>{" "}
           - A light, gentle oil that is full of vitamins (A, B1, B2, D, E, and
-          lecithin) and essential fatty acids. It's absorbed very readily,
+          lecithin) and essential fatty acids. It&apos;s absorbed very readily,
           leaves no greasy residue, and soothes, moisturizes, and heals dry,
           itchy, flaky skin, hair, and scalps. Due to its skin-soothing and
-          regenerating properties, it's said to be beneficial to those who
+          regenerating properties, it&apos;s said to be beneficial to those who
           suffer from eczema, psoriasis, and sun-damaged skin.
         </p>
 
@@ -35,10 +35,11 @@ export default function PropertiesBenefits() {
             <u>Beef Tallow</u>
           </strong>{" "}
           - Rendered beef fat. Tallow is rich in vitamin A and produces a
-          creamy, hard, gentle, moisturizing bar of soap. It's a particularly
-          effective addition to shaving soap, where it imparts an unparalleled
-          creaminess to the shaving lather. Though I do like to use tallow in
-          some of my soaps, most of my formulations are vegan friendly.
+          creamy, hard, gentle, moisturizing bar of soap. It&apos;s a
+          particularly effective addition to shaving soap, where it imparts an
+          unparalleled creaminess to the shaving lather. Though I do like to use
+          tallow in some of my soaps, most of my formulations are vegan
+          friendly.
         </p>
 
         <p>
@@ -46,9 +47,10 @@ export default function PropertiesBenefits() {
             <u>Castor Oil</u>
           </strong>{" "}
           - A thick, viscous, very moisturizing oil that imparts an effusive
-          creaminess and bubbliness to soap. It's a great addition any soap, but
-          particularly to shampoo bars for its ability to create a satisfying,
-          fluffy lather as well as its extreme conditioning attributes.
+          creaminess and bubbliness to soap. It&apos;s a great addition any
+          soap, but particularly to shampoo bars for its ability to create a
+          satisfying, fluffy lather as well as its extreme conditioning
+          attributes.
         </p>
 
         <p>
@@ -72,7 +74,7 @@ export default function PropertiesBenefits() {
           possesses many characteristics similar to cocoa butter (high vitamin E
           content, promotes skin regeneration and elasticity, imparts a
           luxuriant creaminess to soap lather), but is non-comedogenic (does not
-          clog pores). It's wonderful stuff.
+          clog pores). It&apos;s wonderful stuff.
         </p>
 
         <p>
@@ -107,16 +109,16 @@ export default function PropertiesBenefits() {
           </strong>{" "}
           - One of the most renowned soaping and cosmetic butters in existence
           (for good reason), shea butter is an off-white, fairly soft, vegetable
-          butter derived from the fruit of karite tree. It's full of vitamins A,
-          E, and F, all of which promote skin and hair regeneration. My shea
-          butter is unrefined to ensure that all of its properties are intact.
-          It's a highly moisturizing butter that has historically been used to
-          treat/mitigate a wide host of ailments such as eczema, psoriasis, sun
-          burn, scars, stretch marks, wrinkles, insect bites, and even small
-          wounds. In addition to its healing properties, shea butter provides
-          deep conditioning for the skin and hair. This conditioning improves
-          skin softness and elasticity, reduces dandruff, and adds luster,
-          strength, and softness to hair.
+          butter derived from the fruit of karite tree. It&apos;s full of
+          vitamins A, E, and F, all of which promote skin and hair regeneration.
+          My shea butter is unrefined to ensure that all of its properties are
+          intact. It&apos;s a highly moisturizing butter that has historically
+          been used to treat/mitigate a wide host of ailments such as eczema,
+          psoriasis, sun burn, scars, stretch marks, wrinkles, insect bites, and
+          even small wounds. In addition to its healing properties, shea butter
+          provides deep conditioning for the skin and hair. This conditioning
+          improves skin softness and elasticity, reduces dandruff, and adds
+          luster, strength, and softness to hair.
         </p>
 
         <p>
@@ -137,10 +139,10 @@ export default function PropertiesBenefits() {
           - A viscous, clear, emollient humectant derived from vegetable lipids.
           Glycerin is a byproduct of soap-making and is naturally present in
           soap (however, big soap companies deliberately remove the glycerin
-          from their soap to sell separately). It's highly moisturizing and does
-          not saponify (turn into soap). I typically use a small amount of
-          glycerin as a medium in which to mix my pigments, but don't add too
-          much in addition to what occurs naturally to my bath soaps, as too
+          from their soap to sell separately). It&apos;s highly moisturizing and
+          does not saponify (turn into soap). I typically use a small amount of
+          glycerin as a medium in which to mix my pigments, but don&apos;t add
+          too much in addition to what occurs naturally to my bath soaps, as too
           much additional glycerin would compromise the feel and texture of the
           soap. Where extra glycerin really shines, though, is in shaving soap,
           where its humectant properties help keep your beard nice and hydrated
