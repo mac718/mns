@@ -33,7 +33,7 @@ const NavBar = (props) => {
           </Link>
         </li>
         <li className={styles["list-item"]}>
-          <Link href="/properties" className={styles.link}>
+          <Link href="/properties_benefits" className={styles.link}>
             Properties and Benefits of Oils/Butters
           </Link>
         </li>

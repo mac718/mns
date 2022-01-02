@@ -1,0 +1,22 @@
+.main {
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+}
+
+.main h1 {
+  text-align: center;
+}
+
+.main p {
+  line-height: 150%;
+  margin-bottom: 3em;
+}
+
+.question {
+  font-weight: bold;
+}
+
+.answer {
+  font-weight: 100;
+}

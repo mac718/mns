@@ -1,0 +1,10 @@
+.main {
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+}
+
+.main p {
+  line-height: 175%;
+  margin-bottom: 3em;
+}

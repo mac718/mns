@@ -1,10 +1,12 @@
+import Heading from "../components/Heading";
 import styles from "./policies.module.css";
 
 export default function Policies() {
   return (
     <main className={styles.main}>
       <section>
-        <div className={styles.heading}>Shipping</div>
+        <Heading>Shipping</Heading>
+        <p>At this time, shipping is available to the US and Canada only.</p>
         <div>
           <span className={styles.subheading}>
             US Shipments (inclues APO addresses):
@@ -30,7 +32,7 @@ export default function Policies() {
         </div>
       </section>
       <section>
-        <div className={styles.heading}>Returns/Exchanges</div>
+        <Heading>Returns/Exchanges</Heading>
         I&apos;m happy to accomdate return and exchange requests for unused
         items in good condition. Buyer is responsible for shipping fees. Email
         me at{" "}

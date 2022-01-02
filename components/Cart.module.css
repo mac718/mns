@@ -2,30 +2,34 @@
   width: 4rem;
   height: 2rem;
   background: white;
-  border: 1px rgb(128, 205, 231) solid;
-  color: rgb(128, 205, 231);
+  border: 1px rgb(97, 202, 236) solid;
+  border-radius: 5px;
+  padding: 0.25rem;
+  color: rgb(97, 202, 236);
   margin: 0.5rem;
   cursor: pointer;
 }
 
 .close:hover {
-  background-color: rgb(128, 205, 231);
+  background-color: rgb(97, 202, 236);
   color: white;
 }
 
 .checkout {
   width: 4rem;
   height: 2rem;
-  background: rgb(98, 228, 98);
+  background: green;
   border: transparent;
+  border-radius: 5px;
+  padding: 0.25rem;
   color: white;
   margin: 0.5rem;
   cursor: pointer;
 }
 
 .checkout:hover {
-  border: 1px rgb(98, 228, 98) solid;
-  color: rgb(98, 228, 98);
+  border: 1px solid green;
+  color: green;
   background: white;
 }
 
