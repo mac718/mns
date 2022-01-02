@@ -1,0 +1,14 @@
+.main {
+  width: 50%;
+  margin: auto;
+  padding: 30px;
+}
+
+.content {
+  width: 100%;
+  font-size: 1.25rem;
+  line-height: 125%;
+  margin: 3rem auto;
+  font-weight: 100;
+  text-align: justify;
+}
