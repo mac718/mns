@@ -15,9 +15,9 @@ export default function AboutMike() {
           and one of many varieties of pressurized goo in a can. In an effort to
           make my facial hair removal not only more cost-effective, but also
           more pleasant, I took to the internet for information on alternatives.
-          It didn't take long for me to stumble upon the wet shaving forums, all
-          of which extolled the virtues of shaving with a brush and a
-          traditional, non pressurized, soap or cream. After reading countless
+          It didn&apos;t take long for me to stumble upon the wet shaving
+          forums, all of which extolled the virtues of shaving with a brush and
+          a traditional, non pressurized, soap or cream. After reading countless
           testimonials professing the efficacy of these practices, I ordered
           myself some traditional shaving gear. Since then, my morning shave has
           transformed from an unpleasant chore to a luxurious treat that I look
@@ -33,11 +33,12 @@ export default function AboutMike() {
           satisfied my fastidious nature. My efforts at producing an excellent
           shaving soap for my wet shaving brethren quickly expanded into the
           realm of bath soaps for my friends and family as well. After all, I
-          had long given up on mass-produced, chemical-laden, bath "soaps" in
-          favor of real, natural soap. I use all of my products myself and am
-          dedicated to creating the most sensory-satisfying soaps possible using
-          natural, skin nurturing ingredients, which will turn your most mundane
-          grooming and bathing routines into something far more opulent.
+          had long given up on mass-produced, chemical-laden, bath
+          &quot;soaps&quot; in favor of real, natural soap. I use all of my
+          products myself and am dedicated to creating the most
+          sensory-satisfying soaps possible using natural, skin nurturing
+          ingredients, which will turn your most mundane grooming and bathing
+          routines into something far more opulent.
         </p>
       </main>
       <Footer />
