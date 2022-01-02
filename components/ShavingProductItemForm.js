@@ -56,9 +56,7 @@ const ShavingProductItemForm = (props) => {
               inStock: props.inStock,
             });
           } else {
-            setError(
-              `Only ${existingItem.inStock} in stock. Please adjust quantity.`
-            );
+            setError(`Only ${props.inStock} in stock. Please adjust quantity.`);
           }
         }}
       >
