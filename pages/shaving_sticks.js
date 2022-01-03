@@ -57,7 +57,7 @@ export async function getServerSideProps(context) {
   const host =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://mns.vercel.app";
+      : "https://mikesnaturalsoaps.com";
   res = await axios(`${host}/api/products`);
   const sticks = res.data.products.filter(
     (product) => product.type === "stick"

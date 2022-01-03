@@ -85,7 +85,7 @@ const CheckoutButtons = (props) => {
     let host =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://mns.vercel.app";
+        : "https://mikesnaturalsoaps.com";
     try {
       axios
         .patch(`${host}/api/updateStock`, {

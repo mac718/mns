@@ -21,7 +21,7 @@ const Cart = (props) => {
       let host =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000"
-          : "https://mns.vercel.app";
+          : "https://mikesnaturalsoaps.com";
       const products = await axios(`${host}/api/products`);
       setProducts(products);
     } catch (error) {
