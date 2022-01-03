@@ -47,6 +47,7 @@ function MyApp({ Component, pageProps }) {
         {...pageProps}
         onShow={showCartHandler}
         onClose={hideCartHandler}
+        showSpinner={showSpinnerHandler}
         hideSpinner={hideSpinnerHandler}
       />
     </CartProvider>

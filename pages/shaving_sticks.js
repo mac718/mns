@@ -1,15 +1,18 @@
+import { useEffect } from "react";
 import MainImage from "../components/MainImage";
 import styles from "./shaving_products.module.css";
 import sticks from "../public/shaving_sticks.JPG";
 import Image from "next/image";
 import Notifications from "../components/Notifications";
 import Heading from "../components/Heading";
-import shavingProducts from "../products.json";
 import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
 import axios from "axios";
 
 export default function ShavingSticks(props) {
+  useEffect(() => {
+    props.hideSpinner();
+  }, []);
   return (
     <>
       <main className={styles.main}>

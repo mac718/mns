@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const ShavingSoapFormatListItem = (props) => {
   return (
-    <li className={styles["list-item"]}>
+    <li className={styles["list-item"]} onClick={props.showSpinner}>
       <Link href={props.url}>
         <Image src={props.image} width={300} />
       </Link>

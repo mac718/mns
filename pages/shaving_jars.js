@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Heading from "../components/Heading";
 import Image from "next/image";
 import jar from "../public/shaving_jar.jpeg";
@@ -10,6 +11,9 @@ import Notifications from "../components/Notifications";
 import axios from "axios";
 
 export default function ShavingJars(props) {
+  useEffect(() => {
+    props.hideSpinner();
+  }, []);
   return (
     <>
       <main className={styles.main}>

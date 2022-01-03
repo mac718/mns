@@ -3,7 +3,7 @@ import ShavingSoapFormatList from "../components/ShavingSoapFormatList";
 import ShavingSoapFormatListItem from "../components/ShavingSoapFormatListItem";
 import Heading from "../components/Heading";
 
-const ShavingSoaps = () => {
+const ShavingSoaps = (props) => {
   return (
     <>
       <main>
@@ -15,6 +15,7 @@ const ShavingSoaps = () => {
               type={format.type}
               image={format.image}
               url={format.url}
+              showSpinner={props.showSpinner}
             />
           ))}
         </ShavingSoapFormatList>

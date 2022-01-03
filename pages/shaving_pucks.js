@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Heading from "../components/Heading";
 import Image from "next/image";
 import puck from "../public/shaving_puck.jpeg";
@@ -5,12 +6,14 @@ import MainImage from "../components/MainImage";
 import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
 import Footer from "../components/Footer";
-import shavingProducts from "../products.json";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
 import axios from "axios";
 
 export default function ShavingPucks(props) {
+  useEffect(() => {
+    props.hideSpinner();
+  }, []);
   return (
     <>
       <main className={styles.main}>

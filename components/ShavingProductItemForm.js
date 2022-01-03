@@ -43,7 +43,7 @@ const ShavingProductItemForm = (props) => {
           if (
             (existingItem &&
               Number(existingItem.quantity) + Number(inputRef.current.value) <=
-                existingItem.inStock) ||
+                props.inStock) ||
             (!existingItem && Number(inputRef.current.value) <= props.inStock)
           ) {
             cartCtx.addItem(event, {
