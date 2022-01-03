@@ -97,6 +97,8 @@ const CheckoutButtons = (props) => {
         });
     } catch (err) {
       console.log(err);
+      localStorage.clear();
+      localStorage.setItem("paid", true);
     }
 
     router.push("/confirmation");
