@@ -23,23 +23,23 @@ const CheckoutButtons = (props) => {
           description: `${item.name} ${item.type}`,
         };
       });
+    }
 
-      lineItems = [
-        ...lineItems,
-        {
-          name: `Shipping: ${props.shippingService[0]}`,
-          unit_amount: {
-            value: props.shippingService[1],
-            currency_code: "USD",
-          },
-          quantity: 1,
-          description: "Shipping",
+    lineItems = [
+      ...lineItems,
+      {
+        name: `Shipping: ${props.shippingService[0]}`,
+        unit_amount: {
+          value: props.shippingService[1],
+          currency_code: "USD",
         },
-      ];
+        quantity: 1,
+        description: "Shipping",
+      },
+    ];
 
-      if (localStorage.total) {
-        total = localStorage.getItem("total");
-      }
+    if (localStorage.total) {
+      total = localStorage.getItem("total");
     }
 
     window.paypal
@@ -87,6 +87,7 @@ const CheckoutButtons = (props) => {
         ? "http://localhost:3000"
         : "https://mikesnaturalsoaps.com";
     try {
+      console.log(items);
       axios
         .patch(`${host}/api/updateStock`, {
           items: items,
