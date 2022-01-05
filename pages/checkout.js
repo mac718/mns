@@ -27,7 +27,7 @@ export default function Checkout(props) {
     props.hideSpinner(true);
     const timer = setInterval(() => {
       router.reload();
-    }, 100000);
+    }, 600000);
 
     return () => {
       clearInterval(timer);
