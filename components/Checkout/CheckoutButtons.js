@@ -1,11 +1,13 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
+
+  const cartCtx = useContext(cartCtx);
 
   const paypalRef = React.useRef();
   const router = useRouter();
@@ -90,7 +92,7 @@ const CheckoutButtons = (props) => {
       console.log(items);
       axios
         .patch(`${host}/api/updateStock`, {
-          items: items,
+          items: items || cartCtx.items,
         })
         .then(() => {
           localStorage.clear();
