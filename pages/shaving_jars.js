@@ -77,7 +77,6 @@ export async function getServerSideProps(context) {
   } catch (err) {
     console.log(err);
   }
-  //console.log(res);
   const jars = res.data.products.filter((product) => product.type === "jar");
 
   return {

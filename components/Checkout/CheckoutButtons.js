@@ -1,13 +1,14 @@
 import { useRouter } from "next/router";
 import React, { useContext } from "react";
 import axios from "axios";
+import CartContext from "../../store/cart-context";
 
 const CheckoutButtons = (props) => {
   const [paid, setPaid] = React.useState(false);
   const [error, setError] = React.useState(null);
   const [items, setItems] = React.useState([]);
 
-  const cartCtx = useContext(cartCtx);
+  const cartCtx = useContext(CartContext);
 
   const paypalRef = React.useRef();
   const router = useRouter();
