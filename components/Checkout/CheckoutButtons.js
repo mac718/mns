@@ -87,7 +87,7 @@ const CheckoutButtons = (props) => {
     let host =
       process.env.NODE_ENV === "development"
         ? "http://localhost:3000"
-        : "https://mikesnaturalsoaps.com";
+        : "https://www.mikesnaturalsoaps.com";
     try {
       console.log(items);
       axios

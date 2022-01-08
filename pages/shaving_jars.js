@@ -71,7 +71,7 @@ export async function getServerSideProps(context) {
   const host =
     process.env.NODE_ENV === "development"
       ? "http://localhost:3000"
-      : "https://mikesnaturalsoaps.com";
+      : "https://www.mikesnaturalsoaps.com";
   try {
     res = await axios(`${host}/api/products`);
   } catch (err) {
