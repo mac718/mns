@@ -71,7 +71,7 @@ export async function getServerSideProps(context) {
       ? "http://localhost:3000"
       : "https://www.mikesnaturalsoaps.com";
   res = await axios(`${host}/api/products`);
-  console.log("res", res);
+
   const pucks = res.data.products.filter((product) => product.type === "puck");
 
   return {
