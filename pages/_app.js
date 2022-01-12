@@ -6,7 +6,6 @@ import Cart from "../components/Cart";
 import CartProvider from "../store/CartProvider";
 import Spinner from "../components/UI/Spinner";
 import { Backdrop } from "../components/UI/Modal";
-import { Head } from "next/document";
 
 function MyApp({ Component, pageProps }) {
   const [showCart, setShowCart] = useState(false);
