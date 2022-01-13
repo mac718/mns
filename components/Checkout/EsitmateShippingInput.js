@@ -63,7 +63,7 @@ const EstimateShippingInput = (props) => {
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems === 3 &&
-      totalJars === 0
+      props.totalJars === 0
     ) {
       services = data.filter((service) =>
         service.serviceName.includes("Small Flat Rate Box")
@@ -120,6 +120,7 @@ const EstimateShippingInput = (props) => {
         setLoading(false);
       })
       .catch((err) => {
+        console.log(err);
         setLoading(false);
         setError(errorMessage);
       });

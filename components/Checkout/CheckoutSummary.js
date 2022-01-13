@@ -56,6 +56,8 @@ const CheckoutSummary = (props) => {
     0
   );
 
+  console.log("items", totalJars);
+
   let totalPucks = puckItems.reduce(
     (total, current) => total + current.quantity,
     0

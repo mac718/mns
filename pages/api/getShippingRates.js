@@ -49,6 +49,8 @@ export default async function handler(req, res) {
     confirmation: null,
     residential: true,
   };
+
+  console.log("Raw", raw);
   try {
     rates = await axios({
       method: "POST",
@@ -57,8 +59,9 @@ export default async function handler(req, res) {
       headers: headers,
     });
   } catch (error) {
+    console.log("hi");
     console.log(error);
   }
 
-  return res.send(rates.data);
+  res.send(rates.data);
 }
