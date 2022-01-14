@@ -69,6 +69,7 @@ const CheckoutButtons = (props) => {
         },
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
+
           setPaid(true);
         },
         onError: (err) => {
@@ -90,10 +91,10 @@ const CheckoutButtons = (props) => {
         ? "http://localhost:3000"
         : "https://www.mikesnaturalsoaps.com";
     try {
-      console.log(items);
+      console.log("^^^^^^^^", items);
       axios
         .patch(`${host}/api/updateStock`, {
-          items: items || cartCtx.items,
+          items: cartCtx.items || items,
         })
         .then(() => {
           localStorage.clear();
