@@ -3,8 +3,9 @@ import CheckoutButtons from "../components/Checkout/CheckoutButtons";
 import styles from "./shaving_products.module.css";
 import React, { useState, useEffect, useContext, useRef } from "react";
 import CartContext from "../store/cart-context";
-import axios from "axios";
 import { useRouter } from "next/router";
+import connectDB from "../middleware/mongodb";
+import Product from "../models/product";
 
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
@@ -84,19 +85,14 @@ export default function Checkout(props) {
 }
 
 export async function getServerSideProps(context) {
-  let res;
-  const host =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://www.mikesnaturalsoaps.com";
-  try {
-    res = await axios(`${host}/api/products`);
-  } catch (err) {
-    console.log(err);
-  }
-  const products = res.data.products;
+  const fetchProducts = connectDB(async () => {
+    const products = await Product.find();
+    return products;
+  });
+
+  const products = await fetchProducts();
 
   return {
-    props: { products },
+    props: { products: JSON.parse(JSON.stringify(products)) },
   };
 }
