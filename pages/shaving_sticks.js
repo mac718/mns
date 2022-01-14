@@ -7,7 +7,8 @@ import Notifications from "../components/Notifications";
 import Heading from "../components/Heading";
 import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
-import axios from "axios";
+import connectDB from "../middleware/mongodb";
+import Product from "../models/product";
 
 export default function ShavingSticks(props) {
   useEffect(() => {
@@ -53,17 +54,15 @@ export default function ShavingSticks(props) {
 }
 
 export async function getServerSideProps(context) {
-  let res;
-  const host =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://www.mikesnaturalsoaps.com";
-  res = await axios(`${host}/api/products`);
-  const sticks = res.data.products.filter(
-    (product) => product.type === "stick"
-  );
+  const fetchProducts = connectDB(async () => {
+    const products = await Product.find();
+    const sticks = products.filter((product) => product.type === "stick");
+    return sticks;
+  });
+
+  const sticks = await fetchProducts();
 
   return {
-    props: { sticks: sticks },
+    props: { sticks: JSON.parse(JSON.stringify(sticks)) },
   };
 }

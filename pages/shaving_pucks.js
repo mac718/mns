@@ -8,7 +8,8 @@ import ShavingProductsList from "../components/ShavingProductsList";
 import Footer from "../components/Footer";
 import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
-import axios from "axios";
+import connectDB from "../middleware/mongodb";
+import Product from "../models/product";
 
 export default function ShavingPucks(props) {
   useEffect(() => {
@@ -65,16 +66,15 @@ export default function ShavingPucks(props) {
 }
 
 export async function getServerSideProps(context) {
-  let res;
-  const host =
-    process.env.NODE_ENV === "development"
-      ? "http://localhost:3000"
-      : "https://www.mikesnaturalsoaps.com";
-  res = await axios(`${host}/api/products`);
+  const fetchProducts = connectDB(async () => {
+    const products = await Product.find();
+    const pucks = products.filter((product) => product.type === "puck");
+    return pucks;
+  });
 
-  const pucks = res.data.products.filter((product) => product.type === "puck");
+  const pucks = await fetchProducts();
 
   return {
-    props: { pucks: pucks },
+    props: { pucks: JSON.parse(JSON.stringify(pucks)) },
   };
 }
