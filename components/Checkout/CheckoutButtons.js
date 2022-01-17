@@ -76,7 +76,7 @@ const CheckoutButtons = (props) => {
           setError(err), console.error(err);
         },
         onShippingChange: async (data, actions) => {
-          if (data.shipping_address.postal_code !== props.zip) {
+          if (data.shipping_address.postal_code !== props.zip.toUpperCase()) {
             actions.reject();
           }
           actions.resolve();
