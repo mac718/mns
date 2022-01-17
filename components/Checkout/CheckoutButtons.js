@@ -76,6 +76,14 @@ const CheckoutButtons = (props) => {
           setError(err), console.error(err);
         },
         onShippingChange: async (data, actions) => {
+          if (
+            !(
+              data.shipping_address.country_code === "US" ||
+              data.shipping_address.country_code === "CA"
+            )
+          ) {
+            actions.reject();
+          }
           if (data.shipping_address.postal_code !== props.zip.toUpperCase()) {
             actions.reject();
           }
