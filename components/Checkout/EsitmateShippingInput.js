@@ -49,7 +49,7 @@ const EstimateShippingInput = (props) => {
       services = data.filter(
         (service) =>
           service.serviceName.includes("First Class Mail - Package") ||
-          service.serviceName.includes("First Class Mail Intl- Package") ||
+          service.serviceName.includes("First Class Mail Intl - Package") ||
           service.serviceName.includes("Small Flat Rate Box")
       );
     } else if (
