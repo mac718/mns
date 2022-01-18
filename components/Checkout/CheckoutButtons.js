@@ -84,7 +84,11 @@ const CheckoutButtons = (props) => {
           ) {
             actions.reject();
           }
-          if (data.shipping_address.postal_code !== props.zip.toUpperCase()) {
+
+          if (
+            data.shipping_address.postal_code.split("-")[0] !==
+            props.zip.toUpperCase()
+          ) {
             actions.reject();
           }
           actions.resolve();

@@ -55,9 +55,8 @@ export default function ShavingSticks(props) {
 
 export async function getServerSideProps(context) {
   const fetchProducts = connectDB(async () => {
-    const products = await Product.find();
-    const sticks = products.filter((product) => product.type === "stick");
-    return sticks;
+    const products = await Product.find({ type: "stick" });
+    return products;
   });
 
   const sticks = await fetchProducts();
