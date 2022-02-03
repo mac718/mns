@@ -84,10 +84,17 @@ const CheckoutButtons = (props) => {
           ) {
             actions.reject();
           }
+          let zip = props.zip;
+          if (
+            data.shipping_address.country_code === "CA" &&
+            data.shipping_address.postal_code.length === 6
+          ) {
+            zip = zip.slice(0, 3) + zip.slice(3);
+          }
 
           if (
-            data.shipping_address.postal_code.split("-")[0] !==
-            props.zip.toUpperCase()
+            data.shipping_address.postal_code.split("-")[0].toUpperCase() !==
+            zip.toUpperCase()
           ) {
             actions.reject();
           }

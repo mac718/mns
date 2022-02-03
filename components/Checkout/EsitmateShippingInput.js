@@ -105,6 +105,7 @@ const EstimateShippingInput = (props) => {
     setLoading(true);
     const errorMessage =
       "Invalid zip code. Please enter a valid US or Canadian zip code. Shipping to other locations is not available.";
+
     axios
       .post("/api/getShippingRates", {
         country: country,
