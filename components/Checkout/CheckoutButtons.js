@@ -70,6 +70,30 @@ const CheckoutButtons = (props) => {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
 
+          let host =
+            process.env.NODE_ENV === "development"
+              ? "http://localhost:3000"
+              : "https://www.mikesnaturalsoaps.com";
+          try {
+            console.log("^^^^^^^^", items);
+            axios
+              .patch(`${host}/api/updateStock`, {
+                items: cartCtx.items || items,
+              })
+              .then(() => {
+                localStorage.clear();
+                localStorage.setItem("paid", true);
+              })
+              .then(() => {
+                router.push("/confirmation");
+              });
+          } catch (err) {
+            console.log(err);
+            localStorage.clear();
+            localStorage.setItem("paid", true);
+            router.push("/confirmation");
+          }
+
           setPaid(true);
         },
         onError: (err) => {
@@ -105,27 +129,27 @@ const CheckoutButtons = (props) => {
   }, []);
 
   if (paid) {
-    let host =
-      process.env.NODE_ENV === "development"
-        ? "http://localhost:3000"
-        : "https://www.mikesnaturalsoaps.com";
-    try {
-      console.log("^^^^^^^^", items);
-      axios
-        .patch(`${host}/api/updateStock`, {
-          items: cartCtx.items || items,
-        })
-        .then(() => {
-          localStorage.clear();
-          localStorage.setItem("paid", true);
-        });
-    } catch (err) {
-      console.log(err);
-      localStorage.clear();
-      localStorage.setItem("paid", true);
-    }
+    // let host =
+    //   process.env.NODE_ENV === "development"
+    //     ? "http://localhost:3000"
+    //     : "https://www.mikesnaturalsoaps.com";
+    // try {
+    //   console.log("^^^^^^^^", items);
+    //   axios
+    //     .patch(`${host}/api/updateStock`, {
+    //       items: cartCtx.items || items,
+    //     })
+    //     .then(() => {
+    //       localStorage.clear();
+    //       localStorage.setItem("paid", true);
+    //     });
+    // } catch (err) {
+    //   console.log(err);
+    //   localStorage.clear();
+    //   localStorage.setItem("paid", true);
+    // }
 
-    router.push("/confirmation");
+    // router.push("/confirmation");
     return <div>Payment successful!</div>;
   }
 
