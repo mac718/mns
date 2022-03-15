@@ -6,6 +6,7 @@ import CartContext from "../store/cart-context";
 import { useRouter } from "next/router";
 import connectDB from "../middleware/mongodb";
 import Product from "../models/product";
+import { PayPalButtons } from "@paypal/react-paypal-js";
 
 export default function Checkout(props) {
   const cartCtx = useContext(CartContext);
