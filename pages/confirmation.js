@@ -15,7 +15,6 @@ export default function Confirmation(props) {
       router.push("/");
     } else {
       setPaid(true);
-      localStorage.clear();
       let host =
         process.env.NODE_ENV === "development"
           ? "http://localhost:3000"
@@ -27,10 +26,9 @@ export default function Confirmation(props) {
           })
           .then(() => {
             localStorage.clear();
-            localStorage.setItem("paid", true);
           })
-          .then(() => {
-            router.push("/confirmation");
+          .catch((err) => {
+            console.log(err);
           });
       } catch (err) {
         console.log(err);
@@ -44,7 +42,7 @@ export default function Confirmation(props) {
       {paid && (
         <div className={styles["thank-you"]}>
           <div>Thank you!</div>{" "}
-          <p>You should receive an order confirmation via email shortly.</p>
+          <p>You should receive a PayPal receipt via email shortly.</p>
         </div>
       )}
     </main>
