@@ -36,6 +36,7 @@ const Cart = (props) => {
     );
 
     let amountInStock;
+
     if (item.type === "jar") {
       const jars = products.data.products.filter(
         (product) => product.type === "jar"
