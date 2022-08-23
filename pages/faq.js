@@ -20,15 +20,15 @@ export default function Faq() {
 
       <p className={styles.answer}>
         As a one-man operation, I am only able to make so much soap; I
-        don&apos;t have any employees, my batches are small, and I make
-        questionuite a few varieties. Maintaining constant stock of every
-        product on the site would be a full-time job unto itself (that is,
-        without having to pack and ship orders, answer emails, constantly clean,
-        etc.). I do my best to make as much soap as I can, but it just
-        isn&apos;t possible for me to keep every item in stock at all times. In
-        addition, I am often limited by finances; raw materials are not cheap
-        and, contrary to the apparent perception of many, I have not become
-        wealthy by selling handmade soap on the internet.
+        don&apos;t have any employees, my batches are small, and I make qite a
+        few varieties. Maintaining constant stock of every product on the site
+        would be a full-time job unto itself (that is, without having to pack
+        and ship orders, answer emails, constantly clean, etc.). I do my best to
+        make as much soap as I can, but it just isn&apos;t possible for me to
+        keep every item in stock at all times. In addition, I am often limited
+        by finances; raw materials are not cheap and, contrary to the apparent
+        perception of many, I have not become wealthy by selling handmade soap
+        on the internet.
       </p>
 
       <p className={styles.question}>
@@ -40,8 +40,8 @@ export default function Faq() {
       <p className={styles.answer}>
         While this seems like a reasonable course of action, it&apos;s something
         that I prefer not to do. If I were to start taking such orders, things
-        would get very messy very questionuickly. Furthermore, it can take a
-        very long time for such orders to be ready to ship.
+        would get very messy very quickly. Furthermore, it can take a very long
+        time for such orders to be ready to ship.
       </p>
 
       <p className={styles.question}>Can I add an item to my existing order?</p>
