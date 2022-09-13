@@ -53,11 +53,15 @@ const CheckoutButtons = (props) => {
             purchase_units: [
               {
                 amount: {
-                  value: Number(total) + Number(props.shippingService[1]),
+                  value: (
+                    Number(total) + Number(props.shippingService[1])
+                  ).toFixed(2),
                   breakdown: {
                     item_total: {
                       currency_code: "USD",
-                      value: Number(total) + Number(props.shippingService[1]),
+                      value: (
+                        Number(total) + Number(props.shippingService[1])
+                      ).toFixed(2),
                     },
                   },
                 },
