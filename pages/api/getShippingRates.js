@@ -24,6 +24,7 @@ export default async function handler(req, res) {
   await runMiddleware(req, res, cors);
 
   const { country, zip, orderWeight } = req.body;
+  console.log(req.body);
 
   const headers = {
     "Content-Type": "application/json",
@@ -58,7 +59,7 @@ export default async function handler(req, res) {
       headers: headers,
     });
   } catch (error) {
-    console.log(error);
+    console.log("error", error);
   }
 
   res.send(rates.data);

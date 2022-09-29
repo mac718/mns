@@ -121,7 +121,7 @@ const EstimateShippingInput = (props) => {
         setLoading(false);
       })
       .catch((err) => {
-        console.log(err);
+        console.log("error", err);
         setLoading(false);
         setError(errorMessage);
       });
