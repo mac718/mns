@@ -70,7 +70,6 @@ export default function ShavingJars(props) {
 export async function getServerSideProps(context) {
   const fetchProducts = connectDB(async () => {
     const products = await Product.find({ type: "jar" });
-    //const jars = products.filter((product) => product.type === "jar");
     return products;
   });
 
