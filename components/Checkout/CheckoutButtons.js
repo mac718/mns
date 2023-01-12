@@ -104,6 +104,7 @@ const CheckoutButtons = (props) => {
           setError(err), console.error(err);
         },
         onShippingChange: async (data, actions) => {
+          console.log(data.shipping_address.country_code);
           if (
             !(
               data.shipping_address.country_code === "US" ||
@@ -117,6 +118,7 @@ const CheckoutButtons = (props) => {
             data.shipping_address.country_code === "CA" &&
             data.shipping_address.postal_code.length === 6
           ) {
+            console.log("hi");
             zip = zip.slice(0, 3) + zip.slice(3);
           }
 
