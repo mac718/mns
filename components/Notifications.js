@@ -3,7 +3,9 @@ import styles from "./Notifications.module.css";
 const Notifications = () => {
   return (
     <aside className={styles.notifications}>
-      **I&apos;m currently processing orders from 1/30-2/1. Thanks!**
+      **I&apos;m currently processing orders from 2/1-2/2. Also, I&apos;m
+      selling my Rooney Heritage Stubby 1xl brush for $200. Email me with any
+      questions! Thanks!**
     </aside>
   );
 };
