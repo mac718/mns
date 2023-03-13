@@ -123,8 +123,9 @@ const CheckoutButtons = (props) => {
           }
 
           if (
+            data.shipping_address.country_code === "US" &&
             data.shipping_address.postal_code.split("-")[0].toUpperCase() !==
-            zip.toUpperCase()
+              zip.toUpperCase()
           ) {
             actions.reject();
           }
