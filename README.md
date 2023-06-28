@@ -2,8 +2,8 @@
 
 ## Built With
 
--Next.js
--MongoDB
--Mongoose
+- Next.js
+- MongoDB
+- Mongoose
 
 ## Features
