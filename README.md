@@ -8,16 +8,22 @@
 
 ## Features
 
-### View Products List
+### Add In-stock Products To Shopping Cart
 
 ![](https://github.com/mac718/mns/blob/main/gifs/product_list%20copy.gif)
 
-### Add In-stock Products To Shopping Cart
-
 ### Checkout Page
+
+![](https://github.com/mac718/mns/blob/main/gifs/cart.gif)
 
 ### Update Order
 
+![](https://github.com/mac718/mns/blob/main/gifs/update_cart.gif)
+
 ### Calculate Shipping and Select Shippping Option
 
+![](https://github.com/mac718/mns/blob/main/gifs/select_shipping.gif)
+
 ### Select Payment Option
+
+![](https://github.com/mac718/mns/blob/main/gifs/select_payment.gif)
