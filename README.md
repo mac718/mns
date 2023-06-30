@@ -10,6 +10,8 @@
 
 ### View Products List
 
+![](https://github.com/mac718/mns/blob/main/gifs/product_list%20copy.gif)
+
 ### Add In-stock Products To Shopping Cart
 
 ### Checkout Page
