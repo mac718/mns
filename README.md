@@ -10,7 +10,7 @@
 
 ### Add In-stock Products To Shopping Cart
 
-![](https://github.com/mac718/mns/blob/main/gifs/product_list%20copy.gif)
+![](https://github.com/mac718/mns/blob/main/gifs/add_to_cart.gif)
 
 ### Checkout Page
 
