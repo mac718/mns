@@ -22,3 +22,39 @@
   width: 100%;
   text-align: center;
 }
+
+.delete-icon {
+  display: inline-block;
+  margin-left: 5px;
+  color: darkgray;
+  font-size: 2rem;
+}
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  font-size: 0.6rem;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  top: -15px;
+  right: -15px;
+  z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  transition: visibility 0s linear 1s;
+  visibility: visible;
+}

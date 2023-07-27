@@ -1,5 +1,6 @@
 import { useRef } from "react";
 import styles from "./CartItem.module.css";
+import { TiDelete } from "react-icons/ti";
 
 const CartItem = (props) => {
   const inputRef = useRef();
@@ -31,6 +32,21 @@ const CartItem = (props) => {
             })
           }
         />
+        <div className={styles["delete-icon"]}>
+          <div className={styles.tooltip}>
+            <span className={styles.tooltiptext}>Remove item from cart</span>
+            <TiDelete
+              onClick={() =>
+                props.onRemove({
+                  id: props.id,
+                  type: props.type,
+                  price: props.price,
+                  quantity: 0,
+                })
+              }
+            />
+          </div>
+        </div>
         {props.error && props.errorId === props.id && (
           <div className={styles.error}>{props.error}</div>
         )}

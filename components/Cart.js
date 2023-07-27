@@ -72,6 +72,10 @@ const Cart = (props) => {
     }
   };
 
+  const onRemove = (item) => {
+    cartCtx.removeItem(item);
+  };
+
   return (
     <Modal onClose={props.onClose}>
       <Heading>Your Cart</Heading>
@@ -86,6 +90,7 @@ const Cart = (props) => {
             type={item.type}
             onChange={onChangeQuantity}
             onBlur={onBlurHandler}
+            onRemove={onRemove}
             error={error}
             errorId={errorId}
           />
