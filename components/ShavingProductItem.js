@@ -1,3 +1,4 @@
+import AddToNotificationListForm from "./AddToNotificationListForm";
 import styles from "./ShavingProductItem.module.css";
 import ShavingProductItemForm from "./ShavingProductItemForm";
 
@@ -19,7 +20,10 @@ const ShavingProductItem = (props) => {
             inStock={props.inStock}
           />
         ) : (
-          <span className={styles["out-of-stock"]}>Out Of Stock</span>
+          <>
+            <span className={styles["out-of-stock"]}>Out Of Stock</span>
+            <AddToNotificationListForm id="" />
+          </>
         )}
       </div>
     </div>
