@@ -22,7 +22,7 @@ const ShavingProductItem = (props) => {
         ) : (
           <>
             <span className={styles["out-of-stock"]}>Out Of Stock</span>
-            <AddToNotificationListForm id="" />
+            <AddToNotificationListForm id={props.id} />
           </>
         )}
       </div>
