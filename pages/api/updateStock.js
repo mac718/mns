@@ -1,6 +1,8 @@
+import connectDB from "../../middleware/mongodb";
+
 const Product = require("../../models/product");
 
-export default async function handler(req, res) {
+async function handler(req, res) {
   let { items } = req.body;
 
   items.forEach(async (item) => {
@@ -16,3 +18,5 @@ export default async function handler(req, res) {
 
   res.status(200).send();
 }
+
+export default connectDB(handler);

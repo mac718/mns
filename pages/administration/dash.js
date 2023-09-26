@@ -13,10 +13,25 @@ const Dash = ({ products }) => {
           .inStock
       : 0
   );
+  const [success, setSuccess] = useState(false);
 
   const optionChangeHandler = (event) => {
     console.log(product);
     setProduct(event.target.value);
+  };
+
+  const updateStockHandler = async (event) => {
+    console.log("derp");
+    event.preventDefault();
+    try {
+      await axios.patch("../api/modifyStock", {
+        product,
+        quantity,
+      });
+      setSuccess(true);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   useEffect(() => {
@@ -45,13 +60,14 @@ const Dash = ({ products }) => {
         -
       </div>
       <input type="number" value={quantity} />
+      {success && <div>update successful</div>}
       <div
         className={styles["change-quantity"]}
         onClick={() => setQuantity((prev) => prev + 1)}
       >
         +
       </div>
-      <button>update</button>
+      <button onClick={updateStockHandler}>update</button>
     </main>
   );
 };
