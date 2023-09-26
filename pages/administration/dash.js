@@ -2,14 +2,56 @@ import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
 import styles from "./Dash.module.css";
 import { getSession } from "next-auth/react";
+import axios from "axios";
+import { useState, useRef, useEffect } from "react";
 
 const Dash = ({ products }) => {
+  const [product, setProduct] = useState("");
+  const [quantity, setQuantity] = useState(
+    product
+      ? products.filter((prod) => `${prod.scent} ${prod.type}` === product)[0]
+          .inStock
+      : 0
+  );
+
+  const optionChangeHandler = (event) => {
+    console.log(product);
+    setProduct(event.target.value);
+  };
+
+  useEffect(() => {
+    setQuantity(
+      product
+        ? products.filter((prod) => `${prod.scent} ${prod.type}` === product)[0]
+            .inStock
+        : 0
+    );
+  }, [product]);
+
   const options = products.map((product) => (
-    <option>{`${product.scent} ${product.type}`}</option>
+    <option
+      key={`${product.scent} ${product.type}`}
+      value={`${product.scent} ${product.type}`}
+    >{`${product.scent} ${product.type}`}</option>
   ));
+
   return (
     <main className={styles.main}>
-      <select>{options}</select>
+      <select onChange={optionChangeHandler}>{options}</select>
+      <div
+        className={styles["change-quantity"]}
+        onClick={() => setQuantity((prev) => prev - 1)}
+      >
+        -
+      </div>
+      <input type="number" value={quantity} />
+      <div
+        className={styles["change-quantity"]}
+        onClick={() => setQuantity((prev) => prev + 1)}
+      >
+        +
+      </div>
+      <button>update</button>
     </main>
   );
 };
