@@ -22,7 +22,6 @@ const Dash = ({ products }) => {
   };
 
   const updateStockHandler = async (event) => {
-    console.log("derp");
     event.preventDefault();
     try {
       await axios.patch("/api/modifyStock", {
@@ -62,7 +61,13 @@ const Dash = ({ products }) => {
         >
           -
         </div>
-        <input type="number" value={quantity} />
+        <input
+          type="number"
+          value={quantity}
+          onChange={(event) => {
+            setQuantity(event.target.value);
+          }}
+        />
 
         <div
           className={styles["change-quantity"]}
