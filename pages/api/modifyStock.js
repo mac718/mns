@@ -12,6 +12,7 @@ export const modifyStock = async (req, res, next) => {
     scent: productScent,
     type: productType,
   });
+
   exisitingProduct = exisitingProduct[0];
 
   exisitingProduct.inStock = quantity;
