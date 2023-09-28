@@ -1,5 +1,48 @@
+import axios from "axios";
 import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
+import * as sgMail from "@sendgrid/mail";
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const EmailService = {};
+
+EmailService.send = (msg) => {
+  sgMail
+    .send(msg)
+    .then(() => {
+      console.log("Email sent");
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+};
+
+const sendStockNotificationEmail = async (product, recipients) => {
+  //const { product, recipients } = req.body;
+
+  console.log("hello from email", recipients);
+
+  let message = `Hello! Just letting you know, as per your request, 
+                that ${product} is back in stock at Mike's Natural Soaps. Thanks!`;
+  const options = {
+    from: "mike@mikesnaturalsoaps.com",
+    to: recipients,
+    subject: `Mike's Natural Soaps - ${product} is back in stock.`,
+    text: message,
+    html: `<p>Hello!
+    
+    Just letting you know, as per your request, that ${product} is back in stock at
+     <a href='https://www.mikesnaturalsoaps.com'>Mike's Natural Soaps</a>.
+
+    Thanks!
+    Mike
+    </p>`,
+  };
+
+  EmailService.send(options, true);
+
+  //res.status(200).send();
+};
 
 export const modifyStock = async (req, res, next) => {
   const { product, quantity } = req.body;
@@ -15,10 +58,28 @@ export const modifyStock = async (req, res, next) => {
 
   exisitingProduct = exisitingProduct[0];
 
+  console.log(exisitingProduct);
+
+  const originalInStock = exisitingProduct.inStock;
+
   exisitingProduct.inStock = quantity;
 
   try {
     await exisitingProduct.save();
+    if (originalInStock === 0) {
+      try {
+        // await axios.post("/api/stock-notifications/email", {
+        //   product,
+        //   recipients: exisitingProduct.notificationList,
+        // });
+        await sendStockNotificationEmail(
+          product,
+          exisitingProduct.notificationList
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    }
     res.status(200).send();
   } catch (err) {
     res.status(500).json(err);
