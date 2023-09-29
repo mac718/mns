@@ -8,7 +8,7 @@ const EmailService = {};
 
 EmailService.send = (msg) => {
   sgMail
-    .send(msg)
+    .sendMultiple(msg)
     .then(() => {
       console.log("Email sent");
     })
@@ -18,14 +18,12 @@ EmailService.send = (msg) => {
 };
 
 const sendStockNotificationEmail = async (product, recipients) => {
-  //const { product, recipients } = req.body;
-
   console.log("hello from email", recipients);
 
   let message = `Hello! Just letting you know, as per your request, 
                 that ${product} is back in stock at Mike's Natural Soaps. Thanks!`;
   const options = {
-    from: "mike@mikesnaturalsoaps.com",
+    from: { email: "mike@mikesnaturalsoaps.com", name: "Mike's Natural Soaps" },
     to: recipients,
     subject: `Mike's Natural Soaps - ${product} is back in stock.`,
     text: message,
@@ -39,9 +37,7 @@ const sendStockNotificationEmail = async (product, recipients) => {
     </p>`,
   };
 
-  EmailService.send(options, true);
-
-  //res.status(200).send();
+  EmailService.send(options);
 };
 
 export const modifyStock = async (req, res, next) => {
@@ -68,10 +64,6 @@ export const modifyStock = async (req, res, next) => {
     await exisitingProduct.save();
     if (originalInStock === 0) {
       try {
-        // await axios.post("/api/stock-notifications/email", {
-        //   product,
-        //   recipients: exisitingProduct.notificationList,
-        // });
         await sendStockNotificationEmail(
           product,
           exisitingProduct.notificationList

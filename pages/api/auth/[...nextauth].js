@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import * as bcrypt from "bcrypt";
 import User from "../../../models/user";
 import connectDB from "../../../middleware/mongodb";
+import * as jwt from "jsonwebtoken";
 
 export const authOptions = {
   secret: process.env.NextAuth_SECRET,
@@ -48,6 +49,11 @@ export const authOptions = {
             .status(400)
             .json({ msg: "Email and/or password is/are incorrect." });
         }
+
+        const payload = { email: existingUser.email };
+        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+          expiresIn: "1h",
+        });
         // const res = await fetch("http://localhost:3000/api/login", {
         //   method: "POST",
         //   headers: {
