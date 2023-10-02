@@ -2,8 +2,8 @@ import { useRef } from "react";
 import { getSession, signIn } from "next-auth/react";
 
 const SignInPage = () => {
-  const emailRef = useRef("");
-  const passwordRef = useRef("");
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
   return (
     <form
@@ -27,12 +27,12 @@ export default SignInPage;
 export async function getServerSideProps(context) {
   const { req } = context;
   const session = await getSession({ req });
-
-  if (session) {
-    return {
-      redirect: { destination: "/administration/dash" },
-    };
-  }
+  console.log("sizesh", session);
+  // if (session && session.jwt) {
+  //   return {
+  //     redirect: { destination: "/administration/dash" },
+  //   };
+  // }
 
   return { props: {} };
 }

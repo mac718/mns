@@ -4,8 +4,9 @@ import styles from "./Dash.module.css";
 import { getSession } from "next-auth/react";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import * as jwt from "jsonwebtoken";
 
-const Dash = ({ products }) => {
+const Dash = ({ products, token }) => {
   const [product, setProduct] = useState("");
   const [quantity, setQuantity] = useState(
     product
@@ -27,6 +28,7 @@ const Dash = ({ products }) => {
       await axios.patch("/api/modifyStock", {
         product,
         quantity,
+        token,
       });
       setSuccess(true);
     } catch (err) {
@@ -98,13 +100,28 @@ export async function getServerSideProps(context) {
 
   console.log("session", session);
 
-  if (!session || !session.user._doc.isAdmin) {
+  if (!session || !session.jwt) {
     return {
       redirect: { destination: "/auth/signin" },
     };
   }
 
+  let verified;
+  if (session && session.jwt) {
+    try {
+      verified = jwt.verify(session.jwt, process.env.JWT_SECRET);
+    } catch (err) {
+      console.log(err);
+      return {
+        redirect: { destination: "/auth/signin" },
+      };
+    }
+  }
+
   return {
-    props: { products: JSON.parse(JSON.stringify(products)) },
+    props: {
+      products: JSON.parse(JSON.stringify(products)),
+      token: session.jwt,
+    },
   };
 }

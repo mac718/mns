@@ -2,6 +2,7 @@ import axios from "axios";
 import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
 import * as sgMail from "@sendgrid/mail";
+import * as jwt from "jsonwebtoken";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const EmailService = {};
@@ -41,7 +42,13 @@ const sendStockNotificationEmail = async (product, recipients) => {
 };
 
 export const modifyStock = async (req, res, next) => {
-  const { product, quantity } = req.body;
+  const { product, quantity, token } = req.body;
+
+  try {
+    jwt.verify(token, process.env.JWT_SECRET);
+  } catch (err) {
+    return res.status(401).json(err);
+  }
 
   const productTerms = product.split(" ");
   const productType = productTerms[productTerms.length - 1];

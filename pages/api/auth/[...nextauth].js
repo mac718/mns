@@ -65,19 +65,30 @@ export const authOptions = {
         //   }),
         // });
         // const user = await res.json();
-        if (existingUser) {
-          return existingUser;
+        if (token) {
+          return { ...credentials, token };
         } else return null;
       },
     }),
   ],
+  session: {
+    strategy: "jwt",
+  },
   callbacks: {
     async jwt({ token, user }) {
-      return { ...token, ...user };
+      console.log("user", user);
+      if (user) {
+        return { ...token, jwt: user.token };
+      }
+      return token;
     },
     async session({ session, token, user }) {
       // Send properties to the client, like an access_token from a provider.
-      session.user = token;
+
+      if (token) {
+        session.jwt = token.jwt;
+      }
+      console.log("session", token, session);
       return session;
     },
   },
