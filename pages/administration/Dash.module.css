@@ -13,3 +13,18 @@
   background-color: turquoise;
   margin: 5px;
 }
+
+.success,
+.error {
+  width: fit-content;
+  color: lightgreen;
+  margin: auto;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: orangered;
+}

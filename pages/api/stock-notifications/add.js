@@ -4,8 +4,6 @@ import Product from "../../../models/product";
 const addEmailToNotificaionList = async (req, res, next) => {
   const { id, email } = req.body;
 
-  console.log("id, email", id, email);
-
   const product = await Product.findById(id);
 
   if (!product) {
@@ -16,7 +14,6 @@ const addEmailToNotificaionList = async (req, res, next) => {
 
   try {
     await product.save();
-    console.log(product);
     res.status(200).send();
   } catch (err) {
     console.log(err);

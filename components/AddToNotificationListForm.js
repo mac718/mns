@@ -17,7 +17,7 @@ const AddToNotificationListForm = ({ id }) => {
     }
   };
   return (
-    <form onSubmit={onSubmit}>
+    <form className={styles.form} onSubmit={onSubmit}>
       <label htmlFor="add-to-label">Notify when back in stock</label>
       <input
         type="email"

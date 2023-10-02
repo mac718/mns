@@ -1,5 +1,6 @@
 import { useRef } from "react";
-import { getSession, signIn } from "next-auth/react";
+import { signIn } from "next-auth/react";
+import styles from "./SignIn.module.css";
 
 const SignInPage = () => {
   const emailRef = useRef();
@@ -7,11 +8,13 @@ const SignInPage = () => {
 
   return (
     <form
+      className={styles.form}
       onSubmit={(e) => {
         e.preventDefault();
         signIn("credentials", {
           email: emailRef.current.value,
           password: passwordRef.current.value,
+          callbackUrl: "/administration/dash.js",
         });
       }}
     >
@@ -23,16 +26,3 @@ const SignInPage = () => {
 };
 
 export default SignInPage;
-
-export async function getServerSideProps(context) {
-  const { req } = context;
-  const session = await getSession({ req });
-  console.log("sizesh", session);
-  // if (session && session.jwt) {
-  //   return {
-  //     redirect: { destination: "/administration/dash" },
-  //   };
-  // }
-
-  return { props: {} };
-}

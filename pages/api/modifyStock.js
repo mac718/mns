@@ -19,8 +19,6 @@ EmailService.send = (msg) => {
 };
 
 const sendStockNotificationEmail = async (product, recipients) => {
-  console.log("hello from email", recipients);
-
   let message = `Hello! Just letting you know, as per your request, 
                 that ${product} is back in stock at Mike's Natural Soaps. Thanks!`;
   const options = {
@@ -61,8 +59,6 @@ export const modifyStock = async (req, res, next) => {
 
   exisitingProduct = exisitingProduct[0];
 
-  console.log(exisitingProduct);
-
   const originalInStock = exisitingProduct.inStock;
 
   exisitingProduct.inStock = quantity;
@@ -75,6 +71,8 @@ export const modifyStock = async (req, res, next) => {
           product,
           exisitingProduct.notificationList
         );
+        exisitingProduct.notificationList = [];
+        await exisitingProduct.save();
       } catch (err) {
         console.log(err);
       }

@@ -79,8 +79,8 @@ const Dash = ({ products, token }) => {
         </div>
         <button onClick={updateStockHandler}>update</button>
       </main>
-      {success && <div>update successful</div>}
-      {error && <div>something went wrong</div>}
+      {success && <div className={styles.success}>update successful</div>}
+      {error && <div className={styles.error}>something went wrong</div>}
     </>
   );
 };
