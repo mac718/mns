@@ -98,8 +98,6 @@ export async function getServerSideProps(context) {
   const { req } = context;
   const session = await getSession({ req });
 
-  console.log("session", session);
-
   if (!session || !session.jwt) {
     return {
       redirect: { destination: "/auth/signin" },

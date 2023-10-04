@@ -17,4 +17,13 @@
   color: white;
   border: none;
   height: 30px;
+  cursor: pointer;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: orangered;
 }
