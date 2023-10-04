@@ -1,10 +1,12 @@
 import { useRef } from "react";
 import { signIn } from "next-auth/react";
 import styles from "./SignIn.module.css";
+import { useRouter } from "next/router";
 
 const SignInPage = () => {
   const emailRef = useRef();
   const passwordRef = useRef();
+  const router = useRouter();
 
   return (
     <form
@@ -14,7 +16,12 @@ const SignInPage = () => {
         signIn("credentials", {
           email: emailRef.current.value,
           password: passwordRef.current.value,
-          callbackUrl: "/administration/dash.js",
+          redirect: false,
+          // callbackUrl: "/administration/dash.js",
+        }).then((res) => {
+          if (res.status === 200) {
+            router.push("/administration/dash");
+          }
         });
       }}
     >

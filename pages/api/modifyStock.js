@@ -1,4 +1,3 @@
-import axios from "axios";
 import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
 import * as sgMail from "@sendgrid/mail";
