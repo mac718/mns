@@ -17,7 +17,6 @@ const SignInPage = () => {
           email: emailRef.current.value,
           password: passwordRef.current.value,
           redirect: false,
-          // callbackUrl: "/administration/dash.js",
         }).then((res) => {
           if (res.status === 200) {
             router.push("/administration/dash");
