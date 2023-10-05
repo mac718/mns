@@ -2,6 +2,7 @@ import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
 import * as sgMail from "@sendgrid/mail";
 import * as jwt from "jsonwebtoken";
+import dbConnect from "../../lib/dbConnect";
 
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 const EmailService = {};
@@ -18,6 +19,7 @@ EmailService.send = (msg) => {
 };
 
 const sendStockNotificationEmail = async (product, recipients) => {
+  await dbConnect();
   let message = `Hello! Just letting you know, as per your request, 
                 that ${product} is back in stock at Mike's Natural Soaps. Thanks!`;
   const options = {
@@ -91,4 +93,4 @@ const modifyStock = async (req, res, next) => {
   }
 };
 
-export default connectDB(modifyStock);
+export default modifyStock;
