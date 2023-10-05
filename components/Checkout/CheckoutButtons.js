@@ -136,28 +136,28 @@ const CheckoutButtons = (props) => {
   }, []);
 
   if (paid) {
-    // let host =
-    //   process.env.NODE_ENV === "development"
-    //     ? "http://localhost:3000"
-    //     : "https://www.mikesnaturalsoaps.com";
-    // try {
-    //   console.log("^^^^^^^^", items);
-    //   axios
-    //     .patch(`${host}/api/updateStock`, {
-    //       items: cartCtx.items || items,
-    //     })
-    //     .then(() => {
-    //       localStorage.clear();
-    //       localStorage.setItem("paid", true);
-    //     });
-    // } catch (err) {
-    //   console.log(err);
-    //   localStorage.clear();
-    //   localStorage.setItem("paid", true);
-    // }
+    let host =
+      process.env.NODE_ENV === "development"
+        ? "http://localhost:3000"
+        : "https://www.mikesnaturalsoaps.com";
+    try {
+      console.log("^^^^^^^^", items);
+      axios
+        .patch(`${host}/api/updateStock`, {
+          items: cartCtx.items || items,
+        })
+        .then(() => {
+          localStorage.clear();
+          localStorage.setItem("paid", true);
+        });
+    } catch (err) {
+      console.log(err);
+      localStorage.clear();
+      localStorage.setItem("paid", true);
+    }
 
     // router.push("/confirmation");
-    localStorage.setItem("paid", true);
+    //localStorage.setItem("paid", true);
     router.push("/confirmation");
     return <div>Payment successful!</div>;
   }
