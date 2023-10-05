@@ -51,12 +51,21 @@ const modifyStock = async (req, res, next) => {
   const productType = productTerms[productTerms.length - 1];
   const productScent = productTerms.slice(0, productTerms.length - 1).join(" ");
 
+  // let exisitingProduct = connectDB(async () => {
+  //   let product = await Product.find({
+  //     scent: productScent,
+  //     type: productType,
+  //   });
+  //   return product;
+  // });
   let exisitingProduct = await Product.find({
     scent: productScent,
     type: productType,
   });
 
   exisitingProduct = exisitingProduct[0];
+
+  console.log("existing", exisitingProduct);
 
   const originalInStock = exisitingProduct.inStock;
 
