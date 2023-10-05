@@ -38,7 +38,7 @@ const sendStockNotificationEmail = async (product, recipients) => {
   EmailService.send(options);
 };
 
-export const modifyStock = async (req, res, next) => {
+const modifyStock = async (req, res, next) => {
   const { product, quantity, token } = req.body;
 
   try {
