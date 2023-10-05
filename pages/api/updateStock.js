@@ -1,8 +1,10 @@
-import connectDB from "../../middleware/mongodb";
+//import connectDB from "../../middleware/mongodb";
+import dbConnect from "../../lib/dbConnect";
 
 const Product = require("../../models/product");
 
 async function handler(req, res) {
+  await dbConnect();
   let { items } = req.body;
 
   items.forEach(async (item) => {
@@ -19,4 +21,4 @@ async function handler(req, res) {
   res.status(200).send();
 }
 
-export default connectDB(handler);
+export default handler;
