@@ -19,7 +19,6 @@ EmailService.send = (msg) => {
 };
 
 const sendStockNotificationEmail = async (product, recipients) => {
-  await dbConnect();
   let message = `Hello! Just letting you know, as per your request, 
                 that ${product} is back in stock at Mike's Natural Soaps. Thanks!`;
   const options = {
@@ -41,6 +40,7 @@ const sendStockNotificationEmail = async (product, recipients) => {
 };
 
 const modifyStock = async (req, res, next) => {
+  await dbConnect();
   const { product, quantity, token } = req.body;
 
   try {
