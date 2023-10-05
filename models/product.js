@@ -9,6 +9,7 @@ const ProductSchema = new Schema({
   weight: Number,
   inStock: Number,
   type: String,
+  notificationList: Array,
 });
 
 mongoose.models = {};

@@ -6,8 +6,9 @@ import Cart from "../components/Cart";
 import CartProvider from "../store/CartProvider";
 import Spinner from "../components/UI/Spinner";
 import { Backdrop } from "../components/UI/Modal";
+import { SessionProvider } from "next-auth/react";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [showCart, setShowCart] = useState(false);
   const [showSpinner, setShowSpinner] = useState(false);
 
@@ -28,29 +29,31 @@ function MyApp({ Component, pageProps }) {
   };
 
   return (
-    <CartProvider>
-      <Portal>
-        {showCart && (
-          <Cart onClose={hideCartHandler} showSpinner={showSpinnerHandler} />
-        )}
-      </Portal>
-      <Portal>
-        {showSpinner && (
-          <Backdrop>
-            <Spinner />
-          </Backdrop>
-        )}
-      </Portal>
-      <NavBar showCart={showCartHandler} />
+    <SessionProvider session={session}>
+      <CartProvider>
+        <Portal>
+          {showCart && (
+            <Cart onClose={hideCartHandler} showSpinner={showSpinnerHandler} />
+          )}
+        </Portal>
+        <Portal>
+          {showSpinner && (
+            <Backdrop>
+              <Spinner />
+            </Backdrop>
+          )}
+        </Portal>
+        <NavBar showCart={showCartHandler} />
 
-      <Component
-        {...pageProps}
-        onShow={showCartHandler}
-        onClose={hideCartHandler}
-        showSpinner={showSpinnerHandler}
-        hideSpinner={hideSpinnerHandler}
-      />
-    </CartProvider>
+        <Component
+          {...pageProps}
+          onShow={showCartHandler}
+          onClose={hideCartHandler}
+          showSpinner={showSpinnerHandler}
+          hideSpinner={hideSpinnerHandler}
+        />
+      </CartProvider>
+    </SessionProvider>
   );
 }
 

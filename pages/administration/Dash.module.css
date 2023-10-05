@@ -1,0 +1,30 @@
+.main {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.change-quantity {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  height: 25px;
+  background-color: turquoise;
+  margin: 5px;
+}
+
+.success,
+.error {
+  width: fit-content;
+  color: lightgreen;
+  margin: auto;
+}
+
+.success {
+  color: green;
+}
+
+.error {
+  color: orangered;
+}
