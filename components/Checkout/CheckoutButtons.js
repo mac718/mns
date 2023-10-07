@@ -148,17 +148,24 @@ const CheckoutButtons = (props) => {
         })
         .then(() => {
           localStorage.clear();
+          cartCtx.items.forEach((item) => {
+            cartCtx.removeItem({ ...item, quantity: 0 });
+          });
           localStorage.setItem("paid", true);
+        })
+        .then(() => {
+          router.push("/confirmation");
         });
     } catch (err) {
       console.log(err);
       localStorage.clear();
       localStorage.setItem("paid", true);
+      router.push("/confirmation");
     }
 
     // router.push("/confirmation");
     //localStorage.setItem("paid", true);
-    router.push("/confirmation");
+
     return <div>Payment successful!</div>;
   }
 
