@@ -74,37 +74,12 @@ const CheckoutButtons = (props) => {
         onApprove: async (data, actions) => {
           const order = await actions.order.capture();
 
-          // let host =
-          //   process.env.NODE_ENV === "development"
-          //     ? "http://localhost:3000"
-          //     : "https://www.mikesnaturalsoaps.com";
-          // try {
-          //   console.log("^^^^^^^^", items);
-          //   axios
-          //     .patch(`${host}/api/updateStock`, {
-          //       items: cartCtx.items || items,
-          //     })
-          //     .then(() => {
-          //       localStorage.clear();
-          //       localStorage.setItem("paid", true);
-          //     })
-          //     .then(() => {
-          //       router.push("/confirmation");
-          //     });
-          // } catch (err) {
-          //   console.log(err);
-          //   localStorage.clear();
-          //   localStorage.setItem("paid", true);
-          //   router.push("/confirmation");
-          // }
-
           setPaid(true);
         },
         onError: (err) => {
           setError(err), console.error(err);
         },
         onShippingChange: async (data, actions) => {
-          console.log(data.shipping_address.country_code);
           if (
             !(
               data.shipping_address.country_code === "US" ||
@@ -118,7 +93,6 @@ const CheckoutButtons = (props) => {
             data.shipping_address.country_code === "CA" &&
             data.shipping_address.postal_code.length === 6
           ) {
-            console.log("hi");
             zip = zip.slice(0, 3) + zip.slice(3);
           }
 
@@ -162,9 +136,6 @@ const CheckoutButtons = (props) => {
       localStorage.setItem("paid", true);
       router.push("/confirmation");
     }
-
-    // router.push("/confirmation");
-    //localStorage.setItem("paid", true);
 
     return <div>Payment successful!</div>;
   }
