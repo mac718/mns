@@ -48,33 +48,42 @@ const EstimateShippingInput = (props) => {
     if (cartCtx.weight < 16) {
       services = data.filter(
         (service) =>
-          service.serviceName.includes("First Class Mail - Package") ||
-          service.serviceName.includes("First Class Mail Intl - Package") ||
-          service.serviceName.includes("Small Flat Rate Box")
+          (service.serviceName.includes("First Class Mail - Package") &&
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("First Class Mail Intl - Package") &&
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("Small Flat Rate Box") &&
+            service.serviceName.includes("USPS"))
       );
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems === 2 &&
       (props.totalJars === 1 || props.totalJars === 2)
     ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Small Flat Rate Box")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Small Flat Rate Box") &&
+          service.serviceName.includes("USPS")
       );
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems === 3 &&
       props.totalJars === 0
     ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Small Flat Rate Box")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Small Flat Rate Box") &&
+          service.serviceName.includes("USPS")
       );
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems === 3 &&
       props.totalJars >= 1
     ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Flat Rate Padded Envelope")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Flat Rate Padded Envelope") &&
+          service.serviceName.includes("USPS")
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -82,20 +91,26 @@ const EstimateShippingInput = (props) => {
       props.totalItems < 7 &&
       props.totalJars < 4
     ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Flat Rate Padded Envelope")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Flat Rate Padded Envelope") &&
+          service.serviceName.includes("USPS")
       );
     } else if (
       cartCtx.weight >= 16 &&
       props.totalItems == 4 &&
       props.totalJars === 4
     ) {
-      services = data.filter((service) =>
-        service.serviceName.includes("Flat Rate Padded Envelope")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Flat Rate Padded Envelope") &&
+          service.serviceName.includes("USPS")
       );
     } else {
-      services = data.filter((service) =>
-        service.serviceName.includes("Medium Flat Rate Box")
+      services = data.filter(
+        (service) =>
+          service.serviceName.includes("Medium Flat Rate Box") &&
+          service.serviceName.includes("USPS")
       );
     }
 
