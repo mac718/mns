@@ -7,6 +7,7 @@ import CartProvider from "../store/CartProvider";
 import Spinner from "../components/UI/Spinner";
 import { Backdrop } from "../components/UI/Modal";
 import { SessionProvider } from "next-auth/react";
+import SaleBanner from "../components/SaleBanner";
 
 function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   const [showCart, setShowCart] = useState(false);
@@ -44,6 +45,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           )}
         </Portal>
         <NavBar showCart={showCartHandler} />
+        <SaleBanner />
 
         <Component
           {...pageProps}

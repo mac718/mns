@@ -167,11 +167,18 @@ const EstimateShippingInput = (props) => {
           <li key={option.serviceName}>
             <input
               type="radio"
-              value={[option.serviceName, Number(option.shipmentCost)]}
+              value={[
+                option.serviceName,
+                Number(option.shipmentCost * 0.8).toFixed(2),
+              ]}
               onClick={(e) => props.onShippingServiceSelect(e.target.value)}
               name="shipping-options"
             />
-            {option.serviceName} <span>${option.shipmentCost.toFixed(2)}</span>
+            {option.serviceName}{" "}
+            <span>
+              <strike>${option.shipmentCost.toFixed(2)}</strike>$
+              {(option.shipmentCost * 0.8).toFixed(2)}
+            </span>
           </li>
         ))}
       </ul>

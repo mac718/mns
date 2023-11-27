@@ -34,7 +34,8 @@ const ShavingProductItemForm = (props) => {
         onChange={inputChangeHandler}
       />
       <span className={styles["shaving-product-price"]}>
-        ${props.price.toFixed(2)}
+        <strike>${props.price.toFixed(2)}</strike> $
+        {(props.price * 0.8).toFixed(2)}
       </span>
       <button
         className={styles["add-to-cart"]}
@@ -49,7 +50,7 @@ const ShavingProductItemForm = (props) => {
             cartCtx.addItem(event, {
               id: props.id,
               name: props.name,
-              price: props.price,
+              price: (props.price * 0.8).toFixed(2),
               quantity: cumulativeQuantity,
               weight: props.weight,
               type: props.type,
