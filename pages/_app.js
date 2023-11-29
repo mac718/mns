@@ -45,7 +45,6 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
           )}
         </Portal>
         <NavBar showCart={showCartHandler} />
-        <SaleBanner />
 
         <Component
           {...pageProps}

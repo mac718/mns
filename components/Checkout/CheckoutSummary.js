@@ -100,9 +100,6 @@ const CheckoutSummary = (props) => {
                     )}{" "}
                   </td>
                   <td className={styles.item}>
-                    <strike>{`$${(item.quantity * (item.price * 1.25)).toFixed(
-                      2
-                    )} `}</strike>
                     {`$${(item.quantity * item.price).toFixed(2)}`}
                   </td>
                 </tr>
@@ -127,13 +124,6 @@ const CheckoutSummary = (props) => {
               <td></td>
               <td>Total:</td>
               <td>
-                <strike>
-                  $
-                  {(
-                    Number(total) * 1.25 +
-                    Number(shippingService[1]) * 1.25
-                  ).toFixed(2)}
-                </strike>
                 ${(Number(total) + Number(shippingService[1])).toFixed(2)}
               </td>
             </tr>
