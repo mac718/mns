@@ -17,12 +17,16 @@ const SignInPage = () => {
           email: emailRef.current.value,
           password: passwordRef.current.value,
           redirect: false,
-        }).then((res) => {
-          if (res.status === 200) {
-            console.log("what?");
-            router.push("/administration/dash");
-          }
-        });
+        })
+          .then((res) => {
+            if (res.status === 200) {
+              console.log("what?");
+              router.push("/administration/dash");
+            }
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       }}
     >
       <input type="email" ref={emailRef} />
