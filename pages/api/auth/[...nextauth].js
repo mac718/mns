@@ -14,7 +14,7 @@ export const authOptions = {
 
       async authorize(credentials, req) {
         const { email, password } = credentials;
-
+        console.log("hello from auth");
         const existingUserFunc = connectDB(async () => {
           const user = await User.findOne({ email });
           return user;
@@ -26,6 +26,7 @@ export const authOptions = {
           return res.status(400).json({ msg: `No user with email ${email}.` });
         }
         const validPass = await bcrypt.compare(password, existingUser.password);
+        console.log("valid pass", validPass);
         if (!validPass) {
           return res
             .status(400)
@@ -33,9 +34,11 @@ export const authOptions = {
         }
 
         const payload = { email: existingUser.email };
-        const token = jwt.sign(payload, process.env.JWT_SECRET, {
+        const token = await jwt.sign(payload, process.env.JWT_SECRET, {
           expiresIn: "1h",
         });
+
+        console.log("token", token);
 
         if (token) {
           return { ...credentials, token };
@@ -48,10 +51,11 @@ export const authOptions = {
   },
   callbacks: {
     async jwt({ token, user }) {
+      console.log("token", token);
       if (user) {
         return { ...token, jwt: user.token };
       }
-      return token;
+      return Promise.resolve(token);
     },
     async session({ session, token, user }) {
       // Send properties to the client
@@ -60,7 +64,9 @@ export const authOptions = {
         session.jwt = token.jwt;
       }
 
-      return session;
+      console.log("hello", session);
+
+      return Promise.resolve(session);
     },
   },
   pages: {

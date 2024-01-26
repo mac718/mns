@@ -19,6 +19,7 @@ const SignInPage = () => {
           redirect: false,
         }).then((res) => {
           if (res.status === 200) {
+            console.log("what?");
             router.push("/administration/dash");
           }
         });
