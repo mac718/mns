@@ -66,7 +66,7 @@ export const authOptions = {
 
       console.log("hello", session);
 
-      return await session;
+      return session;
     },
   },
   pages: {
