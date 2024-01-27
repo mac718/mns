@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
   };
 
   return (
-    <SessionProvider session={pageProps.session}>
+    <SessionProvider session={session}>
       <CartProvider>
         <Portal>
           {showCart && (
