@@ -22,6 +22,7 @@ const SignInPage = () => {
             if (res.status === 200) {
               console.log("what?");
               router.push("/administration/dash");
+              return true;
             }
           })
           .catch((err) => {
