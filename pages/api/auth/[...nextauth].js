@@ -66,7 +66,7 @@ export const authOptions = {
 
       console.log("hello", session);
 
-      return Promise.resolve(session);
+      return await session;
     },
   },
   pages: {
