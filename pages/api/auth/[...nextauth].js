@@ -55,7 +55,7 @@ export const authOptions = {
       if (user) {
         return { ...token, jwt: user.token };
       }
-      return Promise.resolve(token);
+      return token;
     },
     async session({ session, token, user }) {
       // Send properties to the client

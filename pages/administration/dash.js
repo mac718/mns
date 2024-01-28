@@ -97,7 +97,7 @@ export async function getServerSideProps(context) {
 
   const { req } = context;
   console.log("reqer", req);
-  const session = await getSession(context);
+  const session = await getSession({ req });
   console.log("aession", session);
 
   if (!session || !session.jwt) {
