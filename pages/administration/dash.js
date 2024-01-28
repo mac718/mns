@@ -2,6 +2,7 @@ import connectDB from "../../middleware/mongodb";
 import Product from "../../models/product";
 import styles from "./Dash.module.css";
 import { getSession } from "next-auth/react";
+import { getToken } from "next-auth/jwt";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import * as jwt from "jsonwebtoken";
@@ -97,7 +98,7 @@ export async function getServerSideProps(context) {
 
   const { req } = context;
   console.log("reqer", req);
-  const session = await getSession({ req });
+  const session = await getToken({ req, secret: process.env.NextAuth_SECRET });
   console.log("aession", session);
 
   if (!session || !session.jwt) {
