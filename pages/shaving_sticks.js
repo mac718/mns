@@ -44,6 +44,7 @@ export default function ShavingSticks(props) {
               description={variety.description}
               price={variety.price}
               type={variety.type}
+              weight={variety.weight}
               inStock={variety.inStock}
             />
           ))}

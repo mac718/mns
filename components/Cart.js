@@ -37,6 +37,7 @@ const Cart = (props) => {
 
     let amountInStock;
 
+    console.log("itemType", item.type);
     if (item.type === "jar") {
       const jars = products.data.products.filter(
         (product) => product.type === "jar"
@@ -47,6 +48,12 @@ const Cart = (props) => {
         (product) => product.type === "puck"
       );
       amountInStock = pucks.filter((puck) => puck._id === item.id)[0].inStock;
+    } else if (item.type === "stick") {
+      const sticks = products.data.products.filter(
+        (product) => product.type === "stick"
+      );
+      amountInStock = sticks.filter((stick) => stick._id === item.id)[0]
+        .inStock;
     }
 
     if (item.quantity > amountInStock) {
