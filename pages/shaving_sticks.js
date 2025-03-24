@@ -9,6 +9,7 @@ import ShavingProductsList from "../components/ShavingProductsList";
 import ShavingProductItem from "../components/ShavingProductItem";
 import connectDB from "../middleware/mongodb";
 import Product from "../models/product";
+import { orderProductList } from "../utils/helper";
 
 export default function ShavingSticks(props) {
   useEffect(() => {
@@ -36,7 +37,19 @@ export default function ShavingSticks(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {props.sticks.map((variety) => (
+          {props.inStockSticks.map((variety) => (
+            <ShavingProductItem
+              key={variety._id}
+              id={variety._id}
+              name={variety.scent}
+              description={variety.description}
+              price={variety.price}
+              type={variety.type}
+              weight={variety.weight}
+              inStock={variety.inStock}
+            />
+          ))}
+          {props.outOfStockSticks.map((variety) => (
             <ShavingProductItem
               key={variety._id}
               id={variety._id}
@@ -55,14 +68,23 @@ export default function ShavingSticks(props) {
 }
 
 export async function getServerSideProps(context) {
-  const fetchProducts = connectDB(async () => {
-    const products = await Product.find({ type: "stick" });
-    return products;
-  });
+  // const fetchProducts = connectDB(async () => {
+  //   const products = await Product.find({ type: "stick" });
+  //   return products;
+  // });
 
-  const sticks = await fetchProducts();
+  // const sticks = await fetchProducts();
+
+  // return {
+  //   props: { sticks: JSON.parse(JSON.stringify(sticks)) },
+  // };
+
+  const [inStockSticks, outOfStockSticks] = await orderProductList("puck");
 
   return {
-    props: { sticks: JSON.parse(JSON.stringify(sticks)) },
+    props: {
+      inStockSticks: JSON.parse(JSON.stringify(inStockSticks)),
+      outOfStockSticks: JSON.parse(JSON.stringify(outOfStockSticks)),
+    },
   };
 }

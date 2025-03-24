@@ -10,6 +10,7 @@ import styles from "./shaving_products.module.css";
 import Notifications from "../components/Notifications";
 import connectDB from "../middleware/mongodb";
 import Product from "../models/product";
+import { orderProductList } from "../utils/helper";
 
 export default function ShavingPucks(props) {
   useEffect(() => {
@@ -44,7 +45,21 @@ export default function ShavingPucks(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {props.pucks.map((variety) => {
+          {props.inStockPucks.map((variety) => {
+            return (
+              <ShavingProductItem
+                key={variety._id}
+                id={variety._id}
+                type={variety.type}
+                name={variety.scent}
+                description={variety.description}
+                price={variety.price}
+                weight={variety.weight}
+                inStock={variety.inStock}
+              />
+            );
+          })}
+          {props.outOfStockPucks.map((variety) => {
             return (
               <ShavingProductItem
                 key={variety._id}
@@ -66,14 +81,23 @@ export default function ShavingPucks(props) {
 }
 
 export async function getServerSideProps(context) {
-  const fetchProducts = connectDB(async () => {
-    const products = await Product.find({ type: "puck" });
-    return products;
-  });
+  // const fetchProducts = connectDB(async () => {
+  //   const products = await Product.find({ type: "puck" });
+  //   return products;
+  // });
 
-  const pucks = await fetchProducts();
+  // const pucks = await fetchProducts();
+
+  // return {
+  //   props: { pucks: JSON.parse(JSON.stringify(pucks)) },
+  // };
+
+  const [inStockPucks, outOfStockPucks] = await orderProductList("puck");
 
   return {
-    props: { pucks: JSON.parse(JSON.stringify(pucks)) },
+    props: {
+      inStockPucks: JSON.parse(JSON.stringify(inStockPucks)),
+      outOfStockPucks: JSON.parse(JSON.stringify(outOfStockPucks)),
+    },
   };
 }

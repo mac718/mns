@@ -11,6 +11,8 @@ import Notifications from "../components/Notifications";
 import connectDB from "../middleware/mongodb";
 import Product from "../models/product";
 
+import { orderProductList } from "../utils/helper";
+
 export default function ShavingJars(props) {
   useEffect(() => {
     props.hideSpinner();
@@ -46,7 +48,21 @@ export default function ShavingJars(props) {
         </p>
         <Notifications />
         <ShavingProductsList>
-          {props.jars.map((variety) => {
+          {props.inStockJars.map((variety) => {
+            return (
+              <ShavingProductItem
+                key={variety._id}
+                id={variety._id}
+                name={variety.scent}
+                description={variety.description}
+                price={variety.price}
+                type={variety.type}
+                weight={variety.weight}
+                inStock={variety.inStock}
+              />
+            );
+          })}
+          {props.outOfStockJars.map((variety) => {
             return (
               <ShavingProductItem
                 key={variety._id}
@@ -68,14 +84,52 @@ export default function ShavingJars(props) {
 }
 
 export async function getServerSideProps(context) {
-  const fetchProducts = connectDB(async () => {
-    const products = await Product.find({ type: "jar" });
-    return products;
-  });
+  // const fetchInStockProducts = connectDB(async () => {
+  //   const products = await Product.find({ type: "jar", inStock: { $gte: 1 } });
+  //   return products;
+  // });
 
-  const jars = await fetchProducts();
+  // const fetchOutOfStockProducts = connectDB(async () => {
+  //   const products = await Product.find({ type: "jar", inStock: { $lte: 0 } });
+  //   return products;
+  // });
+
+  // const inStockJars = await fetchInStockProducts();
+  // const outOfStockJars = await fetchOutOfStockProducts();
+
+  // inStockJars.sort((a, b) => {
+  //   if (a.scent < b.scent) {
+  //     return -1;
+  //   } else if (a.scent > b.scent) {
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  // });
+
+  // outOfStockJars.sort((a, b) => {
+  //   if (a.scent < b.scent) {
+  //     return -1;
+  //   } else if (a.scent > b.scent) {
+  //     return 1;
+  //   } else {
+  //     return 0;
+  //   }
+  // });
+
+  // return {
+  //   props: {
+  //     inStockJars: JSON.parse(JSON.stringify(inStockJars)),
+  //     outOfStockJars: JSON.parse(JSON.stringify(outOfStockJars)),
+  //   },
+  // };
+
+  const [inStockJars, outOfStockJars] = await orderProductList("jar");
 
   return {
-    props: { jars: JSON.parse(JSON.stringify(jars)) },
+    props: {
+      inStockJars: JSON.parse(JSON.stringify(inStockJars)),
+      outOfStockJars: JSON.parse(JSON.stringify(outOfStockJars)),
+    },
   };
 }
