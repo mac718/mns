@@ -79,7 +79,7 @@ export async function getServerSideProps(context) {
   //   props: { sticks: JSON.parse(JSON.stringify(sticks)) },
   // };
 
-  const [inStockSticks, outOfStockSticks] = await orderProductList("puck");
+  const [inStockSticks, outOfStockSticks] = await orderProductList("sticks");
 
   return {
     props: {
