@@ -10,6 +10,7 @@ const ProductSchema = new Schema({
   inStock: Number,
   type: String,
   notificationList: Array,
+  archived: Boolean,
 });
 
 mongoose.models = {};

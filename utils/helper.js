@@ -3,12 +3,20 @@ import Product from "../models/product";
 
 export const orderProductList = async (type) => {
   const fetchInStockProducts = connectDB(async () => {
-    const products = await Product.find({ type: type, inStock: { $gte: 1 } });
+    const products = await Product.find({
+      type: type,
+      inStock: { $gte: 1 },
+      archived: false,
+    });
     return products;
   });
 
   const fetchOutOfStockProducts = connectDB(async () => {
-    const products = await Product.find({ type: type, inStock: { $lte: 0 } });
+    const products = await Product.find({
+      type: type,
+      inStock: { $lte: 0 },
+      archived: false,
+    });
     return products;
   });
 
