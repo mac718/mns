@@ -45,7 +45,7 @@ const Dash = ({ products, token }) => {
             .inStock
         : 0
     );
-  }, [product]);
+  }, [product, products]);
 
   const options = products.map((product) => (
     <option
