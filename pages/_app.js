@@ -44,6 +44,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             </Backdrop>
           )}
         </Portal>
+        <SaleBanner
+          text={
+            "Mike's Natural Soaps is moving to NJ on 8/2 at which point I will be out of commission for a couple of weeks. I will still be able to receive orders, but they won't ship out right away. I hope to resume opertation in mid-August."
+          }
+        />
         <NavBar showCart={showCartHandler} />
 
         <Component

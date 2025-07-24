@@ -1,7 +1,7 @@
 import styles from "./SaleBanner.module.css";
 
-const SaleBanner = () => {
-  return <div className={styles.banner}>Cyber Monday sale! 20% off!</div>;
+const SaleBanner = ({ text }) => {
+  return <div className={styles.banner}>{text}</div>;
 };
 
 export default SaleBanner;
