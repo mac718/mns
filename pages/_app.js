@@ -46,7 +46,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
         </Portal>
         <SaleBanner
           text={
-            "Mike's Natural Soaps is moving to NJ on 8/2. I am currently out of commission for at least a couple of weeks. I will still be able to receive orders, but they won't ship out right away. I hope to resume operation in mid-August."
+            "Mike’s Natural Soaps has relocated to NJ. It took much longer than expected for our belongings to be shipped across the country, but it seems the shipping containers have finally arrived. Next week we will be setting up shop in our new home. I will start shipping orders as soon as possible, but please bear with me as we get settled. Thanks for your patience and support!"
           }
         />
         <NavBar showCart={showCartHandler} />
