@@ -40,7 +40,7 @@ export default async function handler(req, res) {
     carrierCode: "stamps_com",
     serviceCode: "",
     packageCode: null,
-    fromPostalCode: "97225",
+    fromPostalCode: "08859",
     toState: null,
     toCountry: `${country}`,
     toPostalCode: `${zip}`,
