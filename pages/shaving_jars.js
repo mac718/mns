@@ -16,14 +16,14 @@ import { orderProductList } from "../utils/helper";
 export default function ShavingJars(props) {
   useEffect(() => {
     props.hideSpinner();
-  }, []);
+  }, [props]);
   return (
     <>
       <main className={styles.main}>
         <Heading>Tallow, Lanolin, & Kokum Butter Shaving Soap Jars</Heading>
 
         <MainImage>
-          <Image src={jar} />
+          <Image src={jar} alt="shaving jar" />
         </MainImage>
         <p className={styles.blurb}>
           This soap is the real deal. Tallow is the main ingredient, regarded by

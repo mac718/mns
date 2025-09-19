@@ -16,17 +16,20 @@ const Cart = (props) => {
   const [errorId, setErrorId] = useState(null);
   const [products, setProducts] = useState([]);
 
-  useEffect(async () => {
-    try {
-      let host =
-        process.env.NODE_ENV === "development"
-          ? "http://localhost:3000"
-          : "https://www.mikesnaturalsoaps.com";
-      const products = await axios(`${host}/api/products`);
-      setProducts(products);
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    async function getProducts() {
+      try {
+        let host =
+          process.env.NODE_ENV === "development"
+            ? "http://localhost:3000"
+            : "https://www.mikesnaturalsoaps.com";
+        const products = await axios(`${host}/api/products`);
+        setProducts(products);
+      } catch (error) {
+        console.log(error);
+      }
     }
+    getProducts();
   }, []);
 
   const onChangeQuantity = (event, item) => {
@@ -110,7 +113,7 @@ const Cart = (props) => {
             Close
           </button>
           {router.pathname === "/checkout" ? null : (
-            <Link href="/checkout">
+            <Link href="/checkout" passHref>
               <button
                 className={styles.checkout}
                 onClick={() => {

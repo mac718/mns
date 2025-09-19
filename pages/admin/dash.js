@@ -41,7 +41,7 @@ const Dash = ({ products }) => {
             .inStock
         : 0
     );
-  }, [product]);
+  }, [product, products]);
 
   const options = products.map((product) => (
     <option
