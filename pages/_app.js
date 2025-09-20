@@ -44,11 +44,11 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             </Backdrop>
           )}
         </Portal>
-        {/* <SaleBanner
+        <SaleBanner
           text={
-            "Mike’s Natural Soaps has relocated to NJ. It took much longer than expected for our belongings to be shipped across the country, but it seems the shipping containers have finally arrived. Next week we will be setting up shop in our new home. I will start shipping orders as soon as possible, but please bear with me as we get settled. Thanks for your patience and support!"
+            "I&apos;m not currently able to send or receive emails from mike@mikesnaturalsoaps.com. Please use mikeatmikesnaturalsoaps@gmail.com instead."
           }
-        /> */}
+        />
         <NavBar showCart={showCartHandler} />
 
         <Component
