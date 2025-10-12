@@ -3,7 +3,7 @@ import styles from "./Notifications.module.css";
 const Notifications = () => {
   return (
     <aside className={styles.notifications}>
-      **I&apos;m currently processing orders from 10/3-10/5. Thanks! **
+      **I&apos;m currently processing orders from 10/10-10/12. Thanks! **
     </aside>
   );
 };
