@@ -3,7 +3,9 @@ import styles from "./Notifications.module.css";
 const Notifications = () => {
   return (
     <aside className={styles.notifications}>
-      **I&apos;m currently processing orders from 11/17. Thanks! **
+      **In response to overwhelming demand, we are reintroducing the Barbershop
+      scent, which we had phased out in 2024. We are currently processing orders
+      from 11/18. Thanks! **
     </aside>
   );
 };
