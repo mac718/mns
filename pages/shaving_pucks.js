@@ -21,7 +21,7 @@ export default function ShavingPucks(props) {
       <main className={styles.main}>
         <Heading>Tallow, Lanolin, & Kokum Butter Shaving Soap Pucks</Heading>
         <MainImage>
-          <Image src={puck} />
+          <Image src={puck} alt="Shaving Puck Image" />
         </MainImage>
         <p className={styles.blurb}>
           This soap is the real deal. Tallow is the main ingredient, regarded by

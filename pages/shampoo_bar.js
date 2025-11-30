@@ -7,14 +7,17 @@ import ShavingProductItem from "../components/ShavingProductItem";
 import ShavingProductsList from "../components/ShavingProductsList";
 import Notifications from "../components/Notifications";
 import Footer from "../components/Footer";
+import { orderProductList } from "../utils/helper";
 
-export default function ShampooBar() {
+export default function ShampooBar(props) {
+  console.log(props.inStockShampoo);
+  const itemInfo = props.inStockShampoo[0];
   return (
     <>
       <main className={styles.main}>
         <Heading>Shampoo Bar</Heading>
         <MainImage>
-          <Image src={shampoo} />
+          <Image src={shampoo} alt="Shampoo Bar Image" />
         </MainImage>
         <p className={styles.blurb}>
           Like my other soaps, my shampoo bars are made entirely from scratch. I
@@ -26,10 +29,30 @@ export default function ShampooBar() {
         </p>
         <Notifications />
         <ShavingProductsList>
-          <ShavingProductItem />
+          <ShavingProductItem
+            name={itemInfo.scent}
+            price={itemInfo.price}
+            description={itemInfo.description}
+            inStock={itemInfo.inStock}
+            type={itemInfo.type}
+            id={itemInfo._id}
+            weight={itemInfo.weight}
+          />
         </ShavingProductsList>
       </main>
       <Footer />
     </>
   );
+}
+
+export async function getServerSideProps(context) {
+  const [inStockShampoo, outOfStockShampoo] = await orderProductList("shampoo");
+  console.log(inStockShampoo);
+
+  return {
+    props: {
+      inStockShampoo: JSON.parse(JSON.stringify(inStockShampoo)),
+      outOfStockShampoo: JSON.parse(JSON.stringify(outOfStockShampoo)),
+    },
+  };
 }
