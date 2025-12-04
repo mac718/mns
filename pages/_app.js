@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             </Backdrop>
           )}
         </Portal>
-        {/* <SaleBanner text={"Shampoo Bars are back in stock!"} /> */}
+        <SaleBanner text={"Shampoo Bars are back in stock!"} />
         <NavBar showCart={showCartHandler} />
 
         <Component
