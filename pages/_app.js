@@ -44,11 +44,7 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             </Backdrop>
           )}
         </Portal>
-        {/* <SaleBanner
-          text={
-            "I'm not currently able to send or receive emails from mike@mikesnaturalsoaps.com. Please use mikeatmikesnaturalsoaps@gmail.com instead."
-          }
-        /> */}
+        <SaleBanner text={"Shampoo Bars are back in stock!"} />
         <NavBar showCart={showCartHandler} />
 
         <Component
