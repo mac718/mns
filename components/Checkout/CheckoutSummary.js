@@ -50,6 +50,7 @@ const CheckoutSummary = (props) => {
   let jarItems = items.filter((item) => item.type === "jar");
   let puckItems = items.filter((item) => item.type === "puck");
   let stickItems = items.filter((item) => item.type === "stick");
+  let barItems = items.filter((item) => item.type === "shampoo" || "bath");
 
   let totalJars = jarItems.reduce(
     (total, current) => total + current.quantity,
@@ -66,7 +67,12 @@ const CheckoutSummary = (props) => {
     0
   );
 
-  let totalItems = totalJars + totalPucks + totalSticks;
+  let totalBars = barItems.reduce(
+    (total, current) => total + current.quantity,
+    0
+  );
+
+  let totalItems = totalJars + totalPucks + totalSticks + totalBars;
 
   return (
     <>
