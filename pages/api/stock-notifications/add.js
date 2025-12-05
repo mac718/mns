@@ -10,14 +10,20 @@ const addEmailToNotificaionList = async (req, res, next) => {
     res.status(401).send();
   }
 
-  product.notificationList.push(email);
-
-  try {
-    await product.save();
+  if (product.notificationList.includes(email)) {
     res.status(200).send();
-  } catch (err) {
-    console.log(err);
+  } else if (email === "") {
     res.status(500).send();
+  } else {
+    product.notificationList.push(email);
+
+    try {
+      await product.save();
+      res.status(200).send();
+    } catch (err) {
+      console.log(err);
+      res.status(500).send();
+    }
   }
 };
 

@@ -15,10 +15,12 @@ const AddToNotificationListForm = ({ id }) => {
         email: emailRef.current.value,
       });
       setSuccess(true);
+      setTimeout(() => setSuccess(false), 5000);
       emailRef.current.value = "";
     } catch (err) {
       console.log(err);
       setError(true);
+      setTimeout(() => setError(false), 5000);
     }
   };
   return (
