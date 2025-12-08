@@ -8,6 +8,7 @@ import Image from "next/image";
 import { orderProductList } from "../utils/helper";
 import styles from "./shaving_products.module.css";
 import shampoo from "../public/shampoo_bar.jpg";
+import bsBath from "../public/Barber_Shop_Bar.jpg";
 
 export default function BathSoaps(props) {
   return (
@@ -15,15 +16,13 @@ export default function BathSoaps(props) {
       <main className={styles.main}>
         <Heading>Bath Soap</Heading>
         <MainImage>
-          <Image src={shampoo} alt="Shampoo Bar Image" />
+          <Image src={bsBath} alt="Shampoo Bar Image" />
         </MainImage>
-        <p className={styles.blurb}>
-          Like my other soaps, my shampoo bars are made entirely from scratch. I
-          have formulated these bars specifically with the hair and scalp in
-          mind rather than simply designating one of my bath soap formulations
-          as shampoo. Say goodbye to incomprehensible ingredient lists and
-          plastic bottles and hello to natural shampoo that will leave your hair
-          and scalp clean and healthy.
+        <p className={styles.ingredients}>
+          <span className={styles["bold-underline"]}>Ingredients</span>:
+          Distilled water saponified tallow (beef), coconut oil, safflower oil,
+          and kokum butter; fragrance and/or essential oils, vitamin E,
+          colorant.
         </p>
         <Notifications />
 
