@@ -44,9 +44,9 @@ function MyApp({ Component, pageProps: { session, ...pageProps } }) {
             </Backdrop>
           )}
         </Portal>
-        {/* <SaleBanner
-          text={"No shipments today (2/23) due to inclement weather."}
-        /> */}
+        <SaleBanner
+          text={"The Mike's Natural Soaps family has relocated to Easton, PA."}
+        />
         <NavBar showCart={showCartHandler} />
 
         <Component

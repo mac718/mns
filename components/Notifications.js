@@ -3,7 +3,8 @@ import styles from "./Notifications.module.css";
 const Notifications = () => {
   return (
     <aside className={styles.notifications}>
-      **We are currently processing orders from 7/14. Thanks! **
+      **The Mike&apos;s Natural Soaps Family has relocated to Easton, PA. We are
+      currently processing orders from 7/27. Thanks! **
     </aside>
   );
 };

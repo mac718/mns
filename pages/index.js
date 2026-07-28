@@ -14,7 +14,7 @@ export default function Home() {
       </Head>
       <main>
         <Heading>Mike&apos;s Natural Soaps</Heading>
-        <SubHeading>Handmade in Parlin, NJ.</SubHeading>
+        <SubHeading>Handmade in Easton, PA.</SubHeading>
         <MainImage>
           <Image src={allShavingProducts} alt="all shaving products" />
         </MainImage>
