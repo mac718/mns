@@ -46,6 +46,7 @@ const EstimateShippingInput = (props) => {
     let services;
 
     if (cartCtx.weight < 16) {
+      console.log("data", data);
       services = data.filter(
         (service) =>
           (service.serviceName.includes("First Class Mail - Package") &&
@@ -53,7 +54,9 @@ const EstimateShippingInput = (props) => {
           (service.serviceName.includes("First Class Mail Intl - Package") &&
             service.serviceName.includes("USPS")) ||
           (service.serviceName.includes("Small Flat Rate Box") &&
-            service.serviceName.includes("USPS"))
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("Priority Mail - Package") &&
+            service.serviceName.includes("USPS")),
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -62,8 +65,10 @@ const EstimateShippingInput = (props) => {
     ) {
       services = data.filter(
         (service) =>
-          service.serviceName.includes("Small Flat Rate Box") &&
-          service.serviceName.includes("USPS")
+          (service.serviceName.includes("Small Flat Rate Box") &&
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("Priority Mail - Package") &&
+            service.serviceName.includes("USPS")),
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -72,8 +77,10 @@ const EstimateShippingInput = (props) => {
     ) {
       services = data.filter(
         (service) =>
-          service.serviceName.includes("Small Flat Rate Box") &&
-          service.serviceName.includes("USPS")
+          (service.serviceName.includes("Small Flat Rate Box") &&
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("Priority Mail - Package") &&
+            service.serviceName.includes("USPS")),
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -82,8 +89,10 @@ const EstimateShippingInput = (props) => {
     ) {
       services = data.filter(
         (service) =>
-          service.serviceName.includes("Flat Rate Padded Envelope") &&
-          service.serviceName.includes("USPS")
+          (service.serviceName.includes("Flat Rate Padded Envelope") &&
+            service.serviceName.includes("USPS")) ||
+          (service.serviceName.includes("Priority Mail - Package") &&
+            service.serviceName.includes("USPS")),
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -94,7 +103,7 @@ const EstimateShippingInput = (props) => {
       services = data.filter(
         (service) =>
           service.serviceName.includes("Flat Rate Padded Envelope") &&
-          service.serviceName.includes("USPS")
+          service.serviceName.includes("USPS"),
       );
     } else if (
       cartCtx.weight >= 16 &&
@@ -104,13 +113,13 @@ const EstimateShippingInput = (props) => {
       services = data.filter(
         (service) =>
           service.serviceName.includes("Flat Rate Padded Envelope") &&
-          service.serviceName.includes("USPS")
+          service.serviceName.includes("USPS"),
       );
     } else {
       services = data.filter(
         (service) =>
           service.serviceName.includes("Medium Flat Rate Box") &&
-          service.serviceName.includes("USPS")
+          service.serviceName.includes("USPS"),
       );
     }
 
