@@ -4,7 +4,7 @@ const Notifications = () => {
   return (
     <aside className={styles.notifications}>
       **The Mike&apos;s Natural Soaps Family has relocated to Easton, PA. We are
-      currently processing orders from 8/28. Thanks! **
+      currently processing orders from 9/1. Thanks! **
     </aside>
   );
 };
